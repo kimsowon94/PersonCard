@@ -2,18 +2,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 
+
 <html>
 <head>
+	  <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
 	<script src="./resources/compnent/jquery-3.3.1.min.js?"></script>
 	<script src="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.js"></script>
 	<script src="./resources/compnent/jqueryPrint/jqueryPrint.js"></script>
-	<script src="./resources/js/util/util.js"></script>
+<!-- 	<script src="./resources/js/util/util.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/personalHistory/personalHistory.css?ver=1">
 	
-	<script src="./resources/js/personCard.js?var=1"></script>
+	<script src="./resources/js/personCard.js" charset="UTF-8"></script>
 
 	<title>Home</title>
 	<style type="text/css">
@@ -68,18 +70,18 @@
 			</div>
 		</div>
 		
-		
+<form class="main1">		
 		<table class="user-info-table1">
 		
 			<tbody>
 				<tr>
 					<td>*성명</td>
-					<td><input type="text" id="userName"></td>
+					<td><input type="text" id="userName" name="userName"></td>
 					<td>*주민등록번호</td>
-					<td colspan="3"><input type="password" id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
+					<td colspan="3"><input type="password" name="userSocialSecunum" id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
 					<td>성별</td>
 					<td>
-						<select id="userSex">
+						<select id="userSex" name="userSex">
 							<option value="">선택없음</option>
 							<option value="남성">남성</option>
 							<option value="여성">여성</option>
@@ -94,21 +96,21 @@
 				
 				<tr>
 					<td>소속회사</td>
-					<td colspan="5"><input type="text" id="userComp"></td>
+					<td colspan="5"><input type="text" id="userComp" name="userComp"></td>
 					<td>입사일</td>
-					<td><input type="text" id="userCompEnterdate" class="dateInput"></td>
+					<td><input type="text" id="userCompEnterdate" name="userCompEnterdate" class="dateInput"></td>
 				</tr>
 				
 				<tr>
 					<td>부서</td>
-					<td><input type="text" id="userDept"></td>
+					<td><input type="text" id="userDept" name="userDept"></td>
 					<td>직위</td>
-					<td><input type="text" id="userSpot"></td>
+					<td><input type="text" id="userSpot" name="userSpot"></td>
 					<td>병역</td>
-					<td><input type="text" id="userArmyServ"></td>
+					<td><input type="text" id="userArmyServ" name="userArmyServ"></td>
 					<td>결혼</td>
 					<td>
-						<select id="userMaritalStatus">
+						<select id="userMaritalStatus" name="userMaritalStatus">
 							<option value="">선택없음</option>
 							<option value="기혼">기혼</option>
 							<option value="미혼">미혼</option>
@@ -118,21 +120,21 @@
 				
 				<tr>
 					<td>병역<br> 입대 ~ 제대일</td>
-					<td colspan="2"><input type="text" id="userArmyServEnter" class="dateInput prevDate"></td>
+					<td colspan="2"><input type="text" id="userArmyServEnter" class="dateInput prevDate" name="userArmyServEnter"></td>
 					<td> ~ </td>
-					<td colspan="2"><input type="text" id="userArmyServLeave" class="dateInput laterDate"></td>
+					<td colspan="2"><input type="text" id="userArmyServLeave" class="dateInput laterDate" name="userArmyServLeave"></td>
 					<td>역종/병과</td>
-					<td><input type="text" id="userArmyServPeriod"></td>
+					<td><input type="text" id="userArmyServPeriod" name="userArmyServPeriod"></td>
  					<td style="display: none;">
 							<input type="file" name="file">
-							<input type="hidden" name="userIdx">
-							<input type="hidden" name="userName" >
+							<!-- <input type="hidden" name="userIdx" value="2"> -->
+							<!-- <input type="hidden" name="userName" > -->
 					</td>
 				</tr>
 			</tbody>
 			
 		</table>
-		
+
 		
 		
 		
@@ -144,15 +146,15 @@
 			<tbody>
 				<tr>
 					<td>전화</td>
-					<td><input type="tel" placeholder='   휴대전화 "-" 포함' id="userTelnumWireless"></td>
-					<td colspan="2"><input type="tel" placeholder='   유선 "-" 포함' id="userTelnumWired"></td>
+					<td><input type="tel" placeholder='   휴대전화 "-" 포함' id="userTelnumWireless" name="userTelnumWireless"></td>
+					<td colspan="2"><input type="tel" placeholder='   유선 "-" 포함' id="userTelnumWired" name="userTelnumWired"></td>
 				</tr>
 				
 				<tr>
 					<td>E-Mail</td>
-					<td><input type="email" id="userEmail"></td>
+					<td><input type="email" id="userEmail" name="userEmail"></td>
 					<td>
-						<select type="text" id="emailDomain" style="width: 100%;">
+						<select type="text" id="emailDomain" style="width: 100%;" name="emailDomain">
 							<option disabled="disabled" selected="selected">선택하세요</option>
 							<option>@naver.com</option>
 							<option>@gmail.com</option>
@@ -169,13 +171,13 @@
 					<td>주소</td>
 					<td>
 						<div>
-							<input type="text" id="userZipcode" placeholder="우편번호">
+							<input type="text" id="userZipcode" placeholder="우편번호" name="userZipcode">
 							<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" />
 							<div class="clear-pannel"></div>
 						</div>
 					</td>
 					<td colspan="2">
-						<input type="text" id="userAddress" placeholder="   주소">
+						<input type="text" id="userAddress" name="userAddress" placeholder="   주소">
 						<!-- <input type="text" id="userAddress"> -->
 					</td>
 				</tr>
@@ -183,7 +185,7 @@
 			
 		</table>
 		
-		
+</form>				
 		
 		
 		

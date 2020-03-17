@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration> 
+
+	<!-- 여러가지 기본 옵션을 지정합니다. -->
+	<settings> 
+	<!-- 오라클 필드 속성이 READ_COUNT 처럼 언더 스코어가 있을 때 
+	VO 의 readCount 처럼 카멜 케이스로 변환 되게 합니다. -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	
+	
+	<!-- 경로를 간편하게 쓰기 위해 사용 VO(dto)등록 -->
+	<!--  mapper설정 방법 2가지중 첫번째 방법임 2번째는(Root.xml에서 property로 인터페이스마다 등록해줘야함) -->
+	<typeAliases>
+		<typeAlias  type="com.topia.card.vo.UserInfoVO" alias="UserInfoVO"/>
+	
+		
+		
+	</typeAliases> 
+	
+	
+	
+</configuration>

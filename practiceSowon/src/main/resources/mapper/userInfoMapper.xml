@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.topia.card.dao.PersonCardDAO">
+	<resultMap type="com.topia.card.vo.UserInfoVO" id="UserInfoVO">
+		<result column="USER_IDX" property="userIdx"/>
+		<result column="USER_REGISTER_DATE" property="userRegisterDate"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="USER_SOCIAL_SECUNUM" property="userSocialSecunum"/>
+		<result column="USER_SEX" property="userSex"/>
+		<result column="USER_COMP" property="userComp"/>
+		<result column="USER_COMP_ENTERDATE" property="userCompEnterdate"/>
+		<result column="USER_DEPT" property="userDept"/>
+		<result column="USER_SPOT" property="userSpot"/>
+		<result column="USER_ARMY_SERV" property="userArmyServ"/>
+		<result column="USER_MARITAL_STATUS" property="userMaritalStatus"/>
+		<result column="USER_ARMY_SERV_ENTER" property="userArmyServEnter"/>
+		<result column="USER_ARMY_SERV_LEAVE" property="userArmyServLeave"/>
+		<result column="USER_ARMY_SERV_PERIOD" property="userArmyServPeriod"/>
+		<result column="USER_TELNUM_WIRED" property="userTelnumWired"/>
+		<result column="USER_TELNUM_WIRELESS" property="userTelnumWireless"/>
+		<result column="USER_EMAIL" property="userEmail"/>
+		<result column="USER_ZIPCODE" property="userZipcode"/>
+		<result column="USER_ADDRESS" property="userAddress"/>
+	</resultMap>
+	
+	<insert id="personCardInsert" parameterType="com.topia.card.vo.UserInfoVO">
+	<selectKey keyProperty="userIdex" resultType="INTEGER" order="BEFORE">
+		SELECT USER_INFO_SEQ.NEXTVAL AS userIndex FROM DUAL
+	</selectKey>
+	INSERT INTO USER_INFO
+	(
+	 USER_IDX
+	,USER_REGISTER_DATE
+	,USER_NAME
+	,USER_SOCIAL_SECUNUM
+	,USER_SEX
+	,USER_COMP
+	,USER_COMP_ENTERDATE
+	,USER_DEPT
+	,USER_SPOT
+	,USER_ARMY_SERV
+	,USER_MARITAL_STATUS
+	,USER_ARMY_SERV_ENTER
+	,USER_ARMY_SERV_LEAVE
+	,USER_ARMY_SERV_PERIOD
+	,USER_TELNUM_WIRED
+	,USER_TELNUM_WIRELESS
+	,USER_EMAIL
+	,USER_ZIPCODE
+	,USER_ADDRESS)
+	VALUES 
+	(
+	#{userIndex}
+	,SYSDATE
+	,#{userName}
+	,#{userSocialSecunum}
+	,#{userSex}
+	,#{userComp}
+	,#{userCompEnterdate}
+	,#{userDept}
+	,#{userSpot}
+	,#{userArmyServ}
+	,#{userMaritalStatus}
+	,#{userArmyServEnter}
+	,#{userArmyServLeave}
+	,#{userArmyServPeriod}
+	,#{userTelnumWired}
+	,#{userTelnumWireless}
+	,#{userEmail}
+	,#{userZipcode}
+	,#{userAddress}
+	)
+	
+	</insert>
+	
+	
+</mapper>
