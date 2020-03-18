@@ -9,7 +9,13 @@
 	<script src="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.js"></script>
 	<script src="./resources/compnent/jqueryPrint/jqueryPrint.js"></script>
-<!-- 	<script src="./resources/js/util/util.js"></script> -->
+    <!-- <script src="./resources/js/util/util.js"></script> -->
+    <!-- <link rel="stylesheet" href="/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
 	<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/personalHistory/personalHistory.css?ver=1">
@@ -81,7 +87,7 @@
 					<td>*성명</td>
 					<td><input type="text" id="userName" name="userName"></td>
 					<td>*주민등록번호</td>
-					<td colspan="3"><input type="password" name="userSocialSecunum" id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
+					<td colspan="3"><input type="text" name="userSocialSecunum" id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
 					<td>성별</td>
 					<td>
 						<select id="userSex" name="userSex">
@@ -193,8 +199,6 @@
 		
 		
 		
-		
-		
 		<%-- 학력 / 자격증 --%>
 		<div class="edu-and-qualifi-pannel">
 			<div class="edu-table-pannel">
@@ -225,7 +229,7 @@
 							<td>월</td>
 						</tr>
 					</tbody>
-					
+				
 				</table>
 				
 				<div class="add-row-btn-pannel">
@@ -233,6 +237,8 @@
 				</div>
 				
 			</div>
+		
+
 			
 			<div class="qualifi-table-pannel">
 				<table class="qualifi-table flexibleTable" tb="qualifi">
