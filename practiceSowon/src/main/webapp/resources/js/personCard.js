@@ -15,7 +15,6 @@ $(document).ready(function() {
 			iframe : true,
 			append : null,
 			prepend : null,
-			manuallyCopyFormValues : true,
 			deferred : $.Deferred(),
 			timeout : 750,
 			title : null,
@@ -47,13 +46,34 @@ $(document).ready(function() {
 					alert("작성완료");
 					location.href="/home.do";
 				},
-				error : function() 
+				error : function(request,status,error) 
 				{
 					alert("알수없는 오류");
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
 				}
 				
 			})
 		}
 		
 	});
+	
+
 });
+
+/*우편번호 찾기 (주소 찾기)*/
+function openDaumZipAddress() {
+
+	new daum.Postcode({
+
+		oncomplete:function(data) {
+
+			$("#userZipcode").val(data.zonecode);
+
+			$("#userAddress").val(data.address);
+
+			console.log(data);
+
+		}
+
+	}).open();
+}

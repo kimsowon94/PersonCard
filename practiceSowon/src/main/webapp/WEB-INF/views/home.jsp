@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 
-
 <html>
 <head>
 	  <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
@@ -16,7 +15,11 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/personalHistory/personalHistory.css?ver=1">
 	
 	<script src="./resources/js/personCard.js" charset="UTF-8"></script>
-
+	
+	<!-- 주소찾기 api -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	
+	
 	<title>Home</title>
 	<style type="text/css">
 #pop {
@@ -172,7 +175,7 @@
 					<td>
 						<div>
 							<input type="text" id="userZipcode" placeholder="우편번호" name="userZipcode">
-							<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" />
+							<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" onclick="openDaumZipAddress()"/>
 							<div class="clear-pannel"></div>
 						</div>
 					</td>

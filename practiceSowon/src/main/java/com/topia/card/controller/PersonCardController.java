@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.topia.card.HomeController;
 import com.topia.card.common.CommonUtil;
@@ -31,7 +32,10 @@ public class PersonCardController
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	
+	/* user_info insertºÎºÐ */
 	@RequestMapping(value="/card/personCardInsert.do", method = {RequestMethod.POST})
+	@ResponseBody
 	public String personCardInsert(Locale locale, UserInfoVO vo) throws Exception
 	{
 		HashMap<String, String> result = new HashMap<String, String>();
