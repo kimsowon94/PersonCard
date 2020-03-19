@@ -72,30 +72,45 @@ $(document).ready(function() {
 			return false;
 		}
 		
+				
 		/*입사일을 현재를 초과할 수 없다는 조건*/
-		if(userCompEnterdate != "" || userArmyServEnter != "" || userArmyServLeave != "")
+		if(userCompEnterdate != "" )
 		{
 			if(compEnterDate>sysdate)
 			{
 				alert("입사일이 현재날짜 이후로 초과될 수 없습니다.");
 				return false;
-				
-			}
-			
-			/*제대일이 입대일을 초과할 수 없다는 조건*/
-			if(armyServLeaveDate>armyServEnterDate)
-			{
-				alert("제대일이 입대일보다 앞설 수 없습니다.");
-				return false;
-				
 			}
 		}
 		
-		
-		
-		
+		if(userArmyServEnter != "" && userArmyServLeave != "")
+		{
+			/*제대일이 입대일을 초과할 수 없다는 조건*/
+			if(armyServEnterDate>armyServLeaveDate)
+			{
+				alert("제대일이 입대일보다 앞설 수 없습니다.");
+				return false;
+			}
+		}	
 		else
 		{
+			//userEmail 과 emailDomain과 합치기			
+			var userEmail = $("#userEmail").val().trim();
+			var emailDomain = $("#emailDomain").val();
+			
+			var addEmail = userEmail + emailDomain;
+		
+			
+			if($("#emailDomain option:first").prop("selected") == true || $("#emailDomain option:last").prop("selected") == true)
+			{
+				$("#userEmail").val(userEmail);
+			}
+			else
+			{
+				$("#userEmail").val(addEmail);
+			}
+						
+			
 			var $frm = $(".main1 :input");
 			var param = $frm.serialize();
 			
@@ -118,21 +133,22 @@ $(document).ready(function() {
 			})
 		}
 		
+		
 	});
 	
 	/*datePicker설정*/
-	$(".dateInput").on("click", function() {
-		$(".dateInput").datepicker({
-			showMonthAfterYear: true,
-			dateFormat:"yy-mm-dd",
-			dayNamesMin:['월','화','수','목','금','토','일'],
-			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-			monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		});
-	})
+	$(".dateInput").datepicker({
+		showMonthAfterYear: true,
+		changeMonth: true,
+		changeYear: true,
+		dateFormat:"yy-mm-dd",
+		dayNamesMin:['월','화','수','목','금','토','일'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	});
 	
 	
-	
+		
 	
 });
 

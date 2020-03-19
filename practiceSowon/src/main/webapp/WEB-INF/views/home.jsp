@@ -73,15 +73,15 @@
 				<button class="personalHistoryResetBtn">
 					초기화
 				</button>
-				<button class="personalHistorySaveBtn">
+				<button type="button" class="personalHistorySaveBtn">
 					저장
 				</button>
 			</div>
 		</div>
 		
-<form class="main1">		
+<form class="main1">
+<!-- <input type="hidden" name="userEmail" id="emailPlus"> -->		
 		<table class="user-info-table1">
-		
 			<tbody>
 				<tr>
 					<td>*성명</td>
