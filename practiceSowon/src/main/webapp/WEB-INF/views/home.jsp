@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/personalHistory/personalHistory.css?ver=1">
 	
 	<script src="./resources/js/personCard.js" charset="UTF-8"></script>
-	
+	<script src="./resources/js/personCardFuc.js" charset="UTF-8"></script>
 	<!-- 주소찾기 api -->
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	
@@ -67,7 +67,7 @@
 				<button class="personalHistoryListBtn">
 					불러오기
 				</button>
-				<button class="newHistoryCreateBtn">
+				<button class="newHistoryCreateBtn" type="reset">
 					새로작성
 				</button>
 				<button class="personalHistoryResetBtn">
@@ -194,7 +194,7 @@
 			
 		</table>
 		
-</form>				
+				
 		
 		
 		
@@ -213,9 +213,9 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="eduSchoolName" class="eduSchoolName"></td>
+							<td><input type="text" data="eduSchoolName" class="eduSchoolName" name="eduSchoolName"></td>
 							<td>
-								<select data="eduStatus" class="eduStatus">
+								<select data="eduStatus" class="eduStatus" name="eduStatus">
 									<option value="">선택없음</option>
 									<option value="입학">입학</option>
 									<option value="재학">재학</option>
@@ -223,9 +223,9 @@
 									<option value="졸업예정">졸업예정</option>
 								</select>
 							</td>
-							<td><input type="text" data="eduYear" placeholder="" class="eduYear"></td>
+							<td><input type="text" data="eduYear" placeholder="" class="eduYear" name="eduYear"></td>
 							<td>년</td>
-							<td><input type="text" data="eduMonth" placeholder="" class="eduMonth"></td>
+							<td><input type="text" data="eduMonth" placeholder="" class="eduMonth" name="eduMonth"></td>
 							<td>월</td>
 						</tr>
 					</tbody>
@@ -238,7 +238,7 @@
 				
 			</div>
 		
-
+</form>
 			
 			<div class="qualifi-table-pannel">
 				<table class="qualifi-table flexibleTable" tb="qualifi">
@@ -450,7 +450,7 @@
 		</div>
 		
 	</div>
-	
+
 	
 	<div class="pop-user-register-pannel" id="drag-ele1">
 	

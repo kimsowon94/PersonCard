@@ -15,20 +15,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.topia.card.HomeController;
 import com.topia.card.common.CommonUtil;
-import com.topia.card.dao.PersonCardDAO;
+import com.topia.card.dao.UserInfoDAO;
+import com.topia.card.service.UserInfoService;
 import com.topia.card.vo.UserInfoVO;
 
 
 @Controller
-public class PersonCardController 
+public class UserInfoController 
 {
 	@Autowired
-	private SqlSession sqlsession;
+	UserInfoService userInfoService;
 	
-	
-	public void setSqlsession(SqlSession sqlsession) {
-		this.sqlsession = sqlsession;
-	}
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -41,9 +38,8 @@ public class PersonCardController
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 		
-		PersonCardDAO dao = sqlsession.getMapper(PersonCardDAO.class);
-		int num = dao.personCardInsert(vo);
-		
+		int num = userInfoService.personCardInsert(vo);
+
 		result.put("success", (num > 0) ? "Y" : "N");
 		
 		
@@ -51,6 +47,8 @@ public class PersonCardController
 
 		System.out.println("callbackMsg::" + callbackMsg);
 
+		/* userIdx АЊ РќДо */
+		
 		return callbackMsg;
 
 		

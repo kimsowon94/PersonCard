@@ -136,6 +136,4 @@ public class UserInfoVO {
 		this.userAddress = userAddress;
 	}
 	
-	
-
 }

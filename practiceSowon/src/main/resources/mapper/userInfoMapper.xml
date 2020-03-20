@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.topia.card.dao.PersonCardDAO">
+<mapper namespace="UserInfoDAO">
 	<resultMap type="com.topia.card.vo.UserInfoVO" id="UserInfoVO">
 		<result column="USER_IDX" property="userIdx"/>
 		<result column="USER_REGISTER_DATE" property="userRegisterDate"/>
@@ -23,7 +23,7 @@
 		<result column="USER_ADDRESS" property="userAddress"/>
 	</resultMap>
 	
-	<insert id="personCardInsert" parameterType="com.topia.card.vo.UserInfoVO">
+	<insert id="personCardInsert">
 	<selectKey keyProperty="userIdx" resultType="INTEGER" order="BEFORE">
 		SELECT USER_INFO_SEQ.NEXTVAL AS userIdx FROM DUAL
 	</selectKey>
