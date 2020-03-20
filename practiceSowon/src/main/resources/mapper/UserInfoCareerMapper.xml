@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserInfoDAO">
+	<resultMap type="com.topia.card.vo.UserInfoCareerVO" id="UserInfoCareerVO">
+		<result column="CAREER_IDX" property=""/>
+		<result column="USER_IDX" property="userIdx"/>
+		<result column="CAREER_COMP_NAME" property="careerCompName"/>
+		<result column="CAREER_ENTERDATE" property="careerEnterDate"/>
+		<result column="CAREER_LEAVEDATE" property="careerLeaveDate"/>
+		<result column="CAREER_SPOT" property="careerSpot"/>
+		<result column="CAREER_RESPONSIB" property="carrerResponsib"/>
+	</resultMap>
+</mapper>
+	

@@ -238,7 +238,7 @@
 				
 			</div>
 		
-</form>
+
 			
 			<div class="qualifi-table-pannel">
 				<table class="qualifi-table flexibleTable" tb="qualifi">
@@ -256,8 +256,8 @@
 					
 					<tbody>
 						<tr>
-							<td><input type="text" data="qualifiName" class="qualifiName"></td>
-							<td><input type="text" data="qualifiGetdate" class="qualifiGetdate dateInput"></td>
+							<td><input type="text" data="qualifiName" class="qualifiName" name="qualifiName"></td>
+							<td><input type="text" data="qualifiGetdate" class="qualifiGetdate dateInput" name="qualifiGetDate"></td>
 						</tr>
 					</tbody>
 					
@@ -341,10 +341,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="trainingName" class="trainingName"></td>
-							<td><input type="text" data="trainingStartdate" class="trainingStartdate dateInput prevDate"></td>
-							<td><input type="text" data="trainingEnddate" class="trainingEnddate dateInput laterDate"></td>
-							<td><input type="text" data="trainingAgency" class="trainingAgency"></td>
+							<td><input type="text" data="trainingName" class="trainingName" name="trainingName"></td>
+							<td><input type="text" data="trainingStartDate" class="trainingStartDate dateInput prevDate" name="trainingStartDate"></td>
+							<td><input type="text" data="trainingEndDate" class="trainingEndDate dateInput laterDate" name="trainingEnddate"></td>
+							<td><input type="text" data="trainingAgency" class="trainingAgency" name="trainingAgency"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -369,8 +369,8 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="licenName" class="licenName"></td>
-							<td><input type="text" data="licenSkillLevel" class="licenSkillLevel"></td>
+							<td><input type="text" data="licenName" class="licenName" name="licenName"></td>
+							<td><input type="text" data="licenSkillLevel" class="licenSkillLevel" name="licenSkillLevel"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -381,7 +381,7 @@
 				
 			</div>
 		</div>
-		
+</form>		
 		
 	
 	

@@ -1,1 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserInfoDAO">
+	<resultMap type="com.topia.card.vo.UserInfoEduVO" id="UserInfoEduVO">
+		<result column="EDU_IDX" property="eduIdx"/>
+		<result column="USER_IDX" property="userIdx"/>
+		<result column="EDU_SCHOOL_NAME" property="eduSchoolName"/>
+		<result column="EDU_STATUS" property="eduStatus"/>
+		<result column="EDU_YEAR" property="eduYear"/>
+		<result column="EDU_MONTH" property="eduMonth"/>
+	</resultMap>
+	
+	<insert id="userInfoEduInsert">
+		<selectKey keyProperty="eduIdx" resultType="Integer" order="BEFORE">
+			SELECT USER_INFO_EDU_SEQ.NEXTVAL AS eduIdx FROM DUAL
+		</selectKey>	
+			INSERT INTO USER_INFO_EDU
+			(EDU_IDX,USER_IDX,EDU_SCHOOL_NAME,EDU_STATUS,EDU_YEAR,EDU_MONTH)
+			VALUES
+			(
+			 #{eduIdx}
+			 ,#{userIdx}
+			 ,#{eduSchoolName}
+			 ,#{eduStatus}
+			 ,#{eduYear}
+			 ,#{eduMonth}
+			)
+	</insert>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserInfoDAO">
+	<resultMap type="com.topia.card.vo.UserInfoQualifiVO" id="UserInfoQualifiVO">
+		<result column="QUALIFI_IDX" property="qualifiIdx"/>
+		<result column="USER_IDX" property="userIdx"/>
+		<result column="QUALIFI_NAME" property="qualifiName"/>
+		<result column="QUALIFI_GETDATE" property="qualifiGetDate"/>
+	</resultMap>
+	
+	<insert id="userInfoQualifiInsert">
+		<selectKey keyProperty="qualifiIdx" order="BEFORE" resultType="Integer">
+			SELECT USER_INFO_QUALIFI_SEQ.NEXTVAL AS qualifiIdx FROM DUAL
+		</selectKey>
+			INSERT INTO USER_INFO_QUALIFI 
+			(QUALIFI_IDX,USER_IDX,QUALIFI_NAME,QUALIFI_GETDATE)
+			VALUES 
+			(
+			  #{qualifiIdx}
+			 ,#{userIdx}
+			 ,#{qualifiName}
+			 ,#{qualifiGetDate}
+			)
+	</insert>
+</mapper>

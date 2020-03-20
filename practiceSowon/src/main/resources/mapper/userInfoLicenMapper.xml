@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserInfoDAO">
+	<resultMap type="com.topia.card.vo.UserInfoLicenVO" id="UserInfoLicenVO">
+		<result column="LICEN_IDX" property="licenIdx"/>
+		<result column="USER_IDX" property="userIdx"/>
+		<result column="LICEN_NAME" property="licenName"/>
+		<result column="LICEN_SKILL_LEVEL" property="licenSkillLevel"/>
+	</resultMap>
+	
+	<insert id="userInfoLicenInsert">
+		<selectKey resultType="Integer" order="BEFORE" keyProperty="licenIdx">
+			SELECT USER_INFO_LICEN_SEQ.NEXTVAL AS licenIdx FROM DUAL
+		</selectKey>
+		INSERT INTO USER_INFO_LICEN 
+		(LICEN_IDX,USER_IDX,LICEN_NAME,LICEN_SKILL_LEVEL)
+		VALUES
+		(
+		  #{licenIdx}
+		 ,#{userIdx}
+		 ,#{licenName}
+		 ,#{licenSkillLevel}
+		)
+	</insert>
+</mapper>
