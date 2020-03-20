@@ -17,9 +17,11 @@ import com.topia.card.HomeController;
 import com.topia.card.common.CommonUtil;
 import com.topia.card.dao.UserInfoDAO;
 import com.topia.card.service.UserInfoService;
+import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
 import com.topia.card.vo.UserInfoQualifiVO;
+import com.topia.card.vo.UserInfoSkillVO;
 import com.topia.card.vo.UserInfoTrainingVO;
 import com.topia.card.vo.UserInfoVO;
 
@@ -39,12 +41,13 @@ public class UserInfoController
 	@RequestMapping(value="/card/personCardInsert.do", method = {RequestMethod.POST})
 	@ResponseBody
 	public String personCardInsert(Locale locale, UserInfoVO vo, UserInfoEduVO eduVo
-			, UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO) throws Exception
+			, UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO
+			, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception
 	{
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 		
-		int num = userInfoService.personCardInsert(vo, eduVo, LicenVo, qualifiVO, trainingVO); 
+		int num = userInfoService.personCardInsert(vo, eduVo, LicenVo, qualifiVO, trainingVO, careerVO, skillVO); 
 		
 		
 		

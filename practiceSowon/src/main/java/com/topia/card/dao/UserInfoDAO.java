@@ -1,8 +1,10 @@
 package com.topia.card.dao;
 
+import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
 import com.topia.card.vo.UserInfoQualifiVO;
+import com.topia.card.vo.UserInfoSkillVO;
 import com.topia.card.vo.UserInfoTrainingVO;
 import com.topia.card.vo.UserInfoVO;
 
@@ -23,4 +25,10 @@ public interface UserInfoDAO
 	
 	// 교육 insert
 	public int UserInfoTrainingInsert(UserInfoTrainingVO trainingVO) throws Exception;
+	
+	// 회사 insert
+	public int userInfoCareerInsert(UserInfoCareerVO careerVO) throws Exception;
+	
+	// 능력 insert
+	public int userInfoSkillInsert(UserInfoSkillVO skillVO) throws Exception;
 }

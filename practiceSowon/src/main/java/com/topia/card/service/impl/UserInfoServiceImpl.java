@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.topia.card.dao.UserInfoDAO;
 import com.topia.card.service.UserInfoService;
+import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
 import com.topia.card.vo.UserInfoQualifiVO;
+import com.topia.card.vo.UserInfoSkillVO;
 import com.topia.card.vo.UserInfoTrainingVO;
 import com.topia.card.vo.UserInfoVO;
 
@@ -21,7 +23,8 @@ public class UserInfoServiceImpl implements UserInfoService
 	
 	@Override
 	public int personCardInsert(UserInfoVO vo, UserInfoEduVO eduVo
-			  , UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO) throws Exception 
+			  , UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO
+			  , UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception 
 	{
 		// TODO Auto-generated method stub
 		int num = 0;
@@ -39,8 +42,14 @@ public class UserInfoServiceImpl implements UserInfoService
 			qualifiVO.setUserIdx(vo.getUserIdx());
 			userInfoDao.userInfoQualifiInsert(qualifiVO);
 			
-			trainingVO.setTrainingIdx(vo.getUserIdx());
+			trainingVO.setUserIdx(vo.getUserIdx());
 			userInfoDao.UserInfoTrainingInsert(trainingVO);
+			
+			careerVO.setUserIdx(vo.getUserIdx());
+			userInfoDao.userInfoCareerInsert(careerVO);
+			
+			skillVO.setUserIdx(vo.getUserIdx());
+			userInfoDao.userInfoSkillInsert(skillVO);
 		}
 		
 		return num;

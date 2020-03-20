@@ -297,11 +297,11 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="text" data="careerCompName" class="careerCompName"></td>
-						<td><input type="text" data="careerEnterdate" class="careerEnterdate dateInput prevDate"></td>
-						<td><input type="text" data="careerLeavedate" class="careerLeavedate dateInput laterDate"></td>
-						<td><input type="text" data="careerSpot" class="careerSpot"></td>
-						<td><input type="text" data="careerResponsib" class="careerResponsib"></td>
+						<td><input type="text" data="careerCompName" class="careerCompName" name="careerCompName"></td>
+						<td><input type="text" data="careerEnterDate" class="careerEnterDate dateInput prevDate" name="careerEnterDate"></td>
+						<td><input type="text" data="careerLeaveDate" class="careerLeaveDate dateInput laterDate" name="careerLeaveDate"></td>
+						<td><input type="text" data="careerSpot" class="careerSpot" name="careerSpot"></td>
+						<td><input type="text" data="careerResponsib" class="careerResponsib" name="careerResponsib"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -343,7 +343,7 @@
 						<tr>
 							<td><input type="text" data="trainingName" class="trainingName" name="trainingName"></td>
 							<td><input type="text" data="trainingStartDate" class="trainingStartDate dateInput prevDate" name="trainingStartDate"></td>
-							<td><input type="text" data="trainingEndDate" class="trainingEndDate dateInput laterDate" name="trainingEnddate"></td>
+							<td><input type="text" data="trainingEndDate" class="trainingEndDate dateInput laterDate" name="trainingEndDate"></td>
 							<td><input type="text" data="trainingAgency" class="trainingAgency" name="trainingAgency"></td>
 						</tr>
 					</tbody>
@@ -381,7 +381,7 @@
 				
 			</div>
 		</div>
-</form>		
+
 		
 	
 	
@@ -425,21 +425,21 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><textarea data="skillProjectName" class="skillProjectName"></textarea></td>
-						<td><input type="text" data="skillStartdate" class="skillStartdate dateInput prevDate"></td>
-						<td><input type="text" data="skillEnddate" class="skillEnddate dateInput laterDate"></td>
-						<td><textarea data="skillCustomerComp" class="skillCustomerComp"></textarea></td>
-						<td><textarea data="skillWorkComp" class="skillWorkComp"></textarea></td>
-						<td><textarea data="skillIndustry" class="skillIndustry"></textarea></td>
-						<td><textarea data="skillApplied" class="skillApplied"></textarea></td>
-						<td><textarea data="skillRole" class="skillRole"></textarea></td>
-						<td><textarea data="skillModel" class="skillModel"></textarea></td>
-						<td><textarea data="skillOs" class="skillOs"></textarea></td>
-						<td><textarea data="skillLang" class="skillLang"></textarea></td>
-						<td><textarea data="skillDbms" class="skillDbms"></textarea></td>
-						<td><textarea data="skillTool" class="skillTool"></textarea></td>
-						<td><textarea data="skillComm" class="skillComm"></textarea></td>
-						<td><textarea data="skillEtc" class="skillEtc"></textarea></td>
+						<td><textarea data="skillProjectName" class="skillProjectName" name="skillProjectName"></textarea></td>
+						<td><input type="text" data="skillStartDate" class="skillStartDate dateInput prevDate" name="skillStartDate"></td>
+						<td><input type="text" data="skillEndDate" class="skillEndDate dateInput laterDate" name="skillEndDate"></td>
+						<td><textarea data="skillCustomerComp" class="skillCustomerComp" name="skillCustomerComp"></textarea></td>
+						<td><textarea data="skillWorkComp" class="skillWorkComp" name="skillWorkComp"></textarea></td>
+						<td><textarea data="skillIndustry" class="skillIndustry" name="skillIndustry"></textarea></td>
+						<td><textarea data="skillApplied" class="skillApplied" name="skillApplied"></textarea></td>
+						<td><textarea data="skillRole" class="skillRole" name="skillRole"></textarea></td>
+						<td><textarea data="skillModel" class="skillModel" name="skillModel"></textarea></td>
+						<td><textarea data="skillOs" class="skillOs" name="skillOs"></textarea></td>
+						<td><textarea data="skillLang" class="skillLang" name="skillLang"></textarea></td>
+						<td><textarea data="skillDbms" class="skillDbms" name="skillDbms"></textarea></td>
+						<td><textarea data="skillTool" class="skillTool" name="skillTool"></textarea></td>
+						<td><textarea data="skillComm" class="skillComm" name="skillComm"></textarea></td>
+						<td><textarea data="skillEtc" class="skillEtc" name="skillEtc"></textarea></td>
 					</tr>
 				</tbody>
 			</table>
@@ -448,10 +448,10 @@
 				<button class="add-row-btn addRowBtn">+</button>
 			</div>
 		</div>
-		
+</form>			
 	</div>
 
-	
+		
 	<div class="pop-user-register-pannel" id="drag-ele1">
 	
 		<!-- 검색창 패널 -->

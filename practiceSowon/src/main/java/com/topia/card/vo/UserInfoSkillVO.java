@@ -4,10 +4,10 @@ public class UserInfoSkillVO {
 	private Integer skillIdx;
 	private Integer userIdx;
 	private String skillProjectName;
-	private String startDate;
-	private String endDate;
-	private String customerComp;
-	private String workComp;
+	private String skillStartDate;
+	private String skillEndDate;
+	private String skillCustomerComp;
+	private String skillWorkComp;
 	private String skillApplied;
 	private String skillIndustry;
 	private String skillRole;
@@ -36,29 +36,29 @@ public class UserInfoSkillVO {
 	public void setSkillProjectName(String skillProjectName) {
 		this.skillProjectName = skillProjectName;
 	}
-	public String getStartDate() {
-		return startDate;
+	public String getSkillStartDate() {
+		return skillStartDate;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setSkillStartDate(String skillStartDate) {
+		this.skillStartDate = skillStartDate;
 	}
-	public String getEndDate() {
-		return endDate;
+	public String getSkillEndDate() {
+		return skillEndDate;
 	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setSkillEndDate(String skillEndDate) {
+		this.skillEndDate = skillEndDate;
 	}
-	public String getCustomerComp() {
-		return customerComp;
+	public String getSkillCustomerComp() {
+		return skillCustomerComp;
 	}
-	public void setCustomerComp(String customerComp) {
-		this.customerComp = customerComp;
+	public void setSkillCustomerComp(String skillCustomerComp) {
+		this.skillCustomerComp = skillCustomerComp;
 	}
-	public String getWorkComp() {
-		return workComp;
+	public String getSkillWorkComp() {
+		return skillWorkComp;
 	}
-	public void setWorkComp(String workComp) {
-		this.workComp = workComp;
+	public void setSkillWorkComp(String skillWorkComp) {
+		this.skillWorkComp = skillWorkComp;
 	}
 	public String getSkillApplied() {
 		return skillApplied;
@@ -120,6 +120,11 @@ public class UserInfoSkillVO {
 	public void setSkillEtc(String skillEtc) {
 		this.skillEtc = skillEtc;
 	}
+	
+	
+	
+	
+	
 	
 	
 }

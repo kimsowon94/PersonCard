@@ -2,13 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserInfoDAO">
 	<resultMap type="com.topia.card.vo.UserInfoCareerVO" id="UserInfoCareerVO">
-		<result column="CAREER_IDX" property=""/>
+		<result column="CAREER_IDX" property="careerIdx"/>
 		<result column="USER_IDX" property="userIdx"/>
 		<result column="CAREER_COMP_NAME" property="careerCompName"/>
 		<result column="CAREER_ENTERDATE" property="careerEnterDate"/>
 		<result column="CAREER_LEAVEDATE" property="careerLeaveDate"/>
 		<result column="CAREER_SPOT" property="careerSpot"/>
-		<result column="CAREER_RESPONSIB" property="carrerResponsib"/>
+		<result column="CAREER_RESPONSIB" property="careerResponsib"/>
 	</resultMap>
+	
+	<insert id="userInfoCareerInsert">
+		<selectKey keyProperty="careerIdx" order="BEFORE" resultType="Integer">
+			SELECT USER_INFO_CAREER_SEQ.NEXTVAL AS careerIdx FROM DUAL
+		</selectKey>
+		INSERT INTO USER_INFO_CAREER 
+		(CAREER_IDX,USER_IDX,CAREER_COMP_NAME,CAREER_ENTERDATE,CAREER_LEAVEDATE,CAREER_SPOT,CAREER_RESPONSIB)
+		VALUES 
+		(
+		  #{careerIdx}
+		 ,#{userIdx}
+		 ,#{careerCompName}
+		 ,#{careerEnterDate}
+		 ,#{careerLeaveDate}
+		 ,#{careerSpot}
+		 ,#{careerResponsib}
+		)
+	</insert>
 </mapper>
 	

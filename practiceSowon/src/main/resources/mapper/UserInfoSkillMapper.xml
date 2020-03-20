@@ -21,5 +21,32 @@
 		<result column="SKILL_ETC" property="skillEtc"/>
 	</resultMap>
 	
+	<insert id="userInfoSkillInsert">
+		<selectKey order="BEFORE" resultType="Integer" keyProperty="skillIdx">
+			SELECT USER_INFO_SKILL_SEQ.NEXTVAL AS skillIdx FROM DUAL
+		</selectKey>
+		INSERT INTO USER_INFO_SKILL 
+		(SKILL_IDX,USER_IDX,SKILL_PROJECT_NAME,SKILL_STARTDATE,SKILL_ENDDATE,SKILL_CUSTOMER_COMP,SKILL_WORK_COMP,SKILL_APPLIED,SKILL_INDUSTRY,SKILL_ROLE,SKILL_MODEL,SKILL_OS,SKILL_LANG,SKILL_DBMS,SKILL_COMM,SKILL_TOOL,SKILL_ETC)
+		 VALUES 
+		(
+		  #{skillIdx}
+		 ,#{userIdx}
+		 ,#{skillProjectName}
+		 ,#{skillStartDate}
+		 ,#{skillEndDate}
+		 ,#{skillCustomerComp}
+		 ,#{skillWorkComp}
+		 ,#{skillApplied}
+		 ,#{skillIndustry}
+		 ,#{skillRole}
+		 ,#{skillModel}
+		 ,#{skillOs}
+		 ,#{skillLang}
+		 ,#{skillDbms}
+		 ,#{skillComm}
+		 ,#{skillTool}
+		 ,#{skillEtc}
+		 )
+	</insert>
 	
 </mapper>

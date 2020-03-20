@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.topia.card.dao.UserInfoDAO;
+import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
 import com.topia.card.vo.UserInfoQualifiVO;
+import com.topia.card.vo.UserInfoSkillVO;
 import com.topia.card.vo.UserInfoTrainingVO;
 import com.topia.card.vo.UserInfoVO;
 
@@ -46,6 +48,16 @@ public class UserInfoDAOImpl implements UserInfoDAO
 	@Override
 	public int UserInfoTrainingInsert(UserInfoTrainingVO trainingVO) throws Exception {
 		return sqlsession.insert("UserInfoDAO.UserInfoTrainingInsert", trainingVO);
+	}
+
+	@Override
+	public int userInfoCareerInsert(UserInfoCareerVO careerVO) throws Exception {
+		return sqlsession.insert("UserInfoDAO.userInfoCareerInsert", careerVO);
+	}
+
+	@Override
+	public int userInfoSkillInsert(UserInfoSkillVO skillVO) throws Exception {
+		return sqlsession.insert("UserInfoDAO.userInfoSkillInsert", skillVO);
 	}
 
 }

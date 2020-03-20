@@ -24,7 +24,7 @@
          ,#{trainingStartDate}
          ,#{trainingEndDate}
          ,#{trainingAgency}
-         );
+         )
 		
 		
 	</insert>
