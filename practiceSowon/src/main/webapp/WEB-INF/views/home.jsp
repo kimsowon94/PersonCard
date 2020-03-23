@@ -64,7 +64,7 @@
 				<button class="printBtn">
 					출력
 				</button>
-				<button class="personalHistoryListBtn">
+				<button type="button" class="personalHistoryListBtn" onclick="callBackList()">
 					불러오기
 				</button>
 				<button class="newHistoryCreateBtn" type="reset">
@@ -200,9 +200,10 @@
 		
 		
 		<%-- 학력 / 자격증 --%>
+		<input type="hidden" id="eduNum" value="0">
 		<div class="edu-and-qualifi-pannel">
 			<div class="edu-table-pannel">
-				<table class="edu-table flexibleTable" tb="edu">
+				<table class="edu-table flexibleTable">
 					<thead>
 						<tr>
 							<td>학교명</td>
@@ -213,9 +214,9 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="eduSchoolName" class="eduSchoolName" name="eduSchoolName"></td>
+							<td><input type="text" data="eduSchoolName" class="eduSchoolName" name="eduList[0].eduSchoolName"></td>
 							<td>
-								<select data="eduStatus" class="eduStatus" name="eduStatus">
+								<select data="eduStatus" class="eduStatus" name="eduList[0].eduStatus">
 									<option value="">선택없음</option>
 									<option value="입학">입학</option>
 									<option value="재학">재학</option>
@@ -223,9 +224,9 @@
 									<option value="졸업예정">졸업예정</option>
 								</select>
 							</td>
-							<td><input type="text" data="eduYear" placeholder="" class="eduYear" name="eduYear"></td>
+							<td><input type="text" data="eduYear" placeholder="" class="eduYear" name="eduList[0].eduYear"></td>
 							<td>년</td>
-							<td><input type="text" data="eduMonth" placeholder="" class="eduMonth" name="eduMonth"></td>
+							<td><input type="text" data="eduMonth" placeholder="" class="eduMonth" name="eduList[0].eduMonth"></td>
 							<td>월</td>
 						</tr>
 					</tbody>
@@ -233,13 +234,13 @@
 				</table>
 				
 				<div class="add-row-btn-pannel">
-					<button class="add-row-btn addRowBtn">+</button>
+					<button type="button" class="add-row-btn addRowBtn" onclick="eduSchoolPlus()">+</button>
 				</div>
 				
 			</div>
 		
 
-			
+			<input type="hidden" id="qualifiNum" value="0"> 
 			<div class="qualifi-table-pannel">
 				<table class="qualifi-table flexibleTable" tb="qualifi">
 				
@@ -256,15 +257,15 @@
 					
 					<tbody>
 						<tr>
-							<td><input type="text" data="qualifiName" class="qualifiName" name="qualifiName"></td>
-							<td><input type="text" data="qualifiGetdate" class="qualifiGetdate dateInput" name="qualifiGetDate"></td>
+							<td><input type="text" data="qualifiName" class="qualifiName" name="qualifiList[0].qualifiName"></td>
+							<td><input type="text" data="qualifiGetdate" class="qualifiGetdate dateInput" name="qualifiList[0].qualifiGetDate"></td>
 						</tr>
 					</tbody>
 					
 				</table>
 				
 				<div class="add-row-btn-pannel">
-					<button class="add-row-btn addRowBtn">+</button>
+					<button type="button" class="add-row-btn addRowBtn" onclick="qualifiPlus()">+</button>
 				</div>
 				
 			</div>
@@ -280,7 +281,7 @@
 		
 		
 		
-		
+		<input type="hidden" id="careerNum" value="1"> 
 		<div class="career-info-pannel">
 			<table class="career-info flexibleTable" tb="career">
 				<thead>
@@ -297,17 +298,17 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="text" data="careerCompName" class="careerCompName" name="careerCompName"></td>
-						<td><input type="text" data="careerEnterDate" class="careerEnterDate dateInput prevDate" name="careerEnterDate"></td>
-						<td><input type="text" data="careerLeaveDate" class="careerLeaveDate dateInput laterDate" name="careerLeaveDate"></td>
-						<td><input type="text" data="careerSpot" class="careerSpot" name="careerSpot"></td>
-						<td><input type="text" data="careerResponsib" class="careerResponsib" name="careerResponsib"></td>
+						<td><input type="text" data="careerCompName" class="careerCompName" name="careerList[0].careerCompName"></td>
+						<td><input type="text" data="careerEnterDate" class="careerEnterDate dateInput prevDate" name="careerList[0].careerEnterDate"></td>
+						<td><input type="text" data="careerLeaveDate" class="careerLeaveDate dateInput laterDate" name="careerList[0].careerLeaveDate"></td>
+						<td><input type="text" data="careerSpot" class="careerSpot" name="careerList[0].careerSpot"></td>
+						<td><input type="text" data="careerResponsib" class="careerResponsib" name="careerList[0].careerResponsib"></td>
 					</tr>
 				</tbody>
 			</table>
 			
 			<div class="add-row-btn-pannel">
-				<button class="add-row-btn addRowBtn">+</button>
+				<button type="button" class="add-row-btn addRowBtn" onclick="careerPlus()">+</button>
 			</div>
 			
 		</div>
@@ -318,7 +319,7 @@
 		
 		
 		
-		
+		<input type="hidden" id="trainNum" value="0">
 		<%-- 학력 / 자격증 --%>
 		<div class="training-and-licen-pannel">
 			<div class="training-table-pannel">
@@ -341,16 +342,16 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="trainingName" class="trainingName" name="trainingName"></td>
-							<td><input type="text" data="trainingStartDate" class="trainingStartDate dateInput prevDate" name="trainingStartDate"></td>
-							<td><input type="text" data="trainingEndDate" class="trainingEndDate dateInput laterDate" name="trainingEndDate"></td>
-							<td><input type="text" data="trainingAgency" class="trainingAgency" name="trainingAgency"></td>
+							<td><input type="text" data="trainingName" class="trainingName" name="trainList[0].trainingName"></td>
+							<td><input type="text" data="trainingStartDate" class="trainingStartDate dateInput prevDate" name="trainList[0].trainingStartDate"></td>
+							<td><input type="text" data="trainingEndDate" class="trainingEndDate dateInput laterDate" name="trainList[0].trainingEndDate"></td>
+							<td><input type="text" data="trainingAgency" class="trainingAgency" name="trainList[0].trainingAgency"></td>
 						</tr>
 					</tbody>
 				</table>
 				
 				<div class="add-row-btn-pannel">
-					<button class="add-row-btn addRowBtn">+</button>
+					<button type="button" class="add-row-btn addRowBtn" onclick="trainPlus()">+</button>
 				</div>
 				
 			</div>
@@ -506,7 +507,7 @@
 		</div>		
 		
 		<!-- 불러오기 최소화 버튼 -->
-		<div class="pop-user-top-btn-pannel minimizeUserPannelBtn">
+		<div class="pop-user-top-btn-pannel ">
 			<div class="pop-user-minimize-btn">
 			</div>
 		</div>
@@ -517,7 +518,7 @@
 			<div class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">#<input maxlength="16"></div>
 			<div class="pop-keyword-add-btn-pannel keywordAddPannelBtn tooltip">
 				<div class="pop-user-keyword-add-btn keywordAddBtn">
-				+
+				
 				</div>
 				<span class="tooltiptext">진행 했던 프로젝트의 개발환경을 키워드로 추가하여 조회</span>
 			</div>

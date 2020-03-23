@@ -1,10 +1,21 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoLicenVO {
 		private Integer licenIdx;
 		private Integer userIdx;
 		private String licenName;
 		private String licenSkillLevel;
+		private List<UserInfoLicenVO> LicenList;
+		
+		
+		public List<UserInfoLicenVO> getLicenList() {
+			return LicenList;
+		}
+		public void setLicenList(List<UserInfoLicenVO> licenList) {
+			LicenList = licenList;
+		}
 		public Integer getLicenIdx() {
 			return licenIdx;
 		}

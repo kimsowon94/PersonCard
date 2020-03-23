@@ -1,5 +1,7 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoSkillVO {
 	private Integer skillIdx;
 	private Integer userIdx;
@@ -18,6 +20,15 @@ public class UserInfoSkillVO {
 	private String skillComm;
 	private String skillTool;
 	private String skillEtc;
+	private List<UserInfoSkillVO> skillList;
+	
+	
+	public List<UserInfoSkillVO> getSkillList() {
+		return skillList;
+	}
+	public void setSkillList(List<UserInfoSkillVO> skillList) {
+		this.skillList = skillList;
+	}
 	public Integer getSkillIdx() {
 		return skillIdx;
 	}

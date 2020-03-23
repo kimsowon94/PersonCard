@@ -1,5 +1,7 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoCareerVO {
 	private Integer careerIdx;
 	private Integer userIdx;
@@ -8,6 +10,18 @@ public class UserInfoCareerVO {
 	private String careerLeaveDate;
 	private String careerSpot;
 	private String careerResponsib;
+	
+	private List<UserInfoCareerVO> careerList;
+	
+	
+	public List<UserInfoCareerVO> getCareerList() {
+		return careerList;
+	}
+	public void setCareerList(List<UserInfoCareerVO> careerList) {
+		this.careerList = careerList;
+	}
+	
+	
 	public Integer getCareerIdx() {
 		return careerIdx;
 	}

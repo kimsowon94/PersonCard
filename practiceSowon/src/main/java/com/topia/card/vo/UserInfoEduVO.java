@@ -1,5 +1,7 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoEduVO {
 	private Integer eduIdx;
 	private Integer userIdx;
@@ -8,7 +10,17 @@ public class UserInfoEduVO {
 	private String eduYear;
 	private String eduMonth;
 	
+	/*list형식의 변수 선언 ======================*/
+	private List<UserInfoEduVO> eduList;
+		
+	public List<UserInfoEduVO> getEduList() {
+		return eduList;
+	}
+	public void setEduList(List<UserInfoEduVO> eduList) {
+		this.eduList = eduList;
+	}
 	
+	/*======================================*/
 	public Integer getEduIdx() {
 		return eduIdx;
 	}

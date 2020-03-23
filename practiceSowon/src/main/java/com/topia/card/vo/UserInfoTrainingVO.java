@@ -1,5 +1,7 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoTrainingVO {
 		private Integer trainingIdx;
 		private Integer userIdx;
@@ -7,6 +9,14 @@ public class UserInfoTrainingVO {
 		private String trainingStartDate;
 		private String trainingEndDate;
 		private String trainingAgency;
+		private List<UserInfoTrainingVO> trainList;
+		
+		public List<UserInfoTrainingVO> getTrainList() {
+			return trainList;
+		}
+		public void setTrainList(List<UserInfoTrainingVO> trainList) {
+			this.trainList = trainList;
+		}
 		public Integer getTrainingIdx() {
 			return trainingIdx;
 		}

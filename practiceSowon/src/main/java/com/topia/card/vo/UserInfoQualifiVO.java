@@ -1,10 +1,21 @@
 package com.topia.card.vo;
 
+import java.util.List;
+
 public class UserInfoQualifiVO {
 	private Integer qualifiIdx;
 	private Integer userIdx;
 	private String qualifiName;
 	private String qualifiGetDate;
+	
+	private List<UserInfoQualifiVO> qualifiList;
+	
+	public List<UserInfoQualifiVO> getQualifiList() {
+		return qualifiList;
+	}
+	public void setQualifiList(List<UserInfoQualifiVO> qualifiList) {
+		this.qualifiList = qualifiList;
+	}
 	
 	
 	public Integer getQualifiIdx() {
