@@ -241,6 +241,7 @@ function trainPlus() {
 	  + "</tr>"
 	  
 	 $(".training-table").find("tbody").append(a);
+	
 	 $(".dateInput").datepicker({
 			showMonthAfterYear: true,
 			changeMonth: true,
@@ -253,6 +254,80 @@ function trainPlus() {
 	
 	 removeBtn();
 	
+}
+
+function licenPlus()
+{
+	var a = "";
+	var licenNum = $("#licenNum").val();
+	var num = parseInt(licenNum)+1;
+	
+    $("#licenNum").val(num);
+	
+	a = "<tr>"
+	  + "<td><input type='text' data='licenName' class='licenName' name='licenList["+num+"].licenName'></td>"
+	  + "<td><input type='text' data='licenSkillLevel' class='licenSkillLevel' name='licenList["+num+"].licenSkillLevel'></td>"
+	  + "<td><button type='button' style='display:none;' class='removeTrBtn licen'>-</button></td>"
+	  + "</tr>";
+	  
+	$(".licen-table").find("tbody").append(a);
+	
+	$(".dateInput").datepicker({
+		showMonthAfterYear: true,
+		changeMonth: true,
+		changeYear: true,
+		dateFormat:"yy-mm-dd",
+		dayNamesMin:['월','화','수','목','금','토','일'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	});
+
+	
+	removeBtn();
+}
+
+function skillPlus() 
+{
+
+	var a = "";
+	var skillNum = $("#skillNum").val();
+	var num = parseInt(skillNum)+1;
+	
+    $("#skillNum").val(num);
+    
+    a = "<tr>"
+      +	"<td><textarea data='skillProjectName' class='skillProjectName' name='skillList["+num+"].skillProjectName'></textarea></td>"
+      + "<td><input type='text' data='skillStartDate' class='skillStartDate dateInput prevDate' name='skillList["+num+"].skillStartDate'></td>"
+	  + "<td><input type='text' data='skillEndDate' class='skillEndDate dateInput laterDate' name='skillList["+num+"].skillEndDate'></td>"
+	  + "<td><textarea data='skillCustomerComp' class='skillCustomerComp' name='skillList["+num+"].skillCustomerComp'></textarea></td>"
+	  + "<td><textarea data='skillWorkComp' class='skillWorkComp' name='skillList["+num+"].skillWorkComp'></textarea></td>" 
+	  + "<td><textarea data='skillIndustry' class='skillIndustry' name='skillList["+num+"].skillIndustry'></textarea></td>"
+	  + "<td><textarea data='skillApplied' class='skillApplied' name='skillList["+num+"].skillApplied'></textarea></td>"
+	  + "<td><textarea data='skillRole' class='skillRole' name='skillList["+num+"].skillRole'></textarea></td>"
+	  + "<td><textarea data='skillModel' class='skillModel' name='skillList["+num+"].skillModel'></textarea></td>"
+	  + "<td><textarea data='skillOs' class='skillOs' name='skillList["+num+"].skillOs'></textarea></td>"
+	  + "<td><textarea data='skillLang' class='skillLang' name='skillList["+num+"].skillLang'></textarea></td>"
+	  + "<td><textarea data='skillDbms' class='skillDbms' name='skillList["+num+"].skillDbms'></textarea></td>"
+	  + "<td><textarea data='skillTool' class='skillTool' name='skillList["+num+"].skillTool'></textarea></td>"
+	  + "<td><textarea data='skillComm' class='skillComm' name='skillList["+num+"].skillComm'></textarea></td>"
+	  + "<td><textarea data='skillEtc' class='skillEtc' name='skillList["+num+"].skillEtc'></textarea></td>"
+	  + "<td><button type='button' style='display:none;' class='removeTrBtn skill'>-</button></td>"
+      + "</tr>";
+    
+    
+	$(".skill-inventory-table").find("tbody").append(a);
+	
+	$(".dateInput").datepicker({
+		showMonthAfterYear: true,
+		changeMonth: true,
+		changeYear: true,
+		dateFormat:"yy-mm-dd",
+		dayNamesMin:['월','화','수','목','금','토','일'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	});
+	
+	removeBtn();
 }
 
 
@@ -401,17 +476,161 @@ function removeBtn() {
 			}
 		});
 		i=0;
+		$("input[data='trainingEndDate']").each(function() {
+			$(this).attr("name", "trainList["+ i +"].trainingEndDate");
+			if( i != trainCnt-1){
+				i++;
+			}
+		});
+		i=0;
 		$("input[data='trainingAgency']").each(function() {
 			$(this).attr("name", "trainList["+ i +"].trainingAgency");
 			if( i != trainCnt-1){
 				i++;
 			}
 		});
-		
-		
-		
-		
 	});
+	
+	$(".licen").unbind().click(function() {
+		var $btnSelf = $(this); 
+		var $parentTr = $btnSelf.parent().parent();
+		
+		var licenCnt = $("#licenNum").val();
+		var minCnt = parseInt(licenCnt) - 1;
+		$("#licenNum").val(minCnt);
+		
+		$parentTr.remove();
+		var i=0;
+		$("input[data='licenName']").each(function() {
+			$(this).attr("name","licenList["+i+"].licenName");
+			if(i != licenCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("input[data='licenSkillLevel']").each(function() {
+			$(this).attr("name","licenList["+i+"].licenSkillLevel");
+			if(i != licenCnt-1){
+				i++;
+			}
+		})
+	});
+	
+	$(".skill").unbind().click(function() {
+		var $btnSelf = $(this); 
+		var $parentTr = $btnSelf.parent().parent();
+		
+		var skillCnt = $("#skillNum").val();
+		var minCnt = parseInt(skillCnt) - 1;
+		$("#skillNum").val(minCnt);
+		
+		$parentTr.remove();
+		var i=0;
+		$("textarea[data='skillProjectName']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillProjectName");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("input[data='skillStartDate']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillStartDate");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("input[data='skillEndDate']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillEndDate");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillCustomerComp']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillCustomerComp");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillWorkComp']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillWorkComp");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillIndustry']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillIndustry");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillApplied']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillApplied");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillRole']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillRole");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillModel']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillModel");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillOs']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillOs");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillLang']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillLang");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillDbms']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillDbms");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillTool']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillTool");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillComm']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillComm");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+		i=0;
+		$("textarea[data='skillEtc']").each(function() {
+			$(this).attr("name","skillList["+i+"].skillEtc");
+			if(i != skillCnt-1){
+				i++;
+			}
+		})
+	})
 	
 	$(".flexibleTable").find("tbody").find("tr").unbind().hover(function(){
 		var $trSelf = $(this);

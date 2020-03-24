@@ -356,6 +356,7 @@
 				
 			</div>
 			
+			<input type="hidden" id="licenNum" value="0">
 			<div class="training-table-pannel">
 				<table class="licen-table flexibleTable" tb="licen">
 					<thead>
@@ -370,14 +371,14 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="licenName" class="licenName" name="licenName"></td>
-							<td><input type="text" data="licenSkillLevel" class="licenSkillLevel" name="licenSkillLevel"></td>
+							<td><input type="text" data="licenName" class="licenName" name="licenList[0].licenName"></td>
+							<td><input type="text" data="licenSkillLevel" class="licenSkillLevel" name="licenList[0].licenSkillLevel"></td>
 						</tr>
 					</tbody>
 				</table>
 				
 				<div class="add-row-btn-pannel">
-					<button class="add-row-btn addRowBtn">+</button>
+					<button type="button" class="add-row-btn addRowBtn" onclick="licenPlus()">+</button>
 				</div>
 				
 			</div>
@@ -397,7 +398,7 @@
 		
 		
 		
-		
+		<input type="hidden" value="0" id="skillNum">
 		<div class="skill-inventory-table-pannel">
 			<table class="skill-inventory-table flexibleTable" tb="skill">
 				<thead>
@@ -426,27 +427,27 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><textarea data="skillProjectName" class="skillProjectName" name="skillProjectName"></textarea></td>
-						<td><input type="text" data="skillStartDate" class="skillStartDate dateInput prevDate" name="skillStartDate"></td>
-						<td><input type="text" data="skillEndDate" class="skillEndDate dateInput laterDate" name="skillEndDate"></td>
-						<td><textarea data="skillCustomerComp" class="skillCustomerComp" name="skillCustomerComp"></textarea></td>
-						<td><textarea data="skillWorkComp" class="skillWorkComp" name="skillWorkComp"></textarea></td>
-						<td><textarea data="skillIndustry" class="skillIndustry" name="skillIndustry"></textarea></td>
-						<td><textarea data="skillApplied" class="skillApplied" name="skillApplied"></textarea></td>
-						<td><textarea data="skillRole" class="skillRole" name="skillRole"></textarea></td>
-						<td><textarea data="skillModel" class="skillModel" name="skillModel"></textarea></td>
-						<td><textarea data="skillOs" class="skillOs" name="skillOs"></textarea></td>
-						<td><textarea data="skillLang" class="skillLang" name="skillLang"></textarea></td>
-						<td><textarea data="skillDbms" class="skillDbms" name="skillDbms"></textarea></td>
-						<td><textarea data="skillTool" class="skillTool" name="skillTool"></textarea></td>
-						<td><textarea data="skillComm" class="skillComm" name="skillComm"></textarea></td>
-						<td><textarea data="skillEtc" class="skillEtc" name="skillEtc"></textarea></td>
+						<td><textarea data="skillProjectName" class="skillProjectName" name="skillList[0].skillProjectName"></textarea></td>
+						<td><input type="text" data="skillStartDate" class="skillStartDate dateInput prevDate" name="skillList[0].skillStartDate"></td>
+						<td><input type="text" data="skillEndDate" class="skillEndDate dateInput laterDate" name="skillList[0].skillEndDate"></td>
+						<td><textarea data="skillCustomerComp" class="skillCustomerComp" name="skillList[0].skillCustomerComp"></textarea></td>
+						<td><textarea data="skillWorkComp" class="skillWorkComp" name="skillList[0].skillWorkComp"></textarea></td>
+						<td><textarea data="skillIndustry" class="skillIndustry" name="skillList[0].skillIndustry"></textarea></td>
+						<td><textarea data="skillApplied" class="skillApplied" name="skillList[0].skillApplied"></textarea></td>
+						<td><textarea data="skillRole" class="skillRole" name="skillList[0].skillRole"></textarea></td>
+						<td><textarea data="skillModel" class="skillModel" name="skillList[0].skillModel"></textarea></td>
+						<td><textarea data="skillOs" class="skillOs" name="skillList[0].skillOs"></textarea></td>
+						<td><textarea data="skillLang" class="skillLang" name="skillList[0].skillLang"></textarea></td>
+						<td><textarea data="skillDbms" class="skillDbms" name="skillList[0].skillDbms"></textarea></td>
+						<td><textarea data="skillTool" class="skillTool" name="skillList[0].skillTool"></textarea></td>
+						<td><textarea data="skillComm" class="skillComm" name="skillList[0].skillComm"></textarea></td>
+						<td><textarea data="skillEtc" class="skillEtc" name="skillList[0].skillEtc"></textarea></td>
 					</tr>
 				</tbody>
 			</table>
 			
 			<div class="add-row-btn-pannel">
-				<button class="add-row-btn addRowBtn">+</button>
+				<button type="button" class="add-row-btn addRowBtn" onclick="skillPlus()">+</button>
 			</div>
 		</div>
 </form>			

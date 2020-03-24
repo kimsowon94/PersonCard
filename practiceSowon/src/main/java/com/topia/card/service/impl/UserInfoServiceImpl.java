@@ -38,31 +38,32 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoEduInsert(i);
 			}
-			
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoQualifiInsert(i);
 			}
-			
 			for (UserInfoCareerVO i: careerVO.getCareerList())
 			{
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoCareerInsert(i);
 			}
-			
-			LicenVo.setUserIdx(vo.getUserIdx());
-			userInfoDao.userInfoLicenInsert(LicenVo);
-			
-			
-			
-			trainingVO.setUserIdx(vo.getUserIdx());
-			userInfoDao.UserInfoTrainingInsert(trainingVO);
-			
-			
-			
-			skillVO.setUserIdx(vo.getUserIdx());
-			userInfoDao.userInfoSkillInsert(skillVO);
+			for (UserInfoSkillVO i : skillVO.getSkillList())
+			{
+				System.out.println(i.getSkillDbms());
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoSkillInsert(i);
+			}
+			for (UserInfoTrainingVO i : trainingVO.getTrainList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.UserInfoTrainingInsert(i);
+			}
+			for (UserInfoLicenVO i : LicenVo.getLicenList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoLicenInsert(i);
+			}
 		}
 		
 		return num;
