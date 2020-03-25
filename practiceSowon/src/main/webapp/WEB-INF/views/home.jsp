@@ -549,7 +549,7 @@
 		</form>
 		
 		<div class="pop-register-list-pannel" id="result_div">
-
+			<!-- jsp파일 따로 만듬  -->
 			<!-- <table class="pop-register-list">
 				<thead>
 					<tr>
