@@ -485,71 +485,72 @@
 
 
 	<div class="pop-user-register-pannel" id="drag-ele1">
-
-		<!-- 검색창 패널 -->
-		<div class="pop-user-search-pannel">
-
-			<input type="hidden" id="userInfoTotalCnt"> <input
-				type="hidden" id="userInfoPageSize" value="10"> <input
-				type="hidden" id="userInfoPageNo" value="1"> <select
-				id="userListSearchPeriod">
-				<option value="">검색조건</option>
-				<option value="userName">이름</option>
-				<option value="userComp">소속회사</option>
-				<option value="userDept">부서</option>
-			</select> <input type="text" id="userListSearchWord"> <select
-				id="userCareerLength">
-				<option value="">경력사항</option>
-				<option value="1">1년이상</option>
-				<option value="2">2년이상</option>
-				<option value="3">3년이상</option>
-				<option value="4">4년이상</option>
-				<option value="5">5년이상</option>
-				<option value="6">6년이상</option>
-				<option value="7">7년이상</option>
-				<option value="8">8년이상</option>
-				<option value="9">9년이상</option>
-				<option value="10">10년이상</option>
-			</select> <select id="userInfoDataSize">
-				<option value="10">10개씩</option>
-				<option value="20">20개씩</option>
-			</select> <select id="genderSelect">
-				<option value="" selected="selected">선택없음</option>
-				<option value="남성">남성</option>
-				<option value="여성">여성</option>
-			</select> <input type="hidden" id="userGender" name="userGender">
-			<button id="userListSearchBtn" class="user-list-search-btn">검색</button>
-			<div class="search-cnt-pannel">
-				<span class="search-cnt-prev">검색결과 : </span> <span
-					class="search-cnt-cnt"></span> <span class="search-cnt-later">
-					건</span>
+		<form id="userInfoRead" name="userInfoRead">
+			<!-- 검색창 패널 -->
+			<div class="pop-user-search-pannel">
+	
+				<input type="hidden" id="userInfoTotalCnt"> <input
+					type="hidden" id="userInfoPageSize" value="10"> <input
+					type="hidden" id="userInfoPageNo" value="1"> <select
+					id="userListSearchPeriod">
+					<option value="">검색조건</option>
+					<option value="userName">이름</option>
+					<option value="userComp">소속회사</option>
+					<option value="userDept">부서</option>
+				</select> <input type="text" id="userListSearchWord"> <select
+					id="userCareerLength">
+					<option value="">경력사항</option>
+					<option value="1">1년이상</option>
+					<option value="2">2년이상</option>
+					<option value="3">3년이상</option>
+					<option value="4">4년이상</option>
+					<option value="5">5년이상</option>
+					<option value="6">6년이상</option>
+					<option value="7">7년이상</option>
+					<option value="8">8년이상</option>
+					<option value="9">9년이상</option>
+					<option value="10">10년이상</option>
+				</select> <select id="userInfoDataSize">
+					<option value="10">10개씩</option>
+					<option value="20">20개씩</option>
+				</select> <select id="genderSelect">
+					<option value="" selected="selected">선택없음</option>
+					<option value="남성">남성</option>
+					<option value="여성">여성</option>
+				</select> <input type="hidden" id="userGender" name="userGender">
+				<button id="userListSearchBtn" class="user-list-search-btn">검색</button>
+				<div class="search-cnt-pannel">
+					<span class="search-cnt-prev">검색결과 : </span> <span
+						class="search-cnt-cnt"></span> <span class="search-cnt-later">
+						건</span>
+				</div>
+				<button id="getUserCountByCareerDate">연차별 인원보기</button>
+				<!-- <button id="downloadExel">엑셀 다운로드</button> -->
+	
 			</div>
-			<button id="getUserCountByCareerDate">연차별 인원보기</button>
-			<!-- <button id="downloadExel">엑셀 다운로드</button> -->
-
-		</div>
-
-		<!-- 불러오기 최소화 버튼 -->
-		<div class="pop-user-top-btn-pannel ">
-			<div class="pop-user-minimize-btn"></div>
-		</div>
-
-		<div class="clear-pannel"></div>
-
-		<div class="keyword-add-pannel">
-			<div
-				class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">
-				#<input maxlength="16">
+	
+			<!-- 불러오기 최소화 버튼 -->
+			<div class="pop-user-top-btn-pannel ">
+				<div class="pop-user-minimize-btn"></div>
 			</div>
-			<div class="pop-keyword-add-btn-pannel keywordAddPannelBtn tooltip">
-				<div class="pop-user-keyword-add-btn keywordAddBtn"></div>
-				<span class="tooltiptext">진행 했던 프로젝트의 개발환경을 키워드로 추가하여 조회</span>
+	
+			<div class="clear-pannel"></div>
+	
+			<div class="keyword-add-pannel">
+				<div
+					class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">
+					#<input maxlength="16">
+				</div>
+				<div class="pop-keyword-add-btn-pannel keywordAddPannelBtn tooltip">
+					<div class="pop-user-keyword-add-btn keywordAddBtn"></div>
+					<span class="tooltiptext">진행 했던 프로젝트의 개발환경을 키워드로 추가하여 조회</span>
+				</div>
 			</div>
-		</div>
+		</form>
+		
+		<div class="pop-register-list-pannel" id="result_div">
 
-		<div class="pop-register-list-pannel">
-
-			<table class="pop-register-list">
+			<!-- <table class="pop-register-list">
 				<thead>
 					<tr>
 						<td>등록번호</td>
@@ -565,7 +566,7 @@
 				</tbody>
 			</table>
 
-			<div class="pop-paging-pannel"></div>
+			<div class="pop-paging-pannel"></div> -->
 		</div>
 	</div>
 </body>

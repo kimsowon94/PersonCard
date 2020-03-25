@@ -21,6 +21,7 @@
 		<result column="USER_EMAIL" property="userEmail"/>
 		<result column="USER_ZIPCODE" property="userZipcode"/>
 		<result column="USER_ADDRESS" property="userAddress"/>
+		<result column="CAREER" property="career"/>
 	</resultMap>
 	
 	<insert id="personCardInsert">
@@ -70,8 +71,12 @@
 	,#{userZipcode}
 	,#{userAddress}
 	)
-	
 	</insert>
+	
+	<select id="userInfoRead" resultMap="UserInfoVO">
+		SELECT USER_IDX, USER_NAME, USER_COMP, USER_DEPT, USER_SEX, CAREER, USER_COMP_ENTERDATE
+		FROM USER_INFO_VIEW
+	</select>
 	
 	
 </mapper>

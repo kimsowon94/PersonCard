@@ -119,6 +119,23 @@ function callBackList() {
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display","block");
 	
+	var params = $("#userInfoRead").serialize();
+	
+	$.ajax({ 
+		type: 'POST' 
+		, url: '/card/userInfoRead.do'
+		, dataType : 'html'
+		, data : params
+		, success: function(data) { 
+			$("#result_div").html(data);
+		},
+		error : function(request, status, error){ //통신 에러시
+			alert("code : " +request.status + "\r\nmessage : " + request.reponseText);
+		}
+		,beforeSend:function(){} //통신을 시작할때 처리
+		,complete :function(){}  //통신을 완료한후 처리
+	});
+	
 	
 	// 불러오기 창 숨기기
 	$(".pop-user-top-btn-pannel").click(function() {

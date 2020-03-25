@@ -1,7 +1,9 @@
 
 package com.topia.card.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -9,13 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.topia.card.HomeController;
 import com.topia.card.common.CommonUtil;
-import com.topia.card.dao.UserInfoDAO;
 import com.topia.card.service.UserInfoService;
 import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
@@ -63,5 +65,18 @@ public class UserInfoController
 		return callbackMsg;
 
 		
+	}
+	
+	@RequestMapping(value="/card/userInfoRead.do", method = RequestMethod.POST)
+	/* @ResponseBody */
+	public String userInfoRead(Model model, UserInfoVO vo) throws Exception
+	{
+		List<UserInfoVO> list = new ArrayList<UserInfoVO>();
+		list = userInfoService.userInfoRead(vo);
+		
+		model.addAttribute("list", list);
+		
+		return "userInfoRead";
+			
 	}
 }
