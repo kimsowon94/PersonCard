@@ -1,5 +1,7 @@
 package com.topia.card.service;
 
+import java.util.List;
+
 import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
@@ -12,4 +14,6 @@ public interface UserInfoService
 {
 	public int personCardInsert(UserInfoVO vo, UserInfoEduVO eduVo, UserInfoLicenVO LicenVo
 			  , UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception;
+	
+	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception;
 }

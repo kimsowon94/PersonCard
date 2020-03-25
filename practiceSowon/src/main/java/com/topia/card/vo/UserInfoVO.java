@@ -21,6 +21,8 @@ public class UserInfoVO {
 	private String userEmail;
 	private String userZipcode;
 	private String userAddress;
+	
+	
 	public Integer getUserIdx() {
 		return userIdx;
 	}

@@ -1,5 +1,7 @@
 package com.topia.card.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -58,6 +60,11 @@ public class UserInfoDAOImpl implements UserInfoDAO
 	@Override
 	public int userInfoSkillInsert(UserInfoSkillVO skillVO) throws Exception {
 		return sqlsession.insert("UserInfoDAO.userInfoSkillInsert", skillVO);
+	}
+
+	@Override
+	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception {
+		return sqlsession.selectList("UserInfoDAO.userInfoRead", vo);
 	}
 
 }

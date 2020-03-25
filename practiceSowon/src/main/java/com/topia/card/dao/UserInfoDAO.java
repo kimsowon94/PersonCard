@@ -1,5 +1,7 @@
 package com.topia.card.dao;
 
+import java.util.List;
+
 import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
@@ -31,4 +33,6 @@ public interface UserInfoDAO
 	
 	// ´É·Â insert
 	public int userInfoSkillInsert(UserInfoSkillVO skillVO) throws Exception;
+	
+	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception;
 }

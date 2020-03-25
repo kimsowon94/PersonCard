@@ -1,5 +1,7 @@
 package com.topia.card.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +69,12 @@ public class UserInfoServiceImpl implements UserInfoService
 		}
 		
 		return num;
+	}
+
+
+	@Override
+	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception {
+		return userInfoDao.userInfoRead(vo);
 	}
 	
 }
