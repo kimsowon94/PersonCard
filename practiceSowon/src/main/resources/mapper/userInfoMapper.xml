@@ -73,9 +73,35 @@
 	)
 	</insert>
 	
+	<sql id="userInfoReadWhere">
+		<where>
+			<if test="userListSearchPeriod != null or userListSearchPeriod != ''">
+				<choose>
+					<when test="userListSearchPeriod == 'userName'">
+						USER_NAME LIKE '%' || #{userListSearchWord} || '%'
+					</when>
+					<when test="userListSearchPeriod=='userComp'">
+						USER_COMP LIKE '%' || #{userListSearchWord} || '%'
+					</when>
+					<when test="userListSearchPeriod=='userDept'">
+						USER_DEPT LIKE '%' || #{userListSearchWord} || '%'
+					</when>
+				</choose>			
+			</if>
+			<if test="userGender != '' and userGender != null">
+               AND USER_SEX = #{userGender}
+            </if>
+            <if test="userCareerLength >= 1">
+               AND career >= #{userCareerLength}
+         	</if>
+		</where>
+	</sql>
+	
 	<select id="userInfoRead" resultMap="UserInfoVO">
 		SELECT USER_IDX, USER_NAME, USER_COMP, USER_DEPT, USER_SEX, CAREER, USER_COMP_ENTERDATE
 		FROM USER_INFO_VIEW
+		<include refid="userInfoReadWhere"/>
+		ORDER BY USER_IDX DESC
 	</select>
 	
 	

@@ -73,6 +73,7 @@ public class UserInfoController
 	{
 		List<UserInfoVO> list = new ArrayList<UserInfoVO>();
 		list = userInfoService.userInfoRead(vo);
+		System.out.println(vo.getUserGender());
 		
 		model.addAttribute("list", list);
 		

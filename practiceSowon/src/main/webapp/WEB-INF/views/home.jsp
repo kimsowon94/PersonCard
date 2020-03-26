@@ -489,16 +489,19 @@
 			<!-- 검색창 패널 -->
 			<div class="pop-user-search-pannel">
 	
-				<input type="hidden" id="userInfoTotalCnt"> <input
-					type="hidden" id="userInfoPageSize" value="10"> <input
-					type="hidden" id="userInfoPageNo" value="1"> <select
-					id="userListSearchPeriod">
+				<input type="hidden" id="userInfoTotalCnt"> 
+				<input type="hidden" id="userInfoPageSize" value="10"> 
+				<input type="hidden" id="userInfoPageNo" value="1"> 
+				
+				<select	id="userListSearchPeriod" name="userListSearchPeriod">
 					<option value="">검색조건</option>
 					<option value="userName">이름</option>
 					<option value="userComp">소속회사</option>
 					<option value="userDept">부서</option>
-				</select> <input type="text" id="userListSearchWord"> <select
-					id="userCareerLength">
+				</select> 
+				<input type="text" id="userListSearchWord" name="userListSearchWord"> 
+				
+				<select id="userCareerLength" name="userCareerLength">
 					<option value="">경력사항</option>
 					<option value="1">1년이상</option>
 					<option value="2">2년이상</option>
@@ -510,19 +513,23 @@
 					<option value="8">8년이상</option>
 					<option value="9">9년이상</option>
 					<option value="10">10년이상</option>
-				</select> <select id="userInfoDataSize">
+				</select> 
+				<select id="userInfoDataSize" name="userInfoDataSize">
 					<option value="10">10개씩</option>
 					<option value="20">20개씩</option>
-				</select> <select id="genderSelect">
+				</select> 
+				<select id="genderSelect" name="genderSelect">
 					<option value="" selected="selected">선택없음</option>
 					<option value="남성">남성</option>
 					<option value="여성">여성</option>
-				</select> <input type="hidden" id="userGender" name="userGender">
-				<button id="userListSearchBtn" class="user-list-search-btn">검색</button>
+				</select> 
+				<input type="hidden" id="userGender" name="userGender">
+				
+				<button type="button" id="userListSearchBtn" class="user-list-search-btn" onclick="callBackList()">검색</button>
 				<div class="search-cnt-pannel">
-					<span class="search-cnt-prev">검색결과 : </span> <span
-						class="search-cnt-cnt"></span> <span class="search-cnt-later">
-						건</span>
+					<span class="search-cnt-prev">검색결과 : </span> 
+					<span class="search-cnt-cnt"></span> 
+					<span class="search-cnt-later">건</span>
 				</div>
 				<button id="getUserCountByCareerDate">연차별 인원보기</button>
 				<!-- <button id="downloadExel">엑셀 다운로드</button> -->

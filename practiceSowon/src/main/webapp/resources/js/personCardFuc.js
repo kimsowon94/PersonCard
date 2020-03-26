@@ -114,11 +114,11 @@ var crossCheck = function (){
 
 
 /*불러오기 버튼*/
-function callBackList() {
-	
+function callBackList() { 
+
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display","block");
-	
+	$("#userGender").val($("#genderSelect option:selected").val());
 	var params = $("#userInfoRead").serialize();
 	
 	$.ajax({ 

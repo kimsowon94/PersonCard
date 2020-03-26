@@ -31,6 +31,40 @@ public class UserInfoVO {
 	private String careerSpot;
 	private String careerResponsib;
 	
+	//검색조건
+	private String userListSearchPeriod;
+	private String userListSearchWord;
+	private String userGender;
+	private Integer userCareerLength;
+	
+	
+	
+	public Integer getUserCareerLength() {
+		return userCareerLength;
+	}
+	public void setUserCareerLength(Integer userCareerLength) {
+		this.userCareerLength = userCareerLength;
+	}
+	public String getUserGender() {
+		return userGender;
+	}
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
+	}
+	public String getUserListSearchWord() {
+		return userListSearchWord;
+	}
+	public void setUserListSearchWord(String userListSearchWord) {
+		this.userListSearchWord = userListSearchWord;
+	}
+	public String getUserListSearchPeriod() {
+		return userListSearchPeriod;
+	}
+	public void setUserListSearchPeriod(String userListSearchPeriod) {
+		this.userListSearchPeriod = userListSearchPeriod;
+	}
+	
+	
 	public Integer getCareerIdx() {
 		return careerIdx;
 	}
