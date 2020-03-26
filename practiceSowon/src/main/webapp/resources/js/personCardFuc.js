@@ -17,6 +17,8 @@ function openDaumZipAddress() {
 	}).open();
 }
 
+
+
 /*유효성검사*/
 var crossCheck = function (){
 	
@@ -111,7 +113,11 @@ var crossCheck = function (){
 	return true;
 	
 }
-
+function pageCh(pageNo1) 
+{
+	$("#pageNo1").val(pageNo1);
+	callBackList();
+}
 
 /*불러오기 버튼*/
 function callBackList() { 
@@ -119,6 +125,11 @@ function callBackList() {
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display","block");
 	$("#userGender").val($("#genderSelect option:selected").val());
+	
+	/*var userInfoDataSize = $("#userInfoDataSize").val();	
+	$("#userInfoPageSize").val(userInfoDataSize);*/
+	
+	/*var userInfoPageSize = $("userInfoPageSize").val();*/
 	
 	var params = $("#userInfoRead").serialize();
 	

@@ -29,4 +29,19 @@
 	</tbody>
 </table>
 
-<div class="pop-paging-pannel"></div>
+<div class="pop-paging-pannel">
+
+    <a href="javascript:;" class="first" onclick="pageCh('1')">처음</a>
+    <a href="javascript:;" class="prev" onclick="pageCh(${paging.prevPageNo})">이전</a>
+    <span>
+        <c:forEach var="i" begin="${paging.startPageNo}" end="${paging.endPageNo}" step="1">
+            <c:choose>
+                <c:when test="${i eq paging.pageNo1}"><a href="javascript:;" class="choice">${i}</a></c:when>
+                <c:otherwise><a href="javascript:;" onclick="pageCh(${i})">${i}</a></c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </span>
+    <a href="javascript:;" class="next" onclick="pageCh(${paging.nextPageNo})">다음</a>
+    <a href="javascript:;" class="last" onclick="pageCh(${paging.finalPageNo})">마지막</a>
+
+</div>

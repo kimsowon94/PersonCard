@@ -489,9 +489,10 @@
 			<!-- 검색창 패널 -->
 			<div class="pop-user-search-pannel">
 	
-				<input type="hidden" id="userInfoTotalCnt"> 
-				<input type="hidden" id="userInfoPageSize" value="10"> 
-				<input type="hidden" id="userInfoPageNo" value="1"> 
+				<!-- <input type="hidden" id="userInfoTotalCnt">  -->
+				<input type="hidden" id="userInfoPageSize" name="userInfoPageSize" value="10"> 
+				<input type="hidden" id="pageNo1" name="pageNo1" value="1"> 
+				
 				
 				<select	id="userListSearchPeriod" name="userListSearchPeriod">
 					<option value="">검색조건</option>
@@ -575,6 +576,7 @@
 
 			<div class="pop-paging-pannel"></div> -->
 		</div>
+		
 	</div>
 </body>
 </html>

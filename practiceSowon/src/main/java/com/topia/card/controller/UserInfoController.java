@@ -14,11 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.topia.card.HomeController;
 import com.topia.card.common.CommonUtil;
 import com.topia.card.service.UserInfoService;
+import com.topia.card.vo.PageVO;
 import com.topia.card.vo.UserInfoCareerVO;
 import com.topia.card.vo.UserInfoEduVO;
 import com.topia.card.vo.UserInfoLicenVO;
@@ -67,20 +69,30 @@ public class UserInfoController
 		
 	}
 	
-	@RequestMapping(value="/card/userInfoRead.do", method = RequestMethod.POST)
+	@RequestMapping(value="/card/userInfoRead.do", method = {RequestMethod.POST, RequestMethod.GET})
 	/* @ResponseBody */
-	public String userInfoRead(Model model, UserInfoVO vo) throws Exception
+	public String userInfoRead(Model model, UserInfoVO vo, @RequestParam(defaultValue="1") int pageNo1) throws Exception
 	{
 		List<UserInfoVO> list = new ArrayList<UserInfoVO>();
 		int cnt = 0;
 		
-		list = userInfoService.userInfoRead(vo);
-		/* System.out.println(vo.getUserGender()); */
-		
+		// 검색 갯수
 		cnt = userInfoService.userInfoReadCnt(vo);
+		//페이징===================================
+		PageVO paging = new PageVO();
+		paging.setPageNo1(vo.getPageNo1()); 
+		paging.setPageSize(10); 
+		paging.setTotalCount(cnt);
+		//========================================
+		// 리스트 출력
+		list = userInfoService.userInfoRead(vo);
+
+		
+		model.addAttribute("paging", paging);
 				
 		model.addAttribute("list", list);
 		model.addAttribute("cnt", cnt);
+		model.addAttribute("paging", paging);
 		
 		return "userInfoRead";
 			

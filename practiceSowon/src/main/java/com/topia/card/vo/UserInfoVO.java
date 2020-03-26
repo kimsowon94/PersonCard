@@ -37,8 +37,26 @@ public class UserInfoVO {
 	private String userGender;
 	private Integer userCareerLength;
 	
+	//∆‰¿Ã¬°
+	private int pageNo1;
+	private int userInfoDataSize;
 	
 	
+		
+	
+	
+	public int getUserInfoDataSize() {
+		return userInfoDataSize;
+	}
+	public void setUserInfoDataSize(int userInfoDataSize) {
+		this.userInfoDataSize = userInfoDataSize;
+	}
+	public int getPageNo1() {
+		return pageNo1;
+	}
+	public void setPageNo1(int pageNo1) {
+		this.pageNo1 = pageNo1;
+	}
 	public Integer getUserCareerLength() {
 		return userCareerLength;
 	}
