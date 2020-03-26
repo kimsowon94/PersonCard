@@ -67,4 +67,9 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.selectList("UserInfoDAO.userInfoRead", vo);
 	}
 
+	@Override
+	public int userInfoReadCnt(UserInfoVO vo) throws Exception {
+		return sqlsession.selectOne("UserInfoDAO.userInfoReadCnt", vo);
+	}
+
 }

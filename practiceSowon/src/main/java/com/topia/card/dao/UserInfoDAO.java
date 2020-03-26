@@ -34,5 +34,9 @@ public interface UserInfoDAO
 	// 능력 insert
 	public int userInfoSkillInsert(UserInfoSkillVO skillVO) throws Exception;
 	
+	// 불러오기
 	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception;
+	
+	// 불러오기 갯수 확인
+	public int userInfoReadCnt(UserInfoVO vo) throws Exception;
 }

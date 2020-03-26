@@ -119,6 +119,7 @@ function callBackList() {
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display","block");
 	$("#userGender").val($("#genderSelect option:selected").val());
+	
 	var params = $("#userInfoRead").serialize();
 	
 	$.ajax({ 
@@ -128,6 +129,7 @@ function callBackList() {
 		, data : params
 		, success: function(data) { 
 			$("#result_div").html(data);
+			$("#infoCnt").text($("#userInfoCnt").val());
 		},
 		error : function(request, status, error){ //통신 에러시
 			alert("code : " +request.status + "\r\nmessage : " + request.reponseText);

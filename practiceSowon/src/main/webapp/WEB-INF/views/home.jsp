@@ -527,7 +527,7 @@
 				
 				<button type="button" id="userListSearchBtn" class="user-list-search-btn" onclick="callBackList()">검색</button>
 				<div class="search-cnt-pannel">
-					<span class="search-cnt-prev">검색결과 : </span> 
+					<span class="search-cnt-prev">검색결과 : <b id="infoCnt"></b></span> 
 					<span class="search-cnt-cnt"></span> 
 					<span class="search-cnt-later">건</span>
 				</div>

@@ -104,5 +104,11 @@
 		ORDER BY USER_IDX DESC
 	</select>
 	
+	<select id="userInfoReadCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM USER_INFO_VIEW
+		<include refid="userInfoReadWhere"/>
+	</select>
+	
 	
 </mapper>

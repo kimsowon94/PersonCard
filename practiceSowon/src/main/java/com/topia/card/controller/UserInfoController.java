@@ -72,10 +72,15 @@ public class UserInfoController
 	public String userInfoRead(Model model, UserInfoVO vo) throws Exception
 	{
 		List<UserInfoVO> list = new ArrayList<UserInfoVO>();
-		list = userInfoService.userInfoRead(vo);
-		System.out.println(vo.getUserGender());
+		int cnt = 0;
 		
+		list = userInfoService.userInfoRead(vo);
+		/* System.out.println(vo.getUserGender()); */
+		
+		cnt = userInfoService.userInfoReadCnt(vo);
+				
 		model.addAttribute("list", list);
+		model.addAttribute("cnt", cnt);
 		
 		return "userInfoRead";
 			

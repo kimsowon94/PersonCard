@@ -15,5 +15,9 @@ public interface UserInfoService
 	public int personCardInsert(UserInfoVO vo, UserInfoEduVO eduVo, UserInfoLicenVO LicenVo
 			  , UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception;
 	
+	// 불러오기
 	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception;
+	
+	// 불러오기 갯수 확인
+	public int userInfoReadCnt(UserInfoVO vo)throws Exception;
 }
