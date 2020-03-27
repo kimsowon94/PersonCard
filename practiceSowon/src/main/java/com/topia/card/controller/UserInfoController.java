@@ -97,4 +97,16 @@ public class UserInfoController
 		return "userInfoRead";
 			
 	}
+	
+	@RequestMapping(value="/card/searhYear.do", method = RequestMethod.POST)
+	public String searchYear(UserInfoVO vo, Model model) throws Exception
+	{
+		List<UserInfoVO> searchYear = new ArrayList<UserInfoVO>();
+		
+		searchYear = userInfoService.searchYear(vo);
+		
+		model.addAttribute("searchYear", searchYear);
+		return "searchYear";
+		
+	}
 }

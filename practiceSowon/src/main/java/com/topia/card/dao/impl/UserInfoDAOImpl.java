@@ -22,10 +22,6 @@ public class UserInfoDAOImpl implements UserInfoDAO
 	@Autowired
 	private SqlSession sqlsession;
 	
-	/*
-	 * @Override public int personCardInsert(UserInfoVO vo) throws Exception {
-	 * return sqlsession.insert("UserInfoDAO.personCardInsert",vo); }
-	 */
 
 	@Override
 	public int personCardInsert(UserInfoVO vo) throws Exception {	
@@ -70,6 +66,11 @@ public class UserInfoDAOImpl implements UserInfoDAO
 	@Override
 	public int userInfoReadCnt(UserInfoVO vo) throws Exception {
 		return sqlsession.selectOne("UserInfoDAO.userInfoReadCnt", vo);
+	}
+
+	@Override
+	public List<UserInfoVO> searchYear(UserInfoVO vo) throws Exception {
+		return sqlsession.selectList("UserInfoDAO.searchYear",vo);
 	}
 
 }

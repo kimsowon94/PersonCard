@@ -121,13 +121,17 @@ function pageCh(pageNo1)
 
 /*불러오기 버튼*/
 function callBackList(gubun) { 
+	
+	// 불러오기 화면 띄우기
+	$("#drag-ele1").css("display","block");
+	$("#userInfoList").css("display","none");
+	$("#getUserCountByCareerDate").css("display","block");
+	$("#userGender").val($("#genderSelect option:selected").val());
+	
 	if(gubun == "searchBtn"){
 		$("#pageNo1").val("1");
 	}
 	
-	// 불러오기 화면 띄우기
-	$("#drag-ele1").css("display","block");
-	$("#userGender").val($("#genderSelect option:selected").val());
 	
 	/*var userInfoDataSize = $("#userInfoDataSize").val();	
 	$("#userInfoPageSize").val(userInfoDataSize);*/
@@ -159,6 +163,26 @@ function callBackList(gubun) {
 		$("#drag-ele1").hide();
 	})
 
+	
+}
+
+function searchYear() {
+	$("#getUserCountByCareerDate").css("display","none");
+	$("#userInfoList").css("display","block");
+	$.ajax({ 
+		type: 'POST' 
+		, url: '/card/searhYear.do'
+		, dataType : 'html'
+		, data : {}
+		, success: function(data) { 
+			$("#result_div").html(data);
+		},
+		error : function(request, status, error){ //통신 에러시
+			alert("code : " +request.status + "\r\nmessage : " + request.reponseText);
+		}
+		,beforeSend:function(){} //통신을 시작할때 처리
+		,complete :function(){}  //통신을 완료한후 처리
+	});
 	
 }
 

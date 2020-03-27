@@ -41,10 +41,19 @@ public class UserInfoVO {
 	private int pageNo1;
 	private int userInfoDataSize;
 	
+	//연차별 인원 카운트
+	private int userIdxCnt;
+	
 	
 		
 	
 	
+	public int getUserIdxCnt() {
+		return userIdxCnt;
+	}
+	public void setUserIdxCnt(int userIdxCnt) {
+		this.userIdxCnt = userIdxCnt;
+	}
 	public int getUserInfoDataSize() {
 		return userInfoDataSize;
 	}

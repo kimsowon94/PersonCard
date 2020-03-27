@@ -20,4 +20,7 @@ public interface UserInfoService
 	
 	// 불러오기 갯수 확인
 	public int userInfoReadCnt(UserInfoVO vo)throws Exception;
+	
+	// 연차별 인원 확인
+	public List<UserInfoVO> searchYear(UserInfoVO vo) throws Exception;
 }

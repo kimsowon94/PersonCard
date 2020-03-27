@@ -532,7 +532,8 @@
 					<span class="search-cnt-cnt"></span> 
 					<span class="search-cnt-later">건</span>
 				</div>
-				<button type="button" id="getUserCountByCareerDate" name="getUserCountByCareerDate">연차별 인원보기</button>
+				<button type="button" id="getUserCountByCareerDate" name="getUserCountByCareerDate" onclick="searchYear()">연차별 인원보기</button>
+				<button type="button" id="userInfoList" name="userInfoList" onclick="callBackList('userListBtn')">전체 인원보기</button>
 				<!-- <button id="downloadExel">엑셀 다운로드</button> -->
 	
 			</div>

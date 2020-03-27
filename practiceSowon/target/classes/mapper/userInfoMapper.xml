@@ -121,5 +121,12 @@
 		<include refid="userInfoReadWhere"/>
 	</select>
 	
+	<select id="searchYear" resultMap="UserInfoVO">
+		SELECT CAREER, COUNT(USER_IDX) as userIdxCnt
+		FROM USER_INFO_VIEW
+		GROUP BY CAREER
+		ORDER BY CAREER ASC
+	</select>
+	
 	
 </mapper>

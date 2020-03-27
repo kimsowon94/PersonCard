@@ -16,7 +16,7 @@
 	</thead>
 	<tbody>
 		<c:forEach items="${list }" var="list">
-		<tr>
+		<tr onclick="fndjdj('${ list.userIdx }')">
 			<td>${list.userIdx }</td>
 			<td>${list.userName }</td>
 			<td>${list.userComp }</td>
