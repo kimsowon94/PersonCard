@@ -120,8 +120,11 @@ function pageCh(pageNo1)
 }
 
 /*불러오기 버튼*/
-function callBackList() { 
-
+function callBackList(gubun) { 
+	if(gubun == "searchBtn"){
+		$("#pageNo1").val("1");
+	}
+	
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display","block");
 	$("#userGender").val($("#genderSelect option:selected").val());
@@ -130,6 +133,7 @@ function callBackList() {
 	$("#userInfoPageSize").val(userInfoDataSize);*/
 	
 	/*var userInfoPageSize = $("userInfoPageSize").val();*/
+	
 	
 	var params = $("#userInfoRead").serialize();
 	

@@ -526,13 +526,13 @@
 				</select> 
 				<input type="hidden" id="userGender" name="userGender">
 				
-				<button type="button" id="userListSearchBtn" class="user-list-search-btn" onclick="callBackList()">검색</button>
+				<button type="button" id="userListSearchBtn" class="user-list-search-btn" onclick="callBackList('searchBtn')">검색</button>
 				<div class="search-cnt-pannel">
 					<span class="search-cnt-prev">검색결과 : <b id="infoCnt"></b></span> 
 					<span class="search-cnt-cnt"></span> 
 					<span class="search-cnt-later">건</span>
 				</div>
-				<button id="getUserCountByCareerDate">연차별 인원보기</button>
+				<button type="button" id="getUserCountByCareerDate" name="getUserCountByCareerDate">연차별 인원보기</button>
 				<!-- <button id="downloadExel">엑셀 다운로드</button> -->
 	
 			</div>
