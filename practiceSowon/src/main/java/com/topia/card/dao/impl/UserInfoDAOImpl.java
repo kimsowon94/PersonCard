@@ -73,4 +73,11 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.selectList("UserInfoDAO.searchYear",vo);
 	}
 
+	@Override
+	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception {
+		return sqlsession.selectOne("UserInfoDAO.userInfoDetail", vo);
+	}
+
+	
+
 }

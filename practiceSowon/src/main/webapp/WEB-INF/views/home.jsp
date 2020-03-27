@@ -71,7 +71,7 @@
 				<button class="printBtn">출력</button>
 				<button type="button" class="personalHistoryListBtn"
 					onclick="callBackList()">불러오기</button>
-				<button class="newHistoryCreateBtn" type="reset">새로작성</button>
+				<button type="button" onclick="modeChange('NEW')" class="newHistoryCreateBtn">새로작성</button>
 				<button class="personalHistoryResetBtn">초기화</button>
 				<button type="button" class="personalHistorySaveBtn">저장</button>
 			</div>

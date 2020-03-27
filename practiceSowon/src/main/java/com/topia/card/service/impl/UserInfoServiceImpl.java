@@ -88,5 +88,11 @@ public class UserInfoServiceImpl implements UserInfoService
 	public List<UserInfoVO> searchYear(UserInfoVO vo) throws Exception {
 		return userInfoDao.searchYear(vo);
 	}
+
+
+	@Override
+	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception {
+		return userInfoDao.userInfoDetail(vo);
+	}
 	
 }

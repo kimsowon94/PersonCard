@@ -128,5 +128,29 @@
 		ORDER BY CAREER ASC
 	</select>
 	
+	<select id="userInfoDetail" resultMap="UserInfoVO">
+		SELECT USER_IDX
+		      ,to_char(USER_REGISTER_DATE, 'YYYY-MM-DD') AS USER_REGISTER_DATE
+		      ,USER_NAME
+		      ,USER_SOCIAL_SECUNUM
+		      ,USER_SEX
+		      ,USER_COMP
+		      ,to_char(USER_COMP_ENTERDATE, 'YYYY-MM-DD') AS USER_COMP_ENTERDATE
+		      ,USER_DEPT
+		      ,USER_SPOT
+		      ,USER_ARMY_SERV
+		      ,USER_MARITAL_STATUS
+		      ,to_char(USER_ARMY_SERV_ENTER, 'YYYY-MM-DD') AS USER_ARMY_SERV_ENTER
+		      ,to_char(USER_ARMY_SERV_LEAVE, 'YYYY-MM-DD') AS USER_ARMY_SERV_LEAVE
+		      ,USER_ARMY_SERV_PERIOD
+		      ,USER_TELNUM_WIRED
+		      ,USER_TELNUM_WIRELESS
+		      ,USER_EMAIL
+		      ,USER_ZIPCODE
+		      ,USER_ADDRESS
+		FROM USER_INFO
+		WHERE USER_IDX = #{userIdx}
+	</select>
+	
 	
 </mapper>

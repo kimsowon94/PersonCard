@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,6 +107,19 @@ public class UserInfoController
 		
 		model.addAttribute("searchYear", searchYear);
 		return "searchYear";
+		
+	}
+	
+	@RequestMapping(value="/card/personInfo.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> personInfo(UserInfoVO vo) throws Exception
+	{
+		Map<String, Object> map = new HashMap<String, Object>();
+		// 기본정보 불러오기
+		UserInfoVO userInfo = userInfoService.userInfoDetail(vo);
+				
+		map.put("userInfo", userInfo);
+		return map;
 		
 	}
 }

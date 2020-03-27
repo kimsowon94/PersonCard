@@ -23,4 +23,7 @@ public interface UserInfoService
 	
 	// 연차별 인원 확인
 	public List<UserInfoVO> searchYear(UserInfoVO vo) throws Exception;
+	
+	// 기본정보 디테일
+	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception;
 }

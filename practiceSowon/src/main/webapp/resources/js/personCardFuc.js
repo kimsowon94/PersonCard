@@ -166,6 +166,61 @@ function callBackList(gubun) {
 	
 }
 
+function fnPersonInfo(userIdx) {
+	$("#drag-ele1").css("display","none");
+	$(".top-header-pannel").find("h5").text("※ 등록번호 : " + userIdx + "(수정)");
+	
+	
+	$.ajax({ 
+		type: 'POST' 
+		, url: '/card/personInfo.do'
+		, dataType : 'JSON'
+		, data : {userIdx : userIdx}
+		, success: function(data) { 
+
+			$("#pageNo1").val("1");
+			userInfoDetail(data.userInfo);
+			
+		},
+		error : function(request, status, error){ //통신 에러시
+			alert("code : " +request.status + "\r\nmessage : " + request.reponseText);
+		}
+		,beforeSend:function(){} //통신을 시작할때 처리
+		,complete :function(){}  //통신을 완료한후 처리
+	});
+	
+}
+
+function userInfoDetail(userInfo) {
+	
+	if(userInfo.userEmail != null)
+	{
+		var email_domain = userInfo.userEmail.split("@");
+		var email = email_domain[0];
+		var domain = "@" + email_domain[1];	
+	}
+	
+	$("#userName").val(userInfo.userName);
+	$("#userSocialSecunum").val(userInfo.userSocialSecunum);
+	$("#userSex").val(userInfo.userSex);
+	$("#userComp").val(userInfo.userComp);
+	$("#userCompEnterdate").val(userInfo.userCompEnterdate);
+	$("#userDept").val(userInfo.userDept);
+	$("#userSpot").val(userInfo.userSpot);
+	$("#userArmyServ").val(userInfo.userArmyServ);
+	$("#userMaritalStatus").val(userInfo.userMaritalStatus);
+	$("#userArmyServEnter").val(userInfo.userArmyServEnter);
+	$("#userArmyServLeave").val(userInfo.userArmyServLeave);
+	$("#userArmyServPeriod").val(userInfo.userArmyServPeriod);
+	$("#userTelnumWireless").val(userInfo.userTelnumWireless);
+	$("#userTelnumWired").val(userInfo.userTelnumWired);
+	$("#userEmail").val(email);
+	$("#emailDomain").val(domain);
+	$("#userZipcode").val(userInfo.userZipcode);
+	$("#userAddress").val(userInfo.userAddress);
+	
+}
+
 function searchYear() {
 	$("#getUserCountByCareerDate").css("display","none");
 	$("#userInfoList").css("display","block");
@@ -703,3 +758,39 @@ function removeBtn() {
 	});
 	
 }
+
+//모든 입력 창 리셋
+function resetInput(){
+	var notElementId = "#userIdx, #userInfoDataSize, #userInfoPageSize, #personalZipcodeSearchBtn";
+	var defaltId = "#careerNum, #eduNum, #licenNum, #qualifiNum, #skillNum, #trainNum, #pageNo1";
+	
+	$("input, select").not(notElementId).val("");
+	$("textarea").not(notElementId).text("");
+	
+	$(defaltId).val("0");
+
+	$(".flexibleTable").find("tbody").find("tr:not(:first-child)").remove();
+	$(".flexibleTable").find(".dateInput").attr("id","").removeClass('hasDatepicker').datepicker();
+	$("textarea").each(function(){resize($(this));}) // 새로 불러온 정보 textarea 리사이징
+}
+
+//오브젝트 높이 재설정
+function resize($obj) {
+	$obj.height(1).height($obj.prop('scrollHeight')+12);
+}
+
+//작성상태변경
+function modeChange(gubun){
+	
+	if(gubun == "NEW"){	// 새 이력작성
+		if(confirm("새 이력을 작성하시겠습니까?")){
+			resetInput();	// 모든 입력 창 리셋
+			$(".status-display-pannel").find("h5").text("※ 새 이력 작성");
+			$("#userIdx").val("");
+			/*$("#status").val("new");*/
+			$("#userSocialSecunum").prop("disabled",false);
+			$(".user-info-list-pannel").css("background-color","#ebf2f1");
+		}
+	}
+}
+
