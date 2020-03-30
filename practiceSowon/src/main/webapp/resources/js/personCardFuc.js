@@ -787,6 +787,7 @@ function modeChange(gubun){
 			resetInput();	// 모든 입력 창 리셋
 			$(".status-display-pannel").find("h5").text("※ 새 이력 작성");
 			$("#userIdx").val("");
+			$("#pageNo1").val("1");
 			/*$("#status").val("new");*/
 			$("#userSocialSecunum").prop("disabled",false);
 			$(".user-info-list-pannel").css("background-color","#ebf2f1");
