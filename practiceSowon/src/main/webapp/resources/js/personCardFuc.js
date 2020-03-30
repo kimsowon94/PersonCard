@@ -172,7 +172,8 @@ function fnPersonInfo(userIdx) {
 			$("#pageNo1").val("1");
 			userInfoDetail(data.userInfo);
 			eduDetailList(data.eduDetailList);
-			qualifiDatailList(data.qualifiList);
+			qualifiDetailList(data.qualifiList);
+			careerDetailList(data.careerList);
 
 		},
 		error : function(request, status, error) { // 통신 에러시
@@ -259,7 +260,7 @@ function eduDetailList(eduList) {
 	removeBtn();
 }
 
-function qualifiDatailList(qualifiList) {
+function qualifiDetailList(qualifiList) {
 	$("#qaulifiNum").val(qualifiList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var qualifiTable = $(".qualifi-table");
 	var html = "";
@@ -273,8 +274,56 @@ function qualifiDatailList(qualifiList) {
 		
 	}
 	
+	$(".dateInput").datepicker(
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+
+	
 	 qualifiTable.find("tbody").html(html);
 	 removeBtn();
+}
+
+function careerDetailList(careeriList) {
+	$("#careeriNum").val(careeriList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	var careerTable = $(".career-info");
+	var html = "";
+	
+	for (var i = 0; i < careeriList.length; i++) {
+		html += '<tr>' +
+		'<td><input type="text" data="careerCompName" name="careerList[' + i + '].careerCompName" class="careerCompName" value="' + careerList[i].careerCompName + '"></td>' +
+		'<td><input type="text" data="careerEnterdate" name="careerList[' + i + '].careerEnterDate" class="careerEnterDate dateInput prevDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
+		'<td><input type="text" data="careerLeavedate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
+		'<td><input type="text" data="careerSpot" name="careerList[' + i + '].careerSpot" class="careerSpot" value="' + careerList[i].careerSpot + '"></td>' +
+		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerSpot + '"></td>' +
+		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +
+		'</tr>';
+	}
+	$(".dateInput").datepicker(
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+
+	
+	careerTable.find("tbody").html(html);
+	removeBtn();
+	
 }
 
 function searchYear() {

@@ -106,5 +106,11 @@ public class UserInfoServiceImpl implements UserInfoService
 	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx) {
 		return userInfoDao.qualifiDetailList(userIdx);
 	}
+
+
+	@Override
+	public List<UserInfoCareerVO> careerDetailList(Integer userIdx) {
+		return userInfoDao.careerDetailList(userIdx);
+	}
 	
 }

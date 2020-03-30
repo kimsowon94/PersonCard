@@ -32,5 +32,8 @@ public interface UserInfoService
 	
 	// 자격증명 디테일
 	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx);
+	
+	// 회사정보 디테일
+	public List<UserInfoCareerVO> careerDetailList(Integer userIdx);
 
 }
