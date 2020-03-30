@@ -26,4 +26,10 @@
 			 ,#{eduMonth}
 			)
 	</insert>
+	
+	<select id="eduDetailList" resultMap="UserInfoEduVO">
+		SELECT EDU_SCHOOL_NAME,EDU_STATUS,EDU_YEAR,EDU_MONTH
+		FROM USER_INFO_EDU
+		WHERE USER_IDX = #{userIdx}
+	</select>
 </mapper>

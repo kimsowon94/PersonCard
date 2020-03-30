@@ -45,4 +45,7 @@ public interface UserInfoDAO
 	
 	// 기본정보 디테일
 	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception;
+	
+	// 학교정보 디테일
+	public List<UserInfoEduVO> eduDetailList(Integer userIdx);
 }

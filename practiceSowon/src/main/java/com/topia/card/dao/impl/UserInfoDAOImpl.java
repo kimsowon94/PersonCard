@@ -78,6 +78,12 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.selectOne("UserInfoDAO.userInfoDetail", vo);
 	}
 
+
+	@Override
+	public List<UserInfoEduVO> eduDetailList(Integer userIdx) {
+		return sqlsession.selectList("UserInfoDAO.eduDetailList", userIdx);
+	}
+
 	
 
 }

@@ -94,5 +94,11 @@ public class UserInfoServiceImpl implements UserInfoService
 	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception {
 		return userInfoDao.userInfoDetail(vo);
 	}
+
+
+	@Override
+	public List<UserInfoEduVO> eduDetailList(Integer userIdx) {
+		return userInfoDao.eduDetailList(userIdx);
+	}
 	
 }
