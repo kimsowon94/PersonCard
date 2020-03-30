@@ -118,9 +118,11 @@ public class UserInfoController
 		// 기본정보 불러오기
 		UserInfoVO userInfo = userInfoService.userInfoDetail(vo);
 		List<UserInfoEduVO> eduList = userInfoService.eduDetailList(vo.getUserIdx());
+		List<UserInfoQualifiVO> qualifiList = userInfoService.qualifiDetailList(vo.getUserIdx());
 				
 		map.put("userInfo", userInfo);
 		map.put("eduDetailList", eduList);
+		map.put("qualifiList", qualifiList);
 		
 		return map;
 		

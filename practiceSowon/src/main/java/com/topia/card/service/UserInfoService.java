@@ -29,5 +29,8 @@ public interface UserInfoService
 	
 	// 학교정보 디테일
 	public List<UserInfoEduVO> eduDetailList(Integer userIdx);
+	
+	// 자격증명 디테일
+	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx);
 
 }

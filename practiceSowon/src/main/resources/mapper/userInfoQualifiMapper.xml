@@ -22,4 +22,10 @@
 			 ,#{qualifiGetDate}
 			)
 	</insert>
+	
+	<select id="qualifiDetailList" resultMap="UserInfoQualifiVO">
+		SELECT QUALIFI_NAME,TO_CHAR(QUALIFI_GETDATE,'YYYY-MM-DD') AS QUALIFI_GETDATE
+		FROM USER_INFO_QUALIFI
+		WHERE USER_IDX = #{userIdx}
+	</select>
 </mapper>

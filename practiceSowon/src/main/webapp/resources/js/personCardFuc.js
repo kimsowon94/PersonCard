@@ -168,10 +168,11 @@ function fnPersonInfo(userIdx) {
 			userIdx : userIdx
 		},
 		success : function(data) {
-
+			resetInput();
 			$("#pageNo1").val("1");
 			userInfoDetail(data.userInfo);
 			eduDetailList(data.eduDetailList);
+			qualifiDatailList(data.qualifiList);
 
 		},
 		error : function(request, status, error) { // 통신 에러시
@@ -256,6 +257,24 @@ function eduDetailList(eduList) {
 
 	eduTable.find("tbody").html(html);
 	removeBtn();
+}
+
+function qualifiDatailList(qualifiList) {
+	$("#qaulifiNum").val(qualifiList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	var qualifiTable = $(".qualifi-table");
+	var html = "";
+	
+	for (var i = 0; i < qualifiList.length; i++) {
+		html += '<tr>' +
+		'<td><input type="text" data="qualifiName" name="qualifiList[' + i + '].qualifiName" class="qualifiName" value="' + qualifiList[i].qualifiName + '"></td>' +
+		'<td><input type="text" data="qualifiGetdate" name="qualifiList[' + i + '].qualifiGetdate" class="qualifiGetdate dateInput" value="' + qualifiList[i].qualifiGetDate + '"></td>' +
+		'<td style="display:none;" class="removeTrBtn"><button type="button" id="qualifiBtn' + i + '"  class="qualifi">-</button></td>' +
+	'</tr>';
+		
+	}
+	
+	 qualifiTable.find("tbody").html(html);
+	 removeBtn();
 }
 
 function searchYear() {
