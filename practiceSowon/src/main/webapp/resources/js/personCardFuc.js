@@ -175,6 +175,7 @@ function fnPersonInfo(userIdx) {
 			qualifiDetailList(data.qualifiList);
 			careerDetailList(data.careerList);
 			trainingDetailList(data.trainList)
+			licenDetailList(data.licenList);
 
 		},
 		error : function(request, status, error) { // 통신 에러시
@@ -357,6 +358,23 @@ function trainingDetailList(trainList) {
 	trainTable.find("tbody").html(html);
 	removeBtn();
 	
+}
+
+function licenDetailList(licenList){
+	$("#licenNum").val(licenList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	var licenTable = $(".licen-table");
+	var html = "";
+	
+	for(var i = 0; i < licenList.length; i++){
+		html += '<tr>' +
+					'<td><input type="text" data="licenName" name="licenList[' + i + '].licenName" class="licenName" value="' + licenList[i].licenName + '"></td>' +
+					'<td><input type="text" data="licenSkillLevel" name="licenList[' + i + '].licenSkillLevel" class="licenSkillLevel" value="' + licenList[i].licenSkillLevel + '"></td>' +
+					'<td style="display:none;" class="removeTrBtn"><button type="button" id="licenBtn' + i + '"  class="licen">-</button></td>' +
+				'</tr>';
+
+	}
+	licenTable.find("tbody").html(html);
+	removeBtn();
 }
 function searchYear() {
 	$("#getUserCountByCareerDate").css("display", "none");

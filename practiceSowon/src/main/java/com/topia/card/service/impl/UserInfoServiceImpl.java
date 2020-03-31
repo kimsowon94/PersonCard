@@ -97,19 +97,19 @@ public class UserInfoServiceImpl implements UserInfoService
 
 
 	@Override
-	public List<UserInfoEduVO> eduDetailList(Integer userIdx) {
+	public List<UserInfoEduVO> eduDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.eduDetailList(userIdx);
 	}
 
 
 	@Override
-	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx) {
+	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.qualifiDetailList(userIdx);
 	}
 
 
 	@Override
-	public List<UserInfoCareerVO> careerDetailList(Integer userIdx) {
+	public List<UserInfoCareerVO> careerDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.careerDetailList(userIdx);
 	}
 
@@ -117,6 +117,12 @@ public class UserInfoServiceImpl implements UserInfoService
 	@Override
 	public List<UserInfoTrainingVO> trainingDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.trainingDetailList(userIdx);
+	}
+
+
+	@Override
+	public List<UserInfoLicenVO> licenDetailList(Integer userIdx) throws Exception {
+		return userInfoDao.licenDetailList(userIdx);
 	}
 	
 }

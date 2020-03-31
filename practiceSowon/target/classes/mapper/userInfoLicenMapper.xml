@@ -22,4 +22,10 @@
 		 ,#{licenSkillLevel}
 		)
 	</insert>
+	
+	<select id="licenDetailList" resultMap="UserInfoLicenVO">
+		SELECT LICEN_NAME,LICEN_SKILL_LEVEL
+		FROM USER_INFO_LICEN
+		WHERE USER_IDX = #{userIdx}
+	</select>
 </mapper>

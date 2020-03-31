@@ -99,6 +99,11 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.selectList("UserInfoDAO.trainingDetailList", userIdx);
 	}
 
+	@Override
+	public List<UserInfoLicenVO> licenDetailList(Integer userIdx) throws Exception {
+		return sqlsession.selectList("UserInfoDAO.licenDetailList", userIdx);
+	}
+
 	
 
 }

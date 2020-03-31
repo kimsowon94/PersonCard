@@ -38,5 +38,8 @@ public interface UserInfoService
 	
 	// 교육정보 디테일
 	public List<UserInfoTrainingVO> trainingDetailList(Integer userIdx)throws Exception;
+	
+	// 어학정보 디테일
+	public List<UserInfoLicenVO> licenDetailList(Integer userIdx) throws Exception;
 
 }
