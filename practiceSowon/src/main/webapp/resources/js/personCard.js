@@ -27,27 +27,54 @@ $(document).ready(function() {
 		var check = crossCheck()
 		if(check == true)
 		{
-			var $frm = $(".main1 :input");
-			var param = $frm.serialize();
+			if($("#status").val() == "status")
+			{
+				var $frm = $(".main1 :input");
+				var param = $frm.serialize();
 			
-			$.ajax({
-				url : "/card/personCardInsert.do",
-				dataType : "JSON",
-				type : "POST",
-				data :param,
-				success : function(data, textStatus, jqXHR) 
-				{
-					alert("작성완료");
-					location.href="/home.do";
-				},
-				error : function(request,status,error) 
-				{
-					alert("알수없는 오류");
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
-				}
-					
-			})
-			
+		
+				$.ajax({
+					url : "/card/personCardInsert.do",
+					dataType : "JSON",
+					type : "POST",
+					data :param,
+					success : function(data, textStatus, jqXHR) 
+					{
+						alert("작성완료");
+						location.href="/home.do";
+					},
+					error : function(request,status,error) 
+					{
+						alert("알수없는 오류");
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
+					}
+						
+				})
+			}
+			else
+			{
+				var $frm = $(".main1 :input");
+				var param = $frm.serialize();
+				
+				$.ajax({
+					url : "/card/personCardUpdate.do",
+					dataType : "JSON",
+					type : "POST",
+					data :param,
+					success : function(data, textStatus, jqXHR) 
+					{
+						alert("수정완료");
+						location.href="/home.do";
+					},
+					error : function(request,status,error) 
+					{
+						alert("알수없는 오류");
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
+					}
+						
+				})
+			}
+
 			return true;
 		}
 

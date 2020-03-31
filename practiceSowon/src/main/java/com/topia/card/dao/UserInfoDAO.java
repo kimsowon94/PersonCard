@@ -63,4 +63,7 @@ public interface UserInfoDAO
 	
 	// 스킬 디테일
 	public List<UserInfoSkillVO> skillDetailList(Integer userIdx) throws Exception;
+	
+	// 기본정보 update
+	public int personCardUpdate(UserInfoVO vo) throws Exception;
 }

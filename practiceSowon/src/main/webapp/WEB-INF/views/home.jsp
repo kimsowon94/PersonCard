@@ -55,7 +55,7 @@
 		<div class="loading-image"></div>
 	</div>
 	<%-- 새 작성건의 경우 해당 인풋값은 비어있고 수정 및 조회건은 들어감 --%>
-	<input id="userIdx" type="hidden">
+	
 	<div class="user-info-list-pannel" id="user-info-list-pannel">
 		<div class="personal-history-title-pannel">
 			<h3>개 인 이 력 카 드</h3>
@@ -78,7 +78,10 @@
 		</div>
 
 		<form class="main1">
+			<!--상태값 추가  -->
+			<input type="hidden" id="status" name="status" value="status">
 			<!-- <input type="hidden" name="userEmail" id="emailPlus"> -->
+			<input id="userIdx" name="userIdx" type="hidden">
 			<table class="user-info-table1">
 				<tbody>
 					<tr>

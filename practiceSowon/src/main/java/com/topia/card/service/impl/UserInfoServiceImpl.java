@@ -73,6 +73,15 @@ public class UserInfoServiceImpl implements UserInfoService
 
 
 	@Override
+	public int personCardUpdate(UserInfoVO vo) throws Exception {
+		int num = 0;
+		
+		num = userInfoDao.personCardUpdate(vo);
+		
+		return num;
+	}
+
+	@Override
 	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception {
 		return userInfoDao.userInfoRead(vo);
 	}
@@ -130,5 +139,7 @@ public class UserInfoServiceImpl implements UserInfoService
 	public List<UserInfoSkillVO> skillDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.skillDetailList(userIdx);
 	}
+
+
 	
 }

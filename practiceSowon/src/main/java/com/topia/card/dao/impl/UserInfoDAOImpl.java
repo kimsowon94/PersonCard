@@ -109,6 +109,11 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.selectList("UserInfoDAO.skillDetailList",userIdx);
 	}
 
+	@Override
+	public int personCardUpdate(UserInfoVO vo) throws Exception {
+		return sqlsession.update("UserInfoDAO.userInfoUpdate", vo);
+	}
+
 	
 
 }

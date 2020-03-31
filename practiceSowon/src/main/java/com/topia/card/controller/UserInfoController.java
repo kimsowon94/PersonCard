@@ -1,6 +1,7 @@
 
 package com.topia.card.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -133,6 +134,25 @@ public class UserInfoController
 		map.put("skillList", skillList);
 		
 		return map;
+		
+	}
+	
+	@RequestMapping(value="/card/personCardUpdate.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Map personCardUpdate(UserInfoVO vo) throws Exception
+	{
+		HashMap<String, String> result = new HashMap<String, String>();
+		System.out.println("controller = " + vo.getUserIdx());
+		int num = userInfoService.personCardUpdate(vo);
+		
+		if(num == 1) {
+			result.put("result", "success");
+		}else if(num < 1) {
+			result.put("result", "fail");
+		}
+
+
+		return result;
 		
 	}
 }

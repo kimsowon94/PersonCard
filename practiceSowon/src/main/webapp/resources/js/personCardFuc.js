@@ -170,6 +170,9 @@ function fnPersonInfo(userIdx) {
 		success : function(data) {
 			resetInput();
 			$("#pageNo1").val("1");
+			$("#status").val("update");
+			$("#userIdx").val(userIdx);
+			
 			userInfoDetail(data.userInfo);
 			eduDetailList(data.eduDetailList);
 			qualifiDetailList(data.qualifiList);
@@ -190,6 +193,8 @@ function fnPersonInfo(userIdx) {
 	});
 
 }
+
+
 function userInfoDetail(userInfo) {
 
 	if (userInfo.userEmail != null) {
@@ -220,7 +225,7 @@ function userInfoDetail(userInfo) {
 }
 	
 function eduDetailList(eduList) {
-	$("#eduNum").val(eduList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	$("#eduNum").val(eduList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var eduTable = $(".edu-table");
 	var html = "";
 	
@@ -263,7 +268,7 @@ function eduDetailList(eduList) {
 }
 
 function qualifiDetailList(qualifiList) {
-	$("#qaulifiNum").val(qualifiList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	$("#qaulifiNum").val(qualifiList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var qualifiTable = $(".qualifi-table");
 	var html = "";
 	
@@ -295,7 +300,7 @@ function qualifiDetailList(qualifiList) {
 }
 
 function careerDetailList(careerList) {
-	$("#careerNum").val(careerList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	$("#careerNum").val(careerList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var careerTable = $(".career-info");
 	var html = "";
 	
@@ -329,7 +334,7 @@ function careerDetailList(careerList) {
 }
 
 function trainingDetailList(trainList) {
-	$("#trainNum").val(trainList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	$("#trainNum").val(trainList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var trainTable = $(".training-table");
 	var html = "";
 	
@@ -361,7 +366,7 @@ function trainingDetailList(trainList) {
 }
 
 function licenDetailList(licenList){
-	$("#licenNum").val(licenList.length); // 경력 리스트 갯수만큼 career hidden값 넣기
+	$("#licenNum").val(licenList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var licenTable = $(".licen-table");
 	var html = "";
 	
@@ -378,7 +383,7 @@ function licenDetailList(licenList){
 }
 
 function skillDetailList(skillList) {
-	$("#skillNum").val(skillList.length);
+	$("#skillNum").val(skillList.length-1);
 	var skillTable = $(".skill-inventory-table");
 	var html = "";
 	
@@ -1042,6 +1047,7 @@ function resetInput() {
 
 	$("input, select").not(notElementId).val("");
 	$("textarea").not(notElementId).text("");
+	$("#status").val("status");
 
 	$(defaltId).val("0");
 
@@ -1061,6 +1067,7 @@ function resize($obj) {
 //작성상태변경
 function modeChange(gubun) {
 
+	
 	if (gubun == "NEW") { // 새 이력작성
 		if (confirm("새 이력을 작성하시겠습니까?")) {
 			resetInput(); // 모든 입력 창 리셋
@@ -1070,6 +1077,7 @@ function modeChange(gubun) {
 			/*$("#status").val("new");*/
 			$("#userSocialSecunum").prop("disabled", false);
 			$(".user-info-list-pannel").css("background-color", "#ebf2f1");
+			$("#status").val("status");
 		}
 	}
 }

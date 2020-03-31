@@ -152,5 +152,25 @@
 		WHERE USER_IDX = #{userIdx}
 	</select>
 	
+	<update id="userInfoUpdate">
+		UPDATE USER_INFO set USER_REGISTER_DATE = to_date(sysdate, 'yy-mm-dd')
+	                   		 	,USER_NAME = #{userName}
+	                   		 	,USER_SEX = #{userSex}
+			                    ,USER_COMP = #{userComp}
+			                    ,USER_COMP_ENTERDATE = #{userCompEnterdate}
+			                    ,USER_DEPT = #{userDept}
+			                    ,USER_SPOT = #{userSpot}
+			                    ,USER_ARMY_SERV = #{userArmyServ}
+			                    ,USER_MARITAL_STATUS = #{userMaritalStatus}
+			                    ,USER_ARMY_SERV_ENTER = #{userArmyServEnter}
+			                    ,USER_ARMY_SERV_LEAVE = #{userArmyServLeave}
+			                    ,USER_ARMY_SERV_PERIOD = #{userArmyServPeriod}
+			                    ,USER_TELNUM_WIRED = #{userTelnumWired}
+			                    ,USER_TELNUM_WIRELESS = #{userTelnumWireless}
+			                    ,USER_EMAIL = #{userEmail}
+			                    ,USER_ZIPCODE = #{userZipcode}
+			                    ,USER_ADDRESS = #{userAddress}
+	            WHERE USER_IDX = #{userIdx}
+	</update>
 	
 </mapper>
