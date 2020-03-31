@@ -54,4 +54,7 @@ public interface UserInfoDAO
 	
 	// 회사정보 디테일
 	public List<UserInfoCareerVO> careerDetailList(Integer userIdx);
+	
+	// 교육정보 디테일
+	public List<UserInfoTrainingVO> trainingDetailList(Integer userIdx);
 }

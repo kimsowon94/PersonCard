@@ -25,8 +25,12 @@
          ,#{trainingEndDate}
          ,#{trainingAgency}
          )
-		
-		
 	</insert>
+	
+	<select id="trainingDetailList" resultMap="UserInfoTrainingVO">
+		SELECT TRAINING_NAME,TO_CHAR(TO_DATE(TRAINING_STARTDATE),'YYYY-MM-DD') AS TRAINING_STARTDATE,TO_CHAR(TO_DATE(TRAINING_ENDDATE),'YYYY-MM-DD') AS TRAINING_ENDDATE,TRAINING_AGENCY
+		FROM USER_INFO_TRAINING
+		WHERE USER_IDX = #{userIdx}
+	</select>
 </mapper>
 	

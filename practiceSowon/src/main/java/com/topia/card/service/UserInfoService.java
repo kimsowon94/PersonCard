@@ -28,12 +28,15 @@ public interface UserInfoService
 	public UserInfoVO userInfoDetail(UserInfoVO vo) throws Exception;
 	
 	// 학교정보 디테일
-	public List<UserInfoEduVO> eduDetailList(Integer userIdx);
+	public List<UserInfoEduVO> eduDetailList(Integer userIdx)throws Exception;
 	
 	// 자격증명 디테일
-	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx);
+	public List<UserInfoQualifiVO> qualifiDetailList(Integer userIdx)throws Exception;
 	
 	// 회사정보 디테일
-	public List<UserInfoCareerVO> careerDetailList(Integer userIdx);
+	public List<UserInfoCareerVO> careerDetailList(Integer userIdx)throws Exception;
+	
+	// 교육정보 디테일
+	public List<UserInfoTrainingVO> trainingDetailList(Integer userIdx)throws Exception;
 
 }
