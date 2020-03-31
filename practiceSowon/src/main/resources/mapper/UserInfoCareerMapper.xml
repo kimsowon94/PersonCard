@@ -23,7 +23,7 @@
 		,TO_CHAR(CAREER_LEAVEDATE,'YYYY-MM-DD')
 		,CAREER_SPOT
 		,CAREER_RESPONSIB)
-		VALUES 
+		VALUES  
 		(
 		  #{careerIdx}
 		 ,#{userIdx}
