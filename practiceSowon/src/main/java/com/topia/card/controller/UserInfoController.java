@@ -122,6 +122,7 @@ public class UserInfoController
 		List<UserInfoCareerVO> careerList = userInfoService.careerDetailList(vo.getUserIdx());
 		List<UserInfoTrainingVO> trainList = userInfoService.trainingDetailList(vo.getUserIdx());
 		List<UserInfoLicenVO> licenList = userInfoService.licenDetailList(vo.getUserIdx());
+		List<UserInfoSkillVO> skillList = userInfoService.skillDetailList(vo.getUserIdx());
 		
 		map.put("userInfo", userInfo);
 		map.put("eduDetailList", eduList);
@@ -129,6 +130,7 @@ public class UserInfoController
 		map.put("careerList",careerList);
 		map.put("trainList", trainList);
 		map.put("licenList", licenList);
+		map.put("skillList", skillList);
 		
 		return map;
 		

@@ -49,4 +49,23 @@
 		 )
 	</insert>
 	
+	<select id="skillDetailList" resultMap="UserInfoSkillVO">
+		SELECT SKILL_PROJECT_NAME
+		     ,TO_CHAR(SKILL_STARTDATE, 'YYYY-MM-DD') AS SKILL_STARTDATE
+		     ,TO_CHAR(SKILL_ENDDATE, 'YYYY-MM-DD') AS SKILL_ENDDATE
+		     ,SKILL_CUSTOMER_COMP
+		     ,SKILL_WORK_COMP
+		     ,SKILL_APPLIED
+		     ,SKILL_INDUSTRY
+		     ,SKILL_ROLE
+		     ,SKILL_MODEL
+		     ,SKILL_OS
+		     ,SKILL_LANG
+		     ,SKILL_DBMS
+		     ,SKILL_COMM
+		     ,SKILL_TOOL
+		     ,SKILL_ETC
+		FROM USER_INFO_SKILL
+		WHERE USER_IDX = #{userIdx}
+	</select>
 </mapper>

@@ -42,4 +42,6 @@ public interface UserInfoService
 	// 어학정보 디테일
 	public List<UserInfoLicenVO> licenDetailList(Integer userIdx) throws Exception;
 
+	// 스킬 디테일
+	public List<UserInfoSkillVO> skillDetailList(Integer userIdx) throws Exception;
 }

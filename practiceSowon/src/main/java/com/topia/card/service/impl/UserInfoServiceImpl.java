@@ -124,5 +124,11 @@ public class UserInfoServiceImpl implements UserInfoService
 	public List<UserInfoLicenVO> licenDetailList(Integer userIdx) throws Exception {
 		return userInfoDao.licenDetailList(userIdx);
 	}
+
+
+	@Override
+	public List<UserInfoSkillVO> skillDetailList(Integer userIdx) throws Exception {
+		return userInfoDao.skillDetailList(userIdx);
+	}
 	
 }

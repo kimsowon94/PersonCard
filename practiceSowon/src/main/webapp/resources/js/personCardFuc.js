@@ -176,7 +176,7 @@ function fnPersonInfo(userIdx) {
 			careerDetailList(data.careerList);
 			trainingDetailList(data.trainList)
 			licenDetailList(data.licenList);
-
+			skillDetailList(data.skillList);
 		},
 		error : function(request, status, error) { // 통신 에러시
 			alert("code : " + request.status + "\r\nmessage : "
@@ -376,6 +376,50 @@ function licenDetailList(licenList){
 	licenTable.find("tbody").html(html);
 	removeBtn();
 }
+
+function skillDetailList(skillList) {
+	$("#skillNum").val(skillList.length);
+	var skillTable = $(".skill-inventory-table");
+	var html = "";
+	
+	for(var i = 0; i < skillList.length; i++){
+		html += '<tr>' +
+					'<td><textarea data="skillProjectName" name="skillList[' + i + '].skillProjectName" class="skillProjectName">' + skillList[i].skillProjectName + '</textarea></td>' +
+					'<td><input type="text" data="skillStartDate" name="skillList[' + i + '].skillStartDate" class="skillStartDate dateInput prevDate" value="' + skillList[i].skillStartDate + '"></td>' +
+					'<td><input type="text" data="skillEndDate" name="skillList[' + i + '].skillEndDate" class="skillEndDate dateInput laterDate" value="' + skillList[i].skillEndDate + '"></td>' +
+					'<td><textarea data="skillCustomerComp" name="skillList[' + i + '].skillCustomerComp" class="skillCustomerComp">' + skillList[i].skillCustomerComp + '</textarea></td>' +
+					'<td><textarea data="skillWorkComp" name="skillList[' + i + '].skillWorkComp" class="skillWorkComp">' + skillList[i].skillWorkComp + '</textarea></td>' +
+					'<td><textarea data="skillIndustry" name="skillList[' + i + '].skillIndustry" class="skillIndustry">' + skillList[i].skillIndustry + '</textarea></td>' +
+					'<td><textarea data="skillApplied" name="skillList[' + i + '].skillApplied" class="skillApplied">' + skillList[i].skillApplied + '</textarea></td>' +
+					'<td><textarea data="skillRole" name="skillList[' + i + '].skillRole" class="skillRole">' + skillList[i].skillRole + '</textarea></td>' +
+					'<td><textarea data="skillModel" name="skillList[' + i + '].skillModel" class="skillModel">' + skillList[i].skillModel + '</textarea></td>' +
+					'<td><textarea data="skillOs" name="skillList[' + i + '].skillOs" class="skillOs">' + skillList[i].skillOs + '</textarea></td>' +
+					'<td><textarea data="skillLang" name="skillList[' + i + '].skillLang" class="skillLang">' + skillList[i].skillLang + '</textarea></td>' +
+					'<td><textarea data="skillDbms" name="skillList[' + i + '].skillDbms" class="skillDbms">' + skillList[i].skillDbms + '</textarea></td>' +
+					'<td><textarea data="skillTool" name="skillList[' + i + '].skillTool" class="skillTool">' + skillList[i].skillTool + '</textarea></td>' +
+					'<td><textarea data="skillComm" name="skillList[' + i + '].skillComm" class="skillComm">' + skillList[i].skillComm + '</textarea></td>' +
+					'<td><textarea data="skillEtc" name="skillList[' + i + '].skillEtc" class="skillEtc">' + skillList[i].skillEtc + '</textarea></td>' +
+					'<td style="display:none;" class="removeTrBtn"><button type="button" id="skillBtn' + i + '"  class="skill">-</button></td>' +
+				'</tr>';
+	}
+	$(".dateInput").datepicker(
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	skillTable.find("tbody").html(html);
+	removeBtn();
+
+}
+
+
 function searchYear() {
 	$("#getUserCountByCareerDate").css("display", "none");
 	$("#userInfoList").css("display", "block");
