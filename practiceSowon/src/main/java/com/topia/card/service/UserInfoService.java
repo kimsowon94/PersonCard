@@ -15,7 +15,7 @@ public interface UserInfoService
 	public int personCardInsert(UserInfoVO vo, UserInfoEduVO eduVo, UserInfoLicenVO LicenVo
 			  , UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception;
 	
-	public int personCardUpdate(UserInfoVO vo)throws Exception;
+	public int personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO)throws Exception;
 	// 불러오기
 	public List<UserInfoVO> userInfoRead(UserInfoVO vo) throws Exception;
 	

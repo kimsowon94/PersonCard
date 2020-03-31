@@ -28,4 +28,9 @@
 		FROM USER_INFO_QUALIFI
 		WHERE USER_IDX = #{userIdx}
 	</select>
+	
+	<delete id="userInfoQualifiDelete">
+		DELETE USER_INFO_QUALIFI
+		WHERE USER_IDX = #{userIdx}
+	</delete>
 </mapper>

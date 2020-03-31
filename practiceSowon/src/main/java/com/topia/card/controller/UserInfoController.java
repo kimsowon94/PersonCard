@@ -139,11 +139,11 @@ public class UserInfoController
 	
 	@RequestMapping(value="/card/personCardUpdate.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Map personCardUpdate(UserInfoVO vo) throws Exception
+	public Map personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO) throws Exception
 	{
 		HashMap<String, String> result = new HashMap<String, String>();
 		System.out.println("controller = " + vo.getUserIdx());
-		int num = userInfoService.personCardUpdate(vo);
+		int num = userInfoService.personCardUpdate(vo, eduVO,qualifiVO);
 		
 		if(num == 1) {
 			result.put("result", "success");

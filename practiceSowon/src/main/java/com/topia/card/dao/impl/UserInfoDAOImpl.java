@@ -114,6 +114,19 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		return sqlsession.update("UserInfoDAO.userInfoUpdate", vo);
 	}
 
+
+	@Override
+	public void userInfoEduDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoEduDelete", userIdx);
+		
+	}
+
+	@Override
+	public void userInfoQaulifiDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoQualifiDelete", userIdx);
+		
+	}
+
 	
 
 }

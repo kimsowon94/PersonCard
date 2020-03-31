@@ -263,8 +263,11 @@ function eduDetailList(eduList) {
 				+ i + '"  class="edu">-</button></td>' + '</tr>';
 	}
 
+	
 	eduTable.find("tbody").html(html);
 	removeBtn();
+	
+	$("#eduBtn0").parent().remove();
 }
 
 function qualifiDetailList(qualifiList) {
@@ -272,31 +275,33 @@ function qualifiDetailList(qualifiList) {
 	var qualifiTable = $(".qualifi-table");
 	var html = "";
 	
-	for (var i = 0; i < qualifiList.length; i++) {
+	for (var i = 0; i < qualifiList.length; i++) 
+	{
+		
 		html += '<tr>' +
 		'<td><input type="text" data="qualifiName" name="qualifiList[' + i + '].qualifiName" class="qualifiName" value="' + qualifiList[i].qualifiName + '"></td>' +
-		'<td><input type="text" data="qualifiGetdate" name="qualifiList[' + i + '].qualifiGetdate" class="qualifiGetdate dateInput" value="' + qualifiList[i].qualifiGetDate + '"></td>' +
+		'<td><input type="text" data="qualifiGetDate" name="qualifiList[' + i + '].qualifiGetDate" class="qualifiGetDate dateInput" value="' + qualifiList[i].qualifiGetDate + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="qualifiBtn' + i + '"  class="qualifi">-</button></td>' +
-	'</tr>';
+		'</tr>';
+		
+		$(".dateInput").datepicker(
+		{
+			showMonthAfterYear : true,
+			changeMonth : true,
+			changeYear : true,
+			dateFormat : "yy-mm-dd",
+			dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+					'7월', '8월', '9월', '10월', '11월', '12월' ],
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+					'8월', '9월', '10월', '11월', '12월' ],
+		});
 		
 	}
 	
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
-
-	
 	 qualifiTable.find("tbody").html(html);
 	 removeBtn();
+	 $("#qualifiBtn0").parent().remove();
 }
 
 function careerDetailList(careerList) {
@@ -330,6 +335,7 @@ function careerDetailList(careerList) {
 	
 	careerTable.find("tbody").html(html);
 	removeBtn();
+	$("#careerBtn0").parent().remove();
 	
 }
 
@@ -362,6 +368,7 @@ function trainingDetailList(trainList) {
 	
 	trainTable.find("tbody").html(html);
 	removeBtn();
+	$("#trainingBtn0").parent().remove();
 	
 }
 
@@ -380,6 +387,7 @@ function licenDetailList(licenList){
 	}
 	licenTable.find("tbody").html(html);
 	removeBtn();
+	$("#licenBtn0").parent().remove();
 }
 
 function skillDetailList(skillList) {
@@ -421,6 +429,8 @@ function skillDetailList(skillList) {
 	});
 	skillTable.find("tbody").html(html);
 	removeBtn();
+	
+	$("#skillBtn0").parent().remove();
 
 }
 
@@ -484,7 +494,7 @@ function eduSchoolPlus() {
 			+ "<td>월</td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn edu'>-</button></td>"
 			+ "</tr>"
-
+			
 	$(".edu-table").find("tbody").append(a);
 
 	removeBtn();
@@ -503,7 +513,7 @@ function qualifiPlus() {
 			+ "<td><input type='text' data='qualifiName' class='qualifiName' name='qualifiList["
 			+ num
 			+ "].qualifiName'></td>"
-			+ "<td><input type='text' data='qualifiGetdate' class='qualifiGetdate dateInput' name='qualifiList["
+			+ "<td><input type='text' data='qualifiGetDate' class='qualifiGetDate dateInput' name='qualifiList["
 			+ num
 			+ "].qualifiGetDate'></td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn qualifi'>-</button></td>"

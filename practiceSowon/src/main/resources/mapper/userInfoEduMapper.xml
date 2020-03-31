@@ -32,4 +32,9 @@
 		FROM USER_INFO_EDU
 		WHERE USER_IDX = #{userIdx}
 	</select>
+	
+	<delete id="userInfoEduDelete">
+		DELETE USER_INFO_EDU
+		WHERE USER_IDX = #{userIdx}
+	</delete>
 </mapper>

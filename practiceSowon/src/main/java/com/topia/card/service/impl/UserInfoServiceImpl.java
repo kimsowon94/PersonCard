@@ -73,10 +73,26 @@ public class UserInfoServiceImpl implements UserInfoService
 
 
 	@Override
-	public int personCardUpdate(UserInfoVO vo) throws Exception {
+	public int personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO) throws Exception {
 		int num = 0;
 		
 		num = userInfoDao.personCardUpdate(vo);
+		
+		userInfoDao.userInfoEduDelete(vo.getUserIdx());
+		userInfoDao.userInfoQaulifiDelete(vo.getUserIdx());
+		if(num == 1)
+		{
+			for (UserInfoEduVO i : eduVO.getEduList()) 
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoEduInsert(i);
+			}
+			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoQualifiInsert(i);
+			}
+		}
 		
 		return num;
 	}

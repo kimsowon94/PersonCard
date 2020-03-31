@@ -66,4 +66,10 @@ public interface UserInfoDAO
 	
 	// 기본정보 update
 	public int personCardUpdate(UserInfoVO vo) throws Exception;
+	
+	// 학교정보 update
+	void userInfoEduDelete(Integer userIdx) throws Exception;
+	
+	// 자격증명 update
+	void userInfoQaulifiDelete(Integer userIdx)throws Exception;
 }
