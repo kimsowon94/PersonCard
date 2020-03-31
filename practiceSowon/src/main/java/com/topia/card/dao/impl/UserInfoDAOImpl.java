@@ -127,6 +127,12 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		
 	}
 
+	@Override
+	public void userInfoCareerDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoCareerDelete", userIdx);
+		
+	}
+
 	
 
 }

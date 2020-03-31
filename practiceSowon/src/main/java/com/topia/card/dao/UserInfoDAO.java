@@ -72,4 +72,7 @@ public interface UserInfoDAO
 	
 	// 자격증명 update
 	void userInfoQaulifiDelete(Integer userIdx)throws Exception;
+	
+	// 회사정보 update
+	void userInfoCareerDelete(Integer userIdx)throws Exception;
 }
