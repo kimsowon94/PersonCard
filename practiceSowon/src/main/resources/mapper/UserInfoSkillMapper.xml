@@ -68,4 +68,9 @@
 		FROM USER_INFO_SKILL
 		WHERE USER_IDX = #{userIdx}
 	</select>
+	
+	<delete id="userInfoSkillDelete">
+		DELETE USER_INFO_SKILL
+		WHERE USER_IDX = #{userIdx}
+	</delete>
 </mapper>

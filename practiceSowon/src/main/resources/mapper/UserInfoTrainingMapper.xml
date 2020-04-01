@@ -32,5 +32,10 @@
 		FROM USER_INFO_TRAINING
 		WHERE USER_IDX = #{userIdx}
 	</select>
+	
+	<delete id="userInfoTrainingDelete">
+		DELETE USER_INFO_TRAINING
+		WHERE USER_IDX = #{userIdx}
+	</delete>
 </mapper>
 	

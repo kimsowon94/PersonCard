@@ -75,4 +75,13 @@ public interface UserInfoDAO
 	
 	// 회사정보 update
 	void userInfoCareerDelete(Integer userIdx)throws Exception;
+	
+	// 교육정보 update
+	void userInfoTrainingDelete(Integer userIdx)throws Exception;
+	
+	// 어학정보 update
+	void userInfoLicenDelete(Integer userIdx)throws Exception;
+	
+	// 스킬정보 update
+	void userInfoSkillDelete(Integer userIdx)throws Exception;
 }

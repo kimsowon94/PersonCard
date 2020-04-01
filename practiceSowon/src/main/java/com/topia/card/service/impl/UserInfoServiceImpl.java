@@ -52,7 +52,6 @@ public class UserInfoServiceImpl implements UserInfoService
 			}
 			for (UserInfoSkillVO i : skillVO.getSkillList())
 			{
-				System.out.println(i.getSkillDbms());
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoSkillInsert(i);
 			}
@@ -66,6 +65,11 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoLicenInsert(i);
 			}
+			for (UserInfoSkillVO i : skillVO.getSkillList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoSkillInsert(i);
+			}
 		}
 		
 		return num;
@@ -73,7 +77,8 @@ public class UserInfoServiceImpl implements UserInfoService
 
 
 	@Override
-	public int personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO, UserInfoCareerVO careerVO) throws Exception {
+	public int personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO
+			, UserInfoCareerVO careerVO, UserInfoTrainingVO trainingVO, UserInfoLicenVO licenVO, UserInfoSkillVO skillVO) throws Exception {
 		int num = 0;
 		
 		num = userInfoDao.personCardUpdate(vo);
@@ -81,6 +86,9 @@ public class UserInfoServiceImpl implements UserInfoService
 		userInfoDao.userInfoEduDelete(vo.getUserIdx());
 		userInfoDao.userInfoQaulifiDelete(vo.getUserIdx());
 		userInfoDao.userInfoCareerDelete(vo.getUserIdx());
+		userInfoDao.userInfoTrainingDelete(vo.getUserIdx());
+		userInfoDao.userInfoLicenDelete(vo.getUserIdx());
+		userInfoDao.userInfoSkillDelete(vo.getUserIdx());
 		if(num == 1)
 		{
 			for (UserInfoEduVO i : eduVO.getEduList()) 
@@ -97,6 +105,21 @@ public class UserInfoServiceImpl implements UserInfoService
 			{
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoCareerInsert(i);
+			}
+			for (UserInfoTrainingVO i : trainingVO.getTrainList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.UserInfoTrainingInsert(i);
+			}
+			for (UserInfoLicenVO i : licenVO.getLicenList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoLicenInsert(i);
+			}
+			for (UserInfoSkillVO i : skillVO.getSkillList())
+			{
+				i.setUserIdx(vo.getUserIdx());
+				userInfoDao.userInfoSkillInsert(i);
 			}
 		}
 		

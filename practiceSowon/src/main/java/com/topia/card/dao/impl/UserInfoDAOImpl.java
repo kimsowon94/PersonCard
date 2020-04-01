@@ -133,6 +133,23 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		
 	}
 
+	@Override
+	public void userInfoTrainingDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoTrainingDelete",userIdx);
+		
+	}
+
+	@Override
+	public void userInfoLicenDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoLicenDelete", userIdx);
+		
+	}
+
+	@Override
+	public void userInfoSkillDelete(Integer userIdx) throws Exception {
+		sqlsession.delete("UserInfoDAO.userInfoSkillDelete", userIdx);
+	}
+
 	
 
 }

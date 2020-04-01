@@ -352,7 +352,11 @@ function trainingDetailList(trainList) {
 					'<td><input type="text" data="trainingAgency" name="trainList[' + i + '].trainingAgency" class="trainingAgency" value="' + trainList[i].trainingAgency + '"></td>' +
 					'<td style="display:none;" class="removeTrBtn train"><button type="button" id="trainingBtn' + i + '"  class="training">-</button></td>' +
 				'</tr>';
+		
 	}
+	
+	
+	trainTable.find("tbody").html(html);
 	$(".dateInput").datepicker(
 	{
 		showMonthAfterYear : true,
@@ -365,8 +369,6 @@ function trainingDetailList(trainList) {
 		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
 				'8월', '9월', '10월', '11월', '12월' ],
 	});
-	
-	trainTable.find("tbody").html(html);
 	removeBtn();
 	$("#trainingBtn0").parent().remove();
 	
@@ -518,21 +520,21 @@ function qualifiPlus() {
 			+ "].qualifiGetDate'></td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn qualifi'>-</button></td>"
 			+ "</tr>";
-	$(".qualifi-table").find("tbody").append(a);
+	
 
 	$(".dateInput").datepicker(
-			{
-				showMonthAfterYear : true,
-				changeMonth : true,
-				changeYear : true,
-				dateFormat : "yy-mm-dd",
-				dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-						'7월', '8월', '9월', '10월', '11월', '12월' ],
-				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-						'8월', '9월', '10월', '11월', '12월' ],
-			});
-
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	$(".qualifi-table").find("tbody").append(a);
 	removeBtn();
 
 }
@@ -564,21 +566,21 @@ function careerPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn career'>-</button></td>"
 			+ "</tr>";
 
-	$(".career-info").find("tbody").append(a);
+	
 
 	$(".dateInput").datepicker(
-			{
-				showMonthAfterYear : true,
-				changeMonth : true,
-				changeYear : true,
-				dateFormat : "yy-mm-dd",
-				dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-						'7월', '8월', '9월', '10월', '11월', '12월' ],
-				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-						'8월', '9월', '10월', '11월', '12월' ],
-			});
-
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	$(".career-info").find("tbody").append(a);
 	removeBtn();
 
 }
@@ -606,21 +608,22 @@ function trainPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn train'>-</button></td>"
 			+ "</tr>"
 
-	$(".training-table").find("tbody").append(a);
+	
 
 	$(".dateInput").datepicker(
-			{
-				showMonthAfterYear : true,
-				changeMonth : true,
-				changeYear : true,
-				dateFormat : "yy-mm-dd",
-				dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-						'7월', '8월', '9월', '10월', '11월', '12월' ],
-				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-						'8월', '9월', '10월', '11월', '12월' ],
-			});
-
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	
+	$(".training-table").find("tbody").append(a);
 	removeBtn();
 
 }
@@ -642,21 +645,21 @@ function licenPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn licen'>-</button></td>"
 			+ "</tr>";
 
-	$(".licen-table").find("tbody").append(a);
+	
 
 	$(".dateInput").datepicker(
-			{
-				showMonthAfterYear : true,
-				changeMonth : true,
-				changeYear : true,
-				dateFormat : "yy-mm-dd",
-				dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-						'7월', '8월', '9월', '10월', '11월', '12월' ],
-				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-						'8월', '9월', '10월', '11월', '12월' ],
-			});
-
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	$(".licen-table").find("tbody").append(a);
 	removeBtn();
 }
 
@@ -717,21 +720,21 @@ function skillPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn skill'>-</button></td>"
 			+ "</tr>";
 
-	$(".skill-inventory-table").find("tbody").append(a);
+	
 
 	$(".dateInput").datepicker(
-			{
-				showMonthAfterYear : true,
-				changeMonth : true,
-				changeYear : true,
-				dateFormat : "yy-mm-dd",
-				dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-						'7월', '8월', '9월', '10월', '11월', '12월' ],
-				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-						'8월', '9월', '10월', '11월', '12월' ],
-			});
-
+	{
+		showMonthAfterYear : true,
+		changeMonth : true,
+		changeYear : true,
+		dateFormat : "yy-mm-dd",
+		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월' ],
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+				'8월', '9월', '10월', '11월', '12월' ],
+	});
+	$(".skill-inventory-table").find("tbody").append(a);
 	removeBtn();
 }
 
