@@ -19,8 +19,8 @@
 		(CAREER_IDX
 		,USER_IDX
 		,CAREER_COMP_NAME
-		,TO_CHAR(CAREER_ENTERDATE,'YYYY-MM-DD')
-		,TO_CHAR(CAREER_LEAVEDATE,'YYYY-MM-DD')
+		,CAREER_ENTERDATE
+		,CAREER_LEAVEDATE
 		,CAREER_SPOT
 		,CAREER_RESPONSIB)
 		VALUES  
@@ -28,8 +28,8 @@
 		  #{careerIdx}
 		 ,#{userIdx}
 		 ,#{careerCompName}
-		 ,#{careerEnterDate}
-		 ,#{careerLeaveDate} 
+		 ,TO_CHAR(TO_DATE(#{careerEnterDate}),'YYYY-MM-DD')
+		 ,TO_CHAR(TO_DATE(#{careerLeaveDate}),'YYYY-MM-DD')
 		 ,#{careerSpot}
 		 ,#{careerResponsib}
 		)
