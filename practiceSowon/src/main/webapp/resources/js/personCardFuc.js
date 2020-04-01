@@ -225,6 +225,10 @@ function userInfoDetail(userInfo) {
 }
 	
 function eduDetailList(eduList) {
+	var emptyCheck = isEmpty(eduList);
+	if(emptyCheck){
+		return;
+	}
 	$("#eduNum").val(eduList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var eduTable = $(".edu-table");
 	var html = "";
@@ -271,10 +275,17 @@ function eduDetailList(eduList) {
 }
 
 function qualifiDetailList(qualifiList) {
+
 	$("#qaulifiNum").val(qualifiList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var qualifiTable = $(".qualifi-table");
 	var html = "";
 	
+	var emptyCheck = isEmpty(qualifiList);
+	if(emptyCheck){
+		fnDatePicker(qualifiTable);
+		return;
+	}
+
 	for (var i = 0; i < qualifiList.length; i++) 
 	{
 		
@@ -283,30 +294,25 @@ function qualifiDetailList(qualifiList) {
 		'<td><input type="text" data="qualifiGetDate" name="qualifiList[' + i + '].qualifiGetDate" class="qualifiGetDate dateInput" value="' + qualifiList[i].qualifiGetDate + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="qualifiBtn' + i + '"  class="qualifi">-</button></td>' +
 		'</tr>';
-		
-		$(".dateInput").datepicker(
-		{
-			showMonthAfterYear : true,
-			changeMonth : true,
-			changeYear : true,
-			dateFormat : "yy-mm-dd",
-			dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-					'7월', '8월', '9월', '10월', '11월', '12월' ],
-			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-					'8월', '9월', '10월', '11월', '12월' ],
-		});
-		
+
 	}
 	
 	 qualifiTable.find("tbody").html(html);
+	 fnDatePicker(qualifiTable);
 	 removeBtn();
 	 $("#qualifiBtn0").parent().remove();
 }
 
 function careerDetailList(careerList) {
-	$("#careerNum").val(careerList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var careerTable = $(".career-info");
+	var emptyCheck = isEmpty(careerList);
+	if(emptyCheck){		
+		fnDatePicker(careerTable);
+		return;
+	}
+	
+	$("#careerNum").val(careerList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
+	
 	var html = "";
 	
 	for (var i = 0; i < careerList.length; i++) {
@@ -318,22 +324,11 @@ function careerDetailList(careerList) {
 		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerResponsib + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +
 		'</tr>';
+		
 	}
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
 
-	
 	careerTable.find("tbody").html(html);
+	fnDatePicker(careerTable);
 	removeBtn();
 	$("#careerBtn0").parent().remove();
 	
@@ -343,41 +338,44 @@ function trainingDetailList(trainList) {
 	$("#trainNum").val(trainList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var trainTable = $(".training-table");
 	var html = "";
-	
+	var emptyCheck = isEmpty(trainList);
+	if(emptyCheck){
+		fnDatePicker(trainTable);
+		return;
+	}
+
 	for(var i = 0; i < trainList.length; i++){
 		html += '<tr>' +
 					'<td><input type="text" data="trainingName" name="trainList[' + i + '].trainingName" class="trainingName" value="' + trainList[i].trainingName + '"></td>' +
 					'<td><input type="text" data="trainingStartDate" name="trainList[' + i + '].trainingStartDate" class="trainingStartDate dateInput prevDate" value="' + trainList[i].trainingStartDate + '"></td>' +
 					'<td><input type="text" data="trainingEndDate" name="trainList[' + i + '].trainingEndDate" class="trainingEndDate dateInput laterDate" value="' + trainList[i].trainingEndDate + '"></td>' +
 					'<td><input type="text" data="trainingAgency" name="trainList[' + i + '].trainingAgency" class="trainingAgency" value="' + trainList[i].trainingAgency + '"></td>' +
-					'<td style="display:none;" class="removeTrBtn train"><button type="button" id="trainingBtn' + i + '"  class="training">-</button></td>' +
+					'<td><button type="button" style="display:none;" class="removeTrBtn train" id="trainingBtn' + i + '"  class="training">-</button></td>' +
 				'</tr>';
+		
 		
 	}
 	
 	
 	trainTable.find("tbody").html(html);
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
-	removeBtn();
+	
+	fnDatePicker(trainTable);
 	$("#trainingBtn0").parent().remove();
+	
+	removeBtn();
 	
 }
 
 function licenDetailList(licenList){
+	
 	$("#licenNum").val(licenList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var licenTable = $(".licen-table");
 	var html = "";
+	
+	var emptyCheck = isEmpty(licenList);
+	if(emptyCheck){
+		return;
+	}
 	
 	for(var i = 0; i < licenList.length; i++){
 		html += '<tr>' +
@@ -394,8 +392,14 @@ function licenDetailList(licenList){
 
 function skillDetailList(skillList) {
 	$("#skillNum").val(skillList.length-1);
-	var skillTable = $(".skill-inventory-table");
+	var skillTable = $("#skill_table");
 	var html = "";
+	
+	var emptyCheck = isEmpty(skillList);
+	if(emptyCheck){
+		fnDatePicker(skillTable);
+		return;
+	}
 	
 	for(var i = 0; i < skillList.length; i++){
 		html += '<tr>' +
@@ -417,19 +421,9 @@ function skillDetailList(skillList) {
 					'<td style="display:none;" class="removeTrBtn"><button type="button" id="skillBtn' + i + '"  class="skill">-</button></td>' +
 				'</tr>';
 	}
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
+	
 	skillTable.find("tbody").html(html);
+	fnDatePicker(skillTable);
 	removeBtn();
 	
 	$("#skillBtn0").parent().remove();
@@ -508,7 +502,7 @@ function qualifiPlus() {
 
 	var qualifiNum = $("#qualifiNum").val();
 	var num = parseInt(qualifiNum) + 1;
-
+	var qualifiTable = $(".qualifi-table");
 	$("#qualifiNum").val(num);
 
 	a = "<tr>"
@@ -521,20 +515,8 @@ function qualifiPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn qualifi'>-</button></td>"
 			+ "</tr>";
 	
-
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
 	$(".qualifi-table").find("tbody").append(a);
+	fnDatePicker(qualifiTable);
 	removeBtn();
 
 }
@@ -544,6 +526,7 @@ function careerPlus() {
 	var a = "";
 	var careerNum = $("#careerNum").val();
 	var num = parseInt(careerNum) + 1;
+	var careerTable = $(".career-info");
 
 	$("#careerNum").val(num);
 
@@ -567,20 +550,9 @@ function careerPlus() {
 			+ "</tr>";
 
 	
-
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
 	$(".career-info").find("tbody").append(a);
+	fnDatePicker(careerTable);
+	
 	removeBtn();
 
 }
@@ -590,6 +562,7 @@ function trainPlus() {
 
 	var trainNum = $("#trainNum").val();
 	var num = parseInt(trainNum) + 1;
+	var trainTable = $(".training-table")
 	$("#trainNum").val(num);
 
 	a = "<tr>"
@@ -607,23 +580,10 @@ function trainPlus() {
 			+ "].trainingAgency'></td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn train'>-</button></td>"
 			+ "</tr>"
-
-	
-
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
-	
+			
 	$(".training-table").find("tbody").append(a);
+
+	fnDatePicker(trainTable);
 	removeBtn();
 
 }
@@ -632,6 +592,7 @@ function licenPlus() {
 	var a = "";
 	var licenNum = $("#licenNum").val();
 	var num = parseInt(licenNum) + 1;
+	var licenTable = $(".licen-table");
 
 	$("#licenNum").val(num);
 
@@ -645,21 +606,10 @@ function licenPlus() {
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn licen'>-</button></td>"
 			+ "</tr>";
 
-	
-
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
 	$(".licen-table").find("tbody").append(a);
+
+	fnDatePicker(licenTable);
+
 	removeBtn();
 }
 
@@ -668,6 +618,7 @@ function skillPlus() {
 	var a = "";
 	var skillNum = $("#skillNum").val();
 	var num = parseInt(skillNum) + 1;
+	var skillTable = $("#skill_table");
 
 	$("#skillNum").val(num);
 
@@ -721,20 +672,8 @@ function skillPlus() {
 			+ "</tr>";
 
 	
-
-	$(".dateInput").datepicker(
-	{
-		showMonthAfterYear : true,
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd",
-		dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-				'7월', '8월', '9월', '10월', '11월', '12월' ],
-		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-				'8월', '9월', '10월', '11월', '12월' ],
-	});
 	$(".skill-inventory-table").find("tbody").append(a);
+	fnDatePicker(skillTable);
 	removeBtn();
 }
 
@@ -861,7 +800,7 @@ function removeBtn() {
 	$(".train").unbind().click(function() {
 		var $btnSelf = $(this);
 		var $parentTr = $btnSelf.parent().parent();
-
+		
 		var trainCnt = $("#trainNum").val();
 		var minCnt = parseInt(trainCnt) - 1;
 		$("#trainNum").val(minCnt);
@@ -1093,6 +1032,22 @@ function modeChange(gubun) {
 			$("#status").val("status");
 		}
 	}
+}
+
+function fnDatePicker(picker) {
+	picker.find("tr").find(".dateInput").attr("id","").removeClass('hasDatepicker').datepicker({
+        showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+          ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+          ,changeYear: true //콤보박스에서 년 선택 가능
+          ,changeMonth: true //콤보박스에서 월 선택 가능                              
+          ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+          ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+          ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+          ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+          ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+        ,dateFormat: 'yy-mm-dd' //Input Display Format 변경
+     });   // datepicker 재정의
+	
 }
 
 

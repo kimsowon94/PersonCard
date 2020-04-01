@@ -28,6 +28,7 @@
 
 <script src="./resources/js/personCard.js" charset="UTF-8"></script>
 <script src="./resources/js/personCardFuc.js" charset="UTF-8"></script>
+<script src="./resources/js/util.js" charset="UTF-8"></script>
 <!-- 주소찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -414,7 +415,7 @@
 
 			<input type="hidden" value="0" id="skillNum">
 			<div class="skill-inventory-table-pannel">
-				<table class="skill-inventory-table flexibleTable" tb="skill">
+				<table class="skill-inventory-table flexibleTable" id="skill_table"tb="skill">
 					<thead>
 						<tr>
 							<td rowspan="2">프로젝트명<br>업무명

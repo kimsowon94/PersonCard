@@ -22,24 +22,26 @@ public class UserInfoServiceImpl implements UserInfoService
 	@Autowired
 	UserInfoDAO userInfoDao;
 	
-	
+
 	@Override
 	public int personCardInsert(UserInfoVO vo, UserInfoEduVO eduVo
 			  , UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO, UserInfoTrainingVO trainingVO
 			  , UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception 
 	{
-		// TODO Auto-generated method stub
 		int num = 0;
 		
 		num = userInfoDao.personCardInsert(vo);
-			    
+			 
+		
 		if(num == 1)
 		{
 			for (UserInfoEduVO i : eduVo.getEduList()) 
 			{
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoEduInsert(i);
+				
 			}
+			
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
 				i.setUserIdx(vo.getUserIdx());
@@ -70,7 +72,10 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoSkillInsert(i);
 			}
-		}
+			
+		}	
+			
+			
 		
 		return num;
 	}
@@ -95,6 +100,7 @@ public class UserInfoServiceImpl implements UserInfoService
 			{
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoEduInsert(i);
+						
 			}
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
