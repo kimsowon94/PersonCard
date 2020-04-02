@@ -28,7 +28,7 @@
 
 <script src="./resources/js/personCard.js" charset="UTF-8"></script>
 <script src="./resources/js/personCardFuc.js" charset="UTF-8"></script>
-<script src="./resources/js/util.js" charset="UTF-8"></script>
+<script src="../resources/js/util.js" charset="UTF-8"></script>
 <!-- 주소찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 

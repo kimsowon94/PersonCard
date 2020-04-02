@@ -395,12 +395,13 @@ function skillDetailList(skillList) {
 	var skillTable = $("#skill_table");
 	var html = "";
 	
+
 	var emptyCheck = isEmpty(skillList);
 	if(emptyCheck){
 		fnDatePicker(skillTable);
 		return;
 	}
-	
+
 	for(var i = 0; i < skillList.length; i++){
 		html += '<tr>' +
 					'<td><textarea data="skillProjectName" name="skillList[' + i + '].skillProjectName" class="skillProjectName">' + skillList[i].skillProjectName + '</textarea></td>' +

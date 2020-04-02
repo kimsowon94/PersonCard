@@ -32,8 +32,8 @@
 		  #{skillIdx}
 		 ,#{userIdx}
 		 ,#{skillProjectName}
-		 ,#{skillStartDate}
-		 ,#{skillEndDate}
+		 ,TO_CHAR(TO_DATE(#{skillStartDate}),'YYYY-MM-DD')
+		 ,TO_CHAR(TO_DATE(#{skillEndDate}),'YYYY-MM-DD')
 		 ,#{skillCustomerComp}
 		 ,#{skillWorkComp}
 		 ,#{skillApplied}
