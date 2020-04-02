@@ -12,6 +12,8 @@
 <script
 	src="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.js"></script>
 <script src="./resources/compnent/jqueryPrint/jqueryPrint.js"></script>
+<script src="./resources/compnent/jqueryPrint/jquery.PrintArea.js_4.js"></script>
+<script src="./resources/compnent/jqueryPrint/jquery.printElement.js"></script>
 <!-- <script src="./resources/js/util/util.js"></script> -->
 <!-- <link rel="stylesheet" href="/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -46,11 +48,12 @@
 	text-align: center;
 	border: 2px solid #000;
 }
+
 </style>
 </head>
 
 
-<body>
+<body id="innerDiv">
 
 	<div class="custom-loading">
 		<div class="loading-image"></div>
@@ -68,12 +71,12 @@
 				<h5>※ 새 이력 작성</h5>
 			</div>
 
-			<div class="function-btn-pannel">
-				<button class="printBtn">출력</button>
+			<div class="function-btn-pannel" id="function-btn-pannel">
+				<button class="printBtn" id="printBtn" name="printBtn" onclick="fnPrint()">출력</button>
 				<button type="button" class="personalHistoryListBtn"
 					onclick="callBackList()">불러오기</button>
 				<button type="button" onclick="modeChange('NEW')" class="newHistoryCreateBtn">새로작성</button>
-				<button class="personalHistoryResetBtn">초기화</button>
+				<!-- <button class="personalHistoryResetBtn">초기화</button> -->
 				<button type="button" class="personalHistorySaveBtn">저장</button>
 			</div>
 		</div>
@@ -240,7 +243,7 @@
 
 					</table>
 
-					<div class="add-row-btn-pannel">
+					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
 						<button type="button" class="add-row-btn addRowBtn"
 							onclick="eduSchoolPlus()">+</button>
 					</div>
@@ -271,7 +274,7 @@
 
 					</table>
 
-					<div class="add-row-btn-pannel">
+					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
 						<button type="button" class="add-row-btn addRowBtn"
 							onclick="qualifiPlus()">+</button>
 					</div>
@@ -322,7 +325,7 @@
 					</tbody>
 				</table>
 
-				<div class="add-row-btn-pannel">
+				<div class="add-row-btn-pannel" id="add-row-btn-pannel">
 					<button type="button" class="add-row-btn addRowBtn"
 						onclick="careerPlus()">+</button>
 				</div>
@@ -391,8 +394,8 @@
 						</tbody>
 					</table>
 
-					<div class="add-row-btn-pannel">
-						<button type="button" class="add-row-btn addRowBtn"
+					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
+						<button type="button" class="add-row-btn addRowBtn" 
 							onclick="licenPlus()">+</button>
 					</div>
 
@@ -479,7 +482,7 @@
 					</tbody>
 				</table>
 
-				<div class="add-row-btn-pannel">
+				<div class="add-row-btn-pannel" id="add-row-btn-pannel">
 					<button type="button" class="add-row-btn addRowBtn"
 						onclick="skillPlus()">+</button>
 				</div>

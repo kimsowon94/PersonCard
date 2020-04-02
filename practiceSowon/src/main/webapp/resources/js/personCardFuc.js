@@ -1056,4 +1056,16 @@ function fnDatePicker(picker) {
 	
 }
 
+function fnPrint() 
+{
+	document.getElementById("function-btn-pannel").style.display ="none";
+	document.getElementById("personalZipcodeSearchBtn").style.display ="none";
+	$(".addRowBtn").css("display","none");
+	$("select").replaceWith("<input type='text");
+	$(".dateInput").removeAttr("class");
+	
+	window.print();
+	location.reload();
+}
+
 
