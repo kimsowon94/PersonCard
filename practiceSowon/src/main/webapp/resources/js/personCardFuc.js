@@ -229,7 +229,8 @@ function eduDetailList(eduList) {
 	if(emptyCheck){
 		return;
 	}
-	$("#eduNum").val(eduList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
+	if(eduList.length > 0){$("#eduNum").val(eduList.length-1); }
+	
 	var eduTable = $(".edu-table");
 	var html = "";
 	
@@ -276,7 +277,6 @@ function eduDetailList(eduList) {
 
 function qualifiDetailList(qualifiList) {
 
-	$("#qaulifiNum").val(qualifiList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var qualifiTable = $(".qualifi-table");
 	var html = "";
 	
@@ -285,6 +285,8 @@ function qualifiDetailList(qualifiList) {
 		fnDatePicker(qualifiTable);
 		return;
 	}
+	
+	if(qualifiList.length>0){$("#qaulifiNum").val(qualifiList.length-1);}
 
 	for (var i = 0; i < qualifiList.length; i++) 
 	{
@@ -310,8 +312,7 @@ function careerDetailList(careerList) {
 		fnDatePicker(careerTable);
 		return;
 	}
-	
-	$("#careerNum").val(careerList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
+	if(careerList.length>0){$("#careerNum").val(careerList.length-1);}
 	
 	var html = "";
 	
@@ -335,7 +336,6 @@ function careerDetailList(careerList) {
 }
 
 function trainingDetailList(trainList) {
-	$("#trainNum").val(trainList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
 	var trainTable = $(".training-table");
 	var html = "";
 	var emptyCheck = isEmpty(trainList);
@@ -343,6 +343,7 @@ function trainingDetailList(trainList) {
 		fnDatePicker(trainTable);
 		return;
 	}
+	if(trainList.length>0){$("#trainNum").val(trainList.length-1);}
 
 	for(var i = 0; i < trainList.length; i++){
 		html += '<tr>' +
@@ -368,7 +369,7 @@ function trainingDetailList(trainList) {
 
 function licenDetailList(licenList){
 	
-	$("#licenNum").val(licenList.length-1); // 경력 리스트 갯수만큼 career hidden값 넣기
+	
 	var licenTable = $(".licen-table");
 	var html = "";
 	
@@ -376,6 +377,8 @@ function licenDetailList(licenList){
 	if(emptyCheck){
 		return;
 	}
+	
+	if(licenList.length>0){$("#licenNum").val(licenList.length-1);}
 	
 	for(var i = 0; i < licenList.length; i++){
 		html += '<tr>' +
@@ -391,7 +394,7 @@ function licenDetailList(licenList){
 }
 
 function skillDetailList(skillList) {
-	$("#skillNum").val(skillList.length-1);
+	
 	var skillTable = $("#skill_table");
 	var html = "";
 	
@@ -401,6 +404,8 @@ function skillDetailList(skillList) {
 		fnDatePicker(skillTable);
 		return;
 	}
+	
+	if(skillList.length>0){$("#skillNum").val(skillList.length-1);}
 
 	for(var i = 0; i < skillList.length; i++){
 		html += '<tr>' +
@@ -533,19 +538,19 @@ function careerPlus() {
 
 	a = "<tr>"
 			+ "<td><input type='text' data='careerCompName' class='careerCompName' name='careerList["
-			+ careerNum
+			+ num
 			+ "].careerCompName'></td>"
 			+ "<td><input type='text' data='careerEnterDate' class='careerEnterDate dateInput prevDate' name='careerList["
-			+ careerNum
+			+ num
 			+ "].careerEnterDate'></td>"
 			+ "<td><input type='text' data='careerLeaveDate' class='careerLeaveDate dateInput laterDate' name='careerList["
-			+ careerNum
+			+ num
 			+ "].careerLeaveDate'></td>"
 			+ "<td><input type='text' data='careerSpot' class='careerSpot' name='careerList["
-			+ careerNum
+			+ num
 			+ "].careerSpot'></td>"
 			+ "<td><input type='text' data='careerResponsib' class='careerResponsib' name='careerList["
-			+ careerNum
+			+ num
 			+ "].careerResponsib'></td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn career'>-</button></td>"
 			+ "</tr>";

@@ -289,7 +289,7 @@
 
 
 
-			<input type="hidden" id="careerNum" value="1">
+			<input type="hidden" id="careerNum" value="0">
 			<div class="career-info-pannel">
 				<table class="career-info flexibleTable" tb="career">
 					<thead>
@@ -308,7 +308,7 @@
 						<tr>
 							<td><input type="text" data="careerCompName"
 								class="careerCompName" name="careerList[0].careerCompName"></td>
-							<td><input type="text" data="careerEnterDate"
+							<td><input type="text" data="careerEnterDate" 
 								class="careerEnterDate dateInput prevDate"
 								name="careerList[0].careerEnterDate"></td>
 							<td><input type="text" data="careerLeaveDate"

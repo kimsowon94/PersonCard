@@ -143,6 +143,10 @@ public class UserInfoServiceImpl implements UserInfoService
 				{
 					continue;
 				}
+				
+				System.out.println("서비스 입사일 = " + i.getCareerEnterDate());
+				System.out.println("서비스 퇴사일 = " + i.getCareerLeaveDate());
+				
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoCareerInsert(i);
 			}

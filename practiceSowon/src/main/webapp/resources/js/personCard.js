@@ -53,6 +53,7 @@ $(document).ready(function() {
 			}
 			else
 			{
+				
 				var $frm = $(".main1 :input");
 				var param = $frm.serialize();
 				
