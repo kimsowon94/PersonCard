@@ -109,14 +109,10 @@ public class UserInfoServiceImpl implements UserInfoService
 		
 		num = userInfoDao.personCardUpdate(vo);
 		
-		userInfoDao.userInfoEduDelete(vo.getUserIdx());
-		userInfoDao.userInfoQaulifiDelete(vo.getUserIdx());
-		userInfoDao.userInfoCareerDelete(vo.getUserIdx());
-		userInfoDao.userInfoTrainingDelete(vo.getUserIdx());
-		userInfoDao.userInfoLicenDelete(vo.getUserIdx());
-		userInfoDao.userInfoSkillDelete(vo.getUserIdx());
+		
 		if(num == 1)
 		{
+			userInfoDao.userInfoEduDelete(vo.getUserIdx());
 			for (UserInfoEduVO i : eduVO.getEduList()) 
 			{
 				if (i.getEduSchoolName().equals("") && i.getEduStatus().equals("") && i.getEduYear().equals("") && i.getEduMonth().equals("")) 
@@ -127,6 +123,7 @@ public class UserInfoServiceImpl implements UserInfoService
 				userInfoDao.userInfoEduInsert(i);
 						
 			}
+			userInfoDao.userInfoQaulifiDelete(vo.getUserIdx());
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
 				if (i.getQualifiName().equals("") && i.getQualifiGetDate().equals("")) 
@@ -136,6 +133,7 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoQualifiInsert(i);
 			}
+			userInfoDao.userInfoCareerDelete(vo.getUserIdx());
 			for (UserInfoCareerVO i: careerVO.getCareerList())
 			{
 				if (i.getCareerCompName().equals("") && i.getCareerEnterDate().equals("") && i.getCareerLeaveDate().equals("") 
@@ -150,6 +148,7 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoCareerInsert(i);
 			}
+			userInfoDao.userInfoTrainingDelete(vo.getUserIdx());
 			for (UserInfoTrainingVO i : trainingVO.getTrainList())
 			{
 				if (i.getTrainingAgency().equals("") && i.getTrainingEndDate().equals("") && i.getTrainingName().equals("") && i.getTrainingStartDate().equals("")) 
@@ -159,6 +158,7 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.UserInfoTrainingInsert(i);
 			}
+			userInfoDao.userInfoLicenDelete(vo.getUserIdx());
 			for (UserInfoLicenVO i : licenVO.getLicenList())
 			{
 				if (i.getLicenName().equals("") && i.getLicenSkillLevel().equals("")) 
@@ -168,6 +168,7 @@ public class UserInfoServiceImpl implements UserInfoService
 				i.setUserIdx(vo.getUserIdx());
 				userInfoDao.userInfoLicenInsert(i);
 			}
+			userInfoDao.userInfoSkillDelete(vo.getUserIdx());
 			for (UserInfoSkillVO i : skillVO.getSkillList())
 			{
 				if (i.getSkillApplied().equals("") && i.getSkillComm().equals("") && i.getSkillCustomerComp().equals("") && i.getSkillDbms().equals("")

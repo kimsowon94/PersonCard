@@ -49,6 +49,15 @@
 	border: 2px solid #000;
 }
 
+@media print {
+	#user-info-list-pannel {
+		background: #FFFFFF;
+	}
+	table, td,tr{
+		border: 1px solid;
+		border-collapse: collapse;
+	}
+}
 </style>
 </head>
 
@@ -507,7 +516,7 @@
 					<option value="userComp">소속회사</option>
 					<option value="userDept">부서</option>
 				</select> 
-				<input type="text" id="userListSearchWord" name="userListSearchWord"> 
+				<input type="text" id="userListSearchWord" name="userListSearchWord" onkeypress="if( event.keyCode == 13 ){callBackList('searchBtn');}"> 
 				
 				<select id="userCareerLength" name="userCareerLength">
 					<option value="">경력사항</option>
