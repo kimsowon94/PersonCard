@@ -286,7 +286,7 @@ function qualifiDetailList(qualifiList) {
 		return;
 	}
 	
-	if(qualifiList.length>0){$("#qaulifiNum").val(qualifiList.length-1);}
+	if(qualifiList.length>0){$("#qualifiNum").val(qualifiList.length-1);}
 
 	for (var i = 0; i < qualifiList.length; i++) 
 	{
