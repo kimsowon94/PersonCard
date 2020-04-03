@@ -268,8 +268,11 @@ function eduDetailList(eduList) {
 				+ i + '"  class="edu">-</button></td>' + '</tr>';
 	}
 
-	
 	eduTable.find("tbody").html(html);
+	for (var i = 0; i < eduList.length; i++) {
+		$("select[name='eduList[" + i + "].eduStatus'").val(eduList[i].eduStatus);
+	}
+	
 	removeBtn();
 	
 	$("#eduBtn0").parent().remove();
