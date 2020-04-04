@@ -1071,4 +1071,4 @@ function fnPrint()
 	location.reload();
 }
 
-
+// 월요일날 스크립트 처리를 해볼까?ㅋㅋㅋ
