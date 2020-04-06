@@ -1,67 +1,56 @@
 /*우편번호 찾기 (주소 찾기)*/
 function openDaumZipAddress() {
-
-	new daum.Postcode({
-
-		oncomplete : function(data) {
-
+	new daum.Postcode({oncomplete : function(data) {
 			$("#userZipcode").val(data.zonecode);
-
 			$("#userAddress").val(data.address);
-
-			console.log(data);
-
+			/*console.log(data);*/
 		}
-
 	}).open();
 }
 
+
 /* 유효성검사 */
 var crossCheck = function() {
-
 	/* 현재 날짜 구하기 */
 	let date = new Date();
-
+	
 	/* 현재날짜 구하기 */
 	var year = date.getFullYear();
 	var month = new String(date.getMonth() + 1);
 	var day = new String(date.getDate());
-
 	var sysdate = year + month + day;
-
+	
 	/* (입사일) 변수에 담기 */
 	var userCompEnterdate = $("#userCompEnterdate").val();
-
+	
 	/* 하이픈 삭제를 위하여 split()처리를 하며 split()처리 시 배열에 담김 */
 	var compEnterArr = userCompEnterdate.split("-");
-
+	
 	/* 배열에 있는 값을 각각 변수에 담는 작업 */
 	var compEnterYear = compEnterArr[0]
 	var compEnterMonth = parseInt(compEnterArr[1]);
 	var compEnterDay = compEnterArr[2];
-
 	var compEnterDate = compEnterYear + compEnterMonth + compEnterDay;
 
 	/* (입대일, 제대일) 변수에 담기 */
 	var userArmyServEnter = $("#userArmyServEnter").val();
 	var userArmyServLeave = $("#userArmyServLeave").val();
+	
 	/* 하이픈 삭제를 위하여 split()처리를 하며 split()처리 시 배열에 담김 */
 	var armyServEnterArr = userArmyServEnter.split("-");
 	var armyServLeaveArr = userArmyServLeave.split("-");
+	
 	/* 배열에 있는 값을 각각 변수에 담는 작업 */
 	var armyServEnterYear = armyServEnterArr[0]
 	var armyServEnterMonth = parseInt(armyServEnterArr[1]);
 	var armyServEnterDay = armyServEnterArr[2];
-
 	var armyServLeaveYear = armyServLeaveArr[0];
 	var armyServLeaveMonth = parseInt(armyServLeaveArr[1]);
 	var armyServLeaveDay = armyServLeaveArr[2];
+	var armyServEnterDate = armyServEnterYear + armyServEnterMonth+ armyServEnterDay;
+	var armyServLeaveDate = armyServLeaveYear + armyServLeaveMonth+ armyServLeaveDay;
 
-	var armyServEnterDate = armyServEnterYear + armyServEnterMonth
-			+ armyServEnterDay;
-	var armyServLeaveDate = armyServLeaveYear + armyServLeaveMonth
-			+ armyServLeaveDay;
-
+	/*이름과 주민등록번호 필수 입력사항 조건*/
 	if ($("#userName").val() == "" || $("#userSocialSecunum").val() == "") {
 		alert("필수사항 입력이 누락되었습니다.")
 		return false;
@@ -74,9 +63,9 @@ var crossCheck = function() {
 			return false;
 		}
 	}
-
+	
+	/* 제대일이 입대일을 초과할 수 없다는 조건 */
 	if (userArmyServEnter != "" && userArmyServLeave != "") {
-		/* 제대일이 입대일을 초과할 수 없다는 조건 */
 		if (armyServEnterDate > armyServLeaveDate) {
 			alert("제대일이 입대일보다 앞설 수 없습니다.");
 			return false;
@@ -89,27 +78,25 @@ var crossCheck = function() {
 	var addEmail = userEmail + emailDomain;
 
 	if (userEmail != "") {
-
-		if ($("#emailDomain option:first").prop("selected") == true
-				|| $("#emailDomain option:last").prop("selected") == true) {
+     
+		if ($("#emailDomain option:first").prop("selected") == true	|| $("#emailDomain option:last").prop("selected") == true) 
+		{
 			$("#userEmail").val(userEmail);
 		} else {
 			$("#userEmail").val(addEmail);
 		}
 	}
-
 	return true;
-
 }
 
-function pageCh(pageNo1) {
+function pageCh(pageNo1){
 	$("#pageNo1").val(pageNo1);
 	callBackList();
 }
 
+
 /* 불러오기 버튼 */
 function callBackList(gubun) {
-
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display", "block");
 	$("#userInfoList").css("display", "none");
@@ -119,13 +106,6 @@ function callBackList(gubun) {
 	if (gubun == "searchBtn") {
 		$("#pageNo1").val("1");
 	}
-
-	/*
-	 * var userInfoDataSize = $("#userInfoDataSize").val();
-	 * $("#userInfoPageSize").val(userInfoDataSize);
-	 */
-
-	/* var userInfoPageSize = $("userInfoPageSize").val(); */
 
 	var params = $("#userInfoRead").serialize();
 
@@ -153,9 +133,9 @@ function callBackList(gubun) {
 	$(".pop-user-top-btn-pannel").click(function() {
 		$("#drag-ele1").hide();
 	})
-
 }
 
+/*불러온 데이터 뿌리기*/ 
 function fnPersonInfo(userIdx) {
 	$("#drag-ele1").css("display", "none");
 	$(".top-header-pannel").find("h5").text("※ 등록번호 : " + userIdx + "(수정)");
@@ -194,9 +174,9 @@ function fnPersonInfo(userIdx) {
 
 }
 
-
+/*user_info 데이터 뿌리기*/
 function userInfoDetail(userInfo) {
-
+	/*뿌려온 데이터중 이메일 정보 @분리하기*/
 	if (userInfo.userEmail != null) {
 		var email_domain = userInfo.userEmail.split("@");
 		var email = email_domain[0];
@@ -223,7 +203,8 @@ function userInfoDetail(userInfo) {
 	$("#userAddress").val(userInfo.userAddress);
 
 }
-	
+
+/*edu_info 데이터 뿌리기 */
 function eduDetailList(eduList) {
 	var emptyCheck = isEmpty(eduList);
 	if(emptyCheck){
@@ -272,12 +253,11 @@ function eduDetailList(eduList) {
 	for (var i = 0; i < eduList.length; i++) {
 		$("select[name='eduList[" + i + "].eduStatus'").val(eduList[i].eduStatus);
 	}
-	
 	removeBtn();
-	
 	$("#eduBtn0").parent().remove();
 }
 
+/*qualifis 데이터 뿌리기 */
 function qualifiDetailList(qualifiList) {
 
 	var qualifiTable = $(".qualifi-table");
@@ -308,6 +288,7 @@ function qualifiDetailList(qualifiList) {
 	 $("#qualifiBtn0").parent().remove();
 }
 
+/*career 데이터 뿌리기*/ 
 function careerDetailList(careerList) {
 	var careerTable = $(".career-info");
 	var emptyCheck = isEmpty(careerList);
@@ -328,16 +309,15 @@ function careerDetailList(careerList) {
 		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerResponsib + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +
 		'</tr>';
-		
 	}
 
 	careerTable.find("tbody").html(html);
 	fnDatePicker(careerTable);
 	removeBtn();
 	$("#careerBtn0").parent().remove();
-	
 }
 
+/*training데이터 뿌리기 */
 function trainingDetailList(trainList) {
 	var trainTable = $(".training-table");
 	var html = "";
@@ -356,10 +336,7 @@ function trainingDetailList(trainList) {
 					'<td><input type="text" data="trainingAgency" name="trainList[' + i + '].trainingAgency" class="trainingAgency" value="' + trainList[i].trainingAgency + '"></td>' +
 					'<td><button type="button" style="display:none;" class="removeTrBtn train" id="trainingBtn' + i + '"  class="training">-</button></td>' +
 				'</tr>';
-		
-		
 	}
-	
 	
 	trainTable.find("tbody").html(html);
 	
@@ -367,12 +344,11 @@ function trainingDetailList(trainList) {
 	$("#trainingBtn0").parent().remove();
 	
 	removeBtn();
-	
 }
 
+/*licen 데이터 뿌리기*/
 function licenDetailList(licenList){
-	
-	
+		
 	var licenTable = $(".licen-table");
 	var html = "";
 	
@@ -396,6 +372,7 @@ function licenDetailList(licenList){
 	$("#licenBtn0").parent().remove();
 }
 
+/*skill데이터 뿌리기*/
 function skillDetailList(skillList) {
 	
 	var skillTable = $("#skill_table");
@@ -439,10 +416,11 @@ function skillDetailList(skillList) {
 
 }
 
-
+/*연차별 인원 구하기*/
 function searchYear() {
 	$("#getUserCountByCareerDate").css("display", "none");
 	$("#userInfoList").css("display", "block");
+	
 	
 	$.ajax({
 		type : 'POST',
@@ -462,13 +440,11 @@ function searchYear() {
 		complete : function() {
 		} // 통신을 완료한후 처리
 	});
-
 }
 
+/*eud table 행추가*/
 function eduSchoolPlus() {
-
 	var eduNum = $("#eduNum").val();
-
 	var num = parseInt(eduNum) + 1;
 
 	$("#eduNum").val(num);
@@ -506,6 +482,7 @@ function eduSchoolPlus() {
 
 }
 
+/*qualifi 테이블 행추가*/
 function qualifiPlus() {
 	var a = "";
 
@@ -530,6 +507,7 @@ function qualifiPlus() {
 
 }
 
+/*career 테이블 행추가*/
 function careerPlus() {
 
 	var a = "";
@@ -566,6 +544,7 @@ function careerPlus() {
 
 }
 
+/*taining 테이블 행추가*/
 function trainPlus() {
 	var a = "";
 
@@ -597,6 +576,7 @@ function trainPlus() {
 
 }
 
+/*licen 테이블 행추가*/
 function licenPlus() {
 	var a = "";
 	var licenNum = $("#licenNum").val();
@@ -622,6 +602,7 @@ function licenPlus() {
 	removeBtn();
 }
 
+/*skill 테이블 행추가*/
 function skillPlus() {
 
 	var a = "";
@@ -686,6 +667,7 @@ function skillPlus() {
 	removeBtn();
 }
 
+/*행삭제 버튼*/ 
 function removeBtn() {
 
 	$(".edu").unbind().click(function() {
@@ -1026,9 +1008,7 @@ function resize($obj) {
 }
 
 //작성상태변경
-function modeChange(gubun) {
-
-	
+function modeChange(gubun) {	
 	if (gubun == "NEW") { // 새 이력작성
 		if (confirm("새 이력을 작성하시겠습니까?")) {
 			resetInput(); // 모든 입력 창 리셋
@@ -1043,6 +1023,7 @@ function modeChange(gubun) {
 	}
 }
 
+/*datePicker함수*/
 function fnDatePicker(picker) {
 	picker.find("tr").find(".dateInput").attr("id","").removeClass('hasDatepicker').datepicker({
         showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
@@ -1056,9 +1037,9 @@ function fnDatePicker(picker) {
           ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
         ,dateFormat: 'yy-mm-dd' //Input Display Format 변경
      });   // datepicker 재정의
-	
 }
 
+/*프린트 클릭 시 적용된 css변경*/
 function fnPrint() 
 {
 	document.getElementById("function-btn-pannel").style.display ="none";
@@ -1070,5 +1051,3 @@ function fnPrint()
 	window.print();
 	location.reload();
 }
-
-// 월요일날 스크립트 처리를 해볼까?ㅋㅋㅋ

@@ -30,46 +30,46 @@
 	</selectKey>
 	INSERT INTO USER_INFO
 	(
-	 USER_IDX
-	,USER_REGISTER_DATE
-	,USER_NAME
-	,USER_SOCIAL_SECUNUM
-	,USER_SEX
-	,USER_COMP
-	,USER_COMP_ENTERDATE
-	,USER_DEPT
-	,USER_SPOT
-	,USER_ARMY_SERV
-	,USER_MARITAL_STATUS
-	,USER_ARMY_SERV_ENTER
-	,USER_ARMY_SERV_LEAVE
-	,USER_ARMY_SERV_PERIOD
-	,USER_TELNUM_WIRED
-	,USER_TELNUM_WIRELESS
-	,USER_EMAIL
-	,USER_ZIPCODE
-	,USER_ADDRESS)
-	VALUES 
-	(
-	#{userIdx}
-	,SYSDATE
-	,#{userName}
-	,#{userSocialSecunum}
-	,#{userSex}
-	,#{userComp}
-	,#{userCompEnterdate}
-	,#{userDept}
-	,#{userSpot}
-	,#{userArmyServ}
-	,#{userMaritalStatus}
-	,#{userArmyServEnter}
-	,#{userArmyServLeave}
-	,#{userArmyServPeriod}
-	,#{userTelnumWired}
-	,#{userTelnumWireless}
-	,#{userEmail}
-	,#{userZipcode}
-	,#{userAddress}
+		 USER_IDX
+		,USER_REGISTER_DATE
+		,USER_NAME
+		,USER_SOCIAL_SECUNUM
+		,USER_SEX
+		,USER_COMP
+		,USER_COMP_ENTERDATE
+		,USER_DEPT
+		,USER_SPOT
+		,USER_ARMY_SERV
+		,USER_MARITAL_STATUS
+		,USER_ARMY_SERV_ENTER
+		,USER_ARMY_SERV_LEAVE
+		,USER_ARMY_SERV_PERIOD
+		,USER_TELNUM_WIRED
+		,USER_TELNUM_WIRELESS
+		,USER_EMAIL
+		,USER_ZIPCODE
+		,USER_ADDRESS)
+		VALUES 
+		(
+		#{userIdx}
+		,SYSDATE
+		,#{userName}
+		,#{userSocialSecunum}
+		,#{userSex}
+		,#{userComp}
+		,#{userCompEnterdate}
+		,#{userDept}
+		,#{userSpot}
+		,#{userArmyServ}
+		,#{userMaritalStatus}
+		,#{userArmyServEnter}
+		,#{userArmyServLeave}
+		,#{userArmyServPeriod}
+		,#{userTelnumWired}
+		,#{userTelnumWireless}
+		,#{userEmail}
+		,#{userZipcode}
+		,#{userAddress}
 	)
 	</insert>
 	
@@ -105,7 +105,9 @@
 		               , USER_NAME
 		               , USER_COMP
 		               , USER_DEPT
-		               , USER_SEX, CAREER, USER_COMP_ENTERDATE 
+		               , USER_SEX
+		               , NVL(CAREER,0) AS CAREER
+		               , USER_COMP_ENTERDATE
            		 FROM USER_INFO_VIEW 
            		 <include refid="userInfoReadWhere"/>
 		 
@@ -121,10 +123,24 @@
 	</select>
 	
 	<select id="searchYear" resultMap="UserInfoVO">
-		SELECT CAREER, COUNT(USER_IDX) as userIdxCnt
+		<!-- SELECT CAREER, COUNT(USER_IDX) as userIdxCnt
 		FROM USER_INFO_VIEW
 		GROUP BY CAREER
-		ORDER BY CAREER ASC
+		ORDER BY CAREER ASC -->
+		SELECT a.CAREER, COUNT(a.USER_IDX) as userIdxCnt
+        FROM (
+       			 SELECT ROW_NUMBER() OVER(ORDER BY USER_IDX DESC) AS rnum
+               		   ,USER_IDX
+		               , USER_NAME
+		               , USER_COMP
+		               , USER_DEPT
+		               , USER_SEX
+		               , NVL(CAREER,0) AS CAREER
+		               , USER_COMP_ENTERDATE
+           		 FROM USER_INFO_VIEW 
+        	) a
+        GROUP BY a.CAREER
+		ORDER BY a.CAREER ASC
 	</select>
 	
 	<select id="userInfoDetail" resultMap="UserInfoVO">

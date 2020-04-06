@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <input type="hidden" value="${cnt }" id="userInfoCnt" name="userInfoCnt">
 <table class="pop-register-list">
-	<thead>
+	<thead>	
 		<tr>
 			<td>경력 연차</td>
 			<td>명</td>
