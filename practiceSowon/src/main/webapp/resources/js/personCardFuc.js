@@ -1051,3 +1051,42 @@ function fnPrint()
 	window.print();
 	location.reload();
 }
+
+function searchYearDetail(career) {
+	var pageNo1 = $("#pageNo1").val();
+	var userInfoDataSize = $("#userInfoDataSize").val();
+		
+	console.log("전" + career);
+
+	$.ajax({
+		type : 'POST',
+		url : '/card/searchYearDetail.do',
+		dataType : 'html',
+		data : {career : career,
+				pageNo1 : pageNo1,
+				userInfoDataSize : userInfoDataSize
+		},
+		success : function(data) {
+			$("#pageNo1").val('1');
+			$("#result_div").html(data);	
+		},
+		error : function(request, status, error) { // 통신 에러시
+			alert("code : " + request.status + "\r\nmessage : "
+					+ request.reponseText);
+		},
+		beforeSend : function() {
+		} // 통신을 시작할때 처리
+		,
+		complete : function() {
+		} // 통신을 완료한후 처리
+	});
+}
+
+
+function pageCh1(pageNo1){
+	$("#pageNo1").val(pageNo1);
+
+	searchYearDetail($("#career").val());
+
+}
+

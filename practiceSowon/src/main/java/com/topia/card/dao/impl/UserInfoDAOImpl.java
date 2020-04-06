@@ -150,6 +150,16 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		sqlsession.delete("UserInfoDAO.userInfoSkillDelete", userIdx);
 	}
 
+	@Override
+	public List<UserInfoVO> searchYearDetail(UserInfoVO vo) throws Exception {
+		return sqlsession.selectList("UserInfoDAO.searchYearDetail", vo);
+	}
+
+	@Override
+	public int searchYearCnt(String career) throws Exception {
+		return sqlsession.selectOne("UserInfoDAO.searchYearCnt", career);
+	}
+
 	
 
 }

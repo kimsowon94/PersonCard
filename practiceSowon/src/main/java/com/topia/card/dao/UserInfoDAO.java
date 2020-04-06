@@ -84,4 +84,10 @@ public interface UserInfoDAO
 	
 	// 스킬정보 update
 	void userInfoSkillDelete(Integer userIdx)throws Exception;
+	
+	// 연차별 인원 detail
+	public List<UserInfoVO> searchYearDetail(UserInfoVO vo)throws Exception;
+	
+	// 연차별 인원 cnt
+	public int searchYearCnt(String career)throws Exception;
 }

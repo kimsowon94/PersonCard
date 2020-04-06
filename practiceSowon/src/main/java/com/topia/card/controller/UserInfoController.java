@@ -82,7 +82,7 @@ public class UserInfoController
 		//페이징===================================
 		PageVO paging = new PageVO();
 		paging.setPageNo1(vo.getPageNo1()); 
-		paging.setPageSize(10); 
+		paging.setPageSize(vo.getUserInfoDataSize()); 
 		paging.setTotalCount(cnt);
 		//========================================
 		// 리스트 출력
@@ -90,7 +90,6 @@ public class UserInfoController
 
 		
 		model.addAttribute("paging", paging);
-				
 		model.addAttribute("list", list);
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("paging", paging);
@@ -153,8 +152,29 @@ public class UserInfoController
 			result.put("result", "fail");
 		}
 
-
-		return result;
+		return result;		
+	}
+	
+	
+	@RequestMapping(value = "/card/searchYearDetail.do", method = RequestMethod.POST)
+	public String searchYearDetail(UserInfoVO vo, Model model,@RequestParam(defaultValue="1") int pageNo1) throws Exception
+	{
+		List<UserInfoVO> list = new ArrayList<UserInfoVO>();
+		list = userInfoService.searchYearDetail(vo);
+		int cnt = 0;
 		
+		// 검색 갯수
+		cnt = userInfoService.searchYearCnt(vo.getCareer());
+		//페이징===================================
+		PageVO paging = new PageVO();
+		paging.setPageNo1(vo.getPageNo1()); 
+		paging.setPageSize(vo.getUserInfoDataSize()); 
+		paging.setTotalCount(cnt);
+		//========================================
+		model.addAttribute("list", list);
+		model.addAttribute("paging", paging);
+		model.addAttribute("career", vo.getCareer());
+		
+		return "searchYearDetail";	
 	}
 }

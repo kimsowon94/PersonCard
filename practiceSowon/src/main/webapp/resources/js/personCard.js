@@ -100,6 +100,27 @@ $(document).ready(function() {
 	});
 	
 
+	/*전체적인 유효성검사================================================================*/
+	$("#userName").bind("keyup", function() {
+		/* 특수문자 정규식 */
+		re1 = /[~!@\#$%^&*\()\-=+_']/gi;
+		/* 영어 + 숫자 정규식 */
+		re2 = /^[a-zA-Z0-9]*$/;
+		/*전체 공백*/
+		re3 = / /g;
+
+		var temp = $("#userName").val();
+
+		if (re1.test(temp)) {//특수문자가 포함되면 삭제하여 값으로 다시셋팅
+			$("#userName").val(temp.replace(re1, ""));
+		}
+		if (re2.test(temp)) {//숫자가 포함되면 삭제하여 값으로 다시셋팅
+			$("#userName").val(temp.replace(re2, ""));
+		}
+		if (re3.test(temp)) {//공백이 포함되면 삭제하여 값으로 다시셋팅
+			$("#userName").val(temp.replace(re3, ""));
+		}
+	})
 });
 
 

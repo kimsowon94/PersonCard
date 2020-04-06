@@ -10,7 +10,7 @@
 	</thead>
 	<tbody>		
 		<c:forEach items="${ searchYear}" var="list">
-			<tr>
+			<tr onclick="searchYearDetail('${list.career}')" id="career">
 				<td>${list.career } 년차</td>
 				<td>${list.userIdxCnt } 명</td>
 			</tr>
