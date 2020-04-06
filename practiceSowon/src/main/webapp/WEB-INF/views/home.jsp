@@ -53,63 +53,66 @@
 	#user-info-list-pannel {
 		background: #FFFFFF;
 	}
-	table, td,tr{
+	table, td, tr {
 		border: 1px solid;
 		border-collapse: collapse;
 	}
 }
 </style>
 </head>
-
-
 <body id="innerDiv">
 
 	<div class="custom-loading">
 		<div class="loading-image"></div>
 	</div>
-	<%-- 새 작성건의 경우 해당 인풋값은 비어있고 수정 및 조회건은 들어감 --%>
-	
+
+
 	<div class="user-info-list-pannel" id="user-info-list-pannel">
+	
 		<div class="personal-history-title-pannel">
 			<h3>개 인 이 력 카 드</h3>
 		</div>
 
 		<div class="top-header-pannel">
-
 			<div class="status-display-pannel">
 				<h5>※ 새 이력 작성</h5>
 			</div>
-
 			<div class="function-btn-pannel" id="function-btn-pannel">
 				<button class="printBtn" id="printBtn" name="printBtn" onclick="fnPrint()">출력</button>
-				<button type="button" class="personalHistoryListBtn"
-					onclick="callBackList()">불러오기</button>
-				<button type="button" onclick="modeChange('NEW')" class="newHistoryCreateBtn">새로작성</button>
+				<button type="button" class="personalHistoryListBtn" onclick="callBackList()">불러오기</button>
+				<button type="button" onclick="modeChange('NEW')"class="newHistoryCreateBtn">새로작성</button>
 				<!-- <button class="personalHistoryResetBtn">초기화</button> -->
 				<button type="button" class="personalHistorySaveBtn">저장</button>
-			</div>
+			</div>		
 		</div>
 
+		<!-- 데이터 전송을 위한  form태그로 감싸기  -->
 		<form class="main1">
 			<!--상태값 추가  -->
 			<input type="hidden" id="status" name="status" value="status">
-			<!-- <input type="hidden" name="userEmail" id="emailPlus"> -->
 			<input id="userIdx" name="userIdx" type="hidden">
+			<input type="hidden" id="eduNum" value="0">
+			<input type="hidden" id="qualifiNum" value="0">
+			<input type="hidden" id="careerNum" value="0">
+			<input type="hidden" id="trainNum" value="0">
+			<input type="hidden" id="licenNum" value="0">
+			<input type="hidden" value="0" id="skillNum">
+			
 			<table class="user-info-table1">
 				<tbody>
 					<tr>
 						<td>*성명</td>
 						<td><input type="text" id="userName" name="userName"></td>
 						<td>*주민등록번호</td>
-						<td colspan="3"><input type="text" name="userSocialSecunum"
-							id="userSocialSecunum" maxlength="13"
-							placeholder='  "-" 제외한 숫자만 입력'></td>
+						<td colspan="3"><input type="text" name="userSocialSecunum"	id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
 						<td>성별</td>
-						<td><select id="userSex" name="userSex">
+						<td>
+							<select id="userSex" name="userSex">
 								<option value="">선택없음</option>
 								<option value="남성">남성</option>
 								<option value="여성">여성</option>
-						</select></td>
+							</select>
+						</td>
 						<td style="display: none;" rowspan="3">
 							<div id="imgDiv">
 								<img id="thumbNail" name="thumbNail" width="120" height="120" />
@@ -134,90 +137,80 @@
 						<td>병역</td>
 						<td><input type="text" id="userArmyServ" name="userArmyServ"></td>
 						<td>결혼</td>
-						<td><select id="userMaritalStatus" name="userMaritalStatus">
+						<td>
+							<select id="userMaritalStatus" name="userMaritalStatus">
 								<option value="">선택없음</option>
 								<option value="기혼">기혼</option>
 								<option value="미혼">미혼</option>
-						</select></td>
+							</select>
+						</td>
 					</tr>
 
 					<tr>
-						<td>병역<br> 입대 ~ 제대일
-						</td>
-						<td colspan="2"><input type="text" id="userArmyServEnter"
-							class="dateInput prevDate" name="userArmyServEnter"></td>
+						<td>병역<br> 입대 ~ 제대일 </td>
+						<td colspan="2">
+							<input type="text" id="userArmyServEnter" class="dateInput prevDate" name="userArmyServEnter"></td>
 						<td>~</td>
-						<td colspan="2"><input type="text" id="userArmyServLeave"
-							class="dateInput laterDate" name="userArmyServLeave"></td>
+						<td colspan="2">
+							<input type="text" id="userArmyServLeave" class="dateInput laterDate" name="userArmyServLeave"></td>
 						<td>역종/병과</td>
-						<td><input type="text" id="userArmyServPeriod"
-							name="userArmyServPeriod"></td>
+						<td>
+							<input type="text" id="userArmyServPeriod" name="userArmyServPeriod">
+						</td>
 						<td style="display: none;"><input type="file" name="file">
 							<!-- <input type="hidden" name="userIdx" value="2"> --> <!-- <input type="hidden" name="userName" > -->
 						</td>
 					</tr>
 				</tbody>
-
 			</table>
 
-
-
-
-
-
-
 			<table class="user-info-table2">
-
 				<tbody>
 					<tr>
 						<td>전화</td>
-						<td><input type="tel" placeholder='   휴대전화 "-" 포함'
-							id="userTelnumWireless" name="userTelnumWireless"></td>
-						<td colspan="2"><input type="tel" placeholder='   유선 "-" 포함'
-							id="userTelnumWired" name="userTelnumWired"></td>
+						<td>
+							<input type="tel" placeholder='   휴대전화 "-" 포함'	id="userTelnumWireless" name="userTelnumWireless">
+						</td>
+						<td colspan="2">
+							<input type="tel" placeholder='   유선 "-" 포함'id="userTelnumWired" name="userTelnumWired">
+						</td>
 					</tr>
 
 					<tr>
 						<td>E-Mail</td>
-						<td><input type="email" id="userEmail" name="userEmail"></td>
-						<td><select type="text" id="emailDomain" style="width: 100%;"
-							name="emailDomain">
+						<td>
+							<input type="email" id="userEmail" name="userEmail">
+						</td>
+						<td>
+							<select type="text" id="emailDomain" style="width: 100%;" name="emailDomain">
 								<option disabled="disabled" selected="selected">선택하세요</option>
 								<option>@naver.com</option>
 								<option>@gmail.com</option>
 								<option>@daum.net</option>
 								<option>직접입력</option>
-						</select></td>
-						<td id="test12" style="display: none;"><input type="text"
-							id="emailDomain1" /></td>
+							</select>
+						</td>
+						<td id="test12" style="display: none;">
+							<input type="text" id="emailDomain1" />
+						</td>
 					</tr>
 
 					<tr>
 						<td>주소</td>
 						<td>
 							<div>
-								<input type="text" id="userZipcode" placeholder="우편번호"
-									name="userZipcode"> <input type="button"
-									id="personalZipcodeSearchBtn" value="우편번호 찾기"
-									onclick="openDaumZipAddress()" />
+								<input type="text" id="userZipcode" placeholder="우편번호"	name="userZipcode"> 
+								<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" 	onclick="openDaumZipAddress()" />
 								<div class="clear-pannel"></div>
 							</div>
 						</td>
-						<td colspan="2"><input type="text" id="userAddress"
-							name="userAddress" placeholder="   주소"> <!-- <input type="text" id="userAddress"> -->
+						<td colspan="2">
+							<input type="text" id="userAddress"	name="userAddress" placeholder="   주소"> 
 						</td>
 					</tr>
 				</tbody>
-
 			</table>
 
-
-
-
-
-
-			<%-- 학력 / 자격증 --%>
-			<input type="hidden" id="eduNum" value="0">
 			<div class="edu-and-qualifi-pannel">
 				<div class="edu-table-pannel">
 					<table class="edu-table flexibleTable">
@@ -231,39 +224,39 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="text" data="eduSchoolName"
-									class="eduSchoolName" name="eduList[0].eduSchoolName"></td>
-								<td><select data="eduStatus" class="eduStatus"
-									name="eduList[0].eduStatus">
+								<td>
+									<input type="text" data="eduSchoolName"	class="eduSchoolName" name="eduList[0].eduSchoolName">
+								</td>
+								<td>
+									<select data="eduStatus" class="eduStatus"	name="eduList[0].eduStatus">
 										<option value="">선택없음</option>
 										<option value="입학">입학</option>
 										<option value="재학">재학</option>
 										<option value="졸업">졸업</option>
 										<option value="졸업예정">졸업예정</option>
-								</select></td>
-								<td><input type="text" data="eduYear" placeholder=""
-									class="eduYear" name="eduList[0].eduYear"></td>
+									</select>
+								</td>
+								<td>
+									<input type="text" data="eduYear" placeholder="" class="eduYear" name="eduList[0].eduYear">
+								</td>
 								<td>년</td>
-								<td><input type="text" data="eduMonth" placeholder=""
-									class="eduMonth" name="eduList[0].eduMonth"></td>
+								<td>
+									<input type="text" data="eduMonth" placeholder="" class="eduMonth" name="eduList[0].eduMonth">
+								</td>
 								<td>월</td>
 							</tr>
 						</tbody>
-
 					</table>
-
+					
 					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
-						<button type="button" class="add-row-btn addRowBtn"
-							onclick="eduSchoolPlus()">+</button>
+						<button type="button" class="add-row-btn addRowBtn"	onclick="eduSchoolPlus()">+</button>
 					</div>
-
 				</div>
 
 
-				<input type="hidden" id="qualifiNum" value="0">
+				
 				<div class="qualifi-table-pannel">
 					<table class="qualifi-table flexibleTable" tb="qualifi">
-
 						<thead>
 							<tr>
 								<td>자격증명</td>
@@ -273,35 +266,27 @@
 
 						<tbody>
 							<tr>
-								<td><input type="text" data="qualifiName"
-									class="qualifiName" name="qualifiList[0].qualifiName"></td>
-								<td><input type="text" data="qualifiGetdate"
-									class="qualifiGetdate dateInput"
-									name="qualifiList[0].qualifiGetDate"></td>
+								<td>
+									<input type="text" data="qualifiName"class="qualifiName" name="qualifiList[0].qualifiName">
+								</td>
+								<td>
+									<input type="text" data="qualifiGetdate"class="qualifiGetdate dateInput" name="qualifiList[0].qualifiGetDate">
+								</td>
 							</tr>
 						</tbody>
-
 					</table>
 
 					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
-						<button type="button" class="add-row-btn addRowBtn"
-							onclick="qualifiPlus()">+</button>
+						<button type="button" class="add-row-btn addRowBtn"	onclick="qualifiPlus()">+</button>
 					</div>
-
 				</div>
 			</div>
 
 
 
+		<div class="clear-pannel"></div>
 
-
-
-			<div class="clear-pannel"></div>
-
-
-
-
-			<input type="hidden" id="careerNum" value="0">
+			
 			<div class="career-info-pannel">
 				<table class="career-info flexibleTable" tb="career">
 					<thead>
@@ -318,37 +303,32 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" data="careerCompName"
-								class="careerCompName" name="careerList[0].careerCompName"></td>
-							<td><input type="text" data="careerEnterDate" 
-								class="careerEnterDate dateInput prevDate"
-								name="careerList[0].careerEnterDate"></td>
-							<td><input type="text" data="careerLeaveDate"
-								class="careerLeaveDate dateInput laterDate"
-								name="careerList[0].careerLeaveDate"></td>
-							<td><input type="text" data="careerSpot" class="careerSpot"
-								name="careerList[0].careerSpot"></td>
-							<td><input type="text" data="careerResponsib"
-								class="careerResponsib" name="careerList[0].careerResponsib"></td>
+							<td>
+								<input type="text" data="careerCompName" class="careerCompName" name="careerList[0].careerCompName">
+							</td>
+							<td>
+								<input type="text" data="careerEnterDate" class="careerEnterDate dateInput prevDate" name="careerList[0].careerEnterDate">
+							</td>
+							<td>
+								<input type="text" data="careerLeaveDate"class="careerLeaveDate dateInput laterDate"name="careerList[0].careerLeaveDate">
+							</td>
+							<td>
+								<input type="text" data="careerSpot" class="careerSpot"	name="careerList[0].careerSpot">
+							</td>
+							<td>
+								<input type="text" data="careerResponsib" class="careerResponsib" name="careerList[0].careerResponsib">
+							</td>
 						</tr>
 					</tbody>
 				</table>
 
 				<div class="add-row-btn-pannel" id="add-row-btn-pannel">
-					<button type="button" class="add-row-btn addRowBtn"
-						onclick="careerPlus()">+</button>
+					<button type="button" class="add-row-btn addRowBtn"	onclick="careerPlus()">+</button>
 				</div>
-
 			</div>
 
 
-
-
-
-
-
-			<input type="hidden" id="trainNum" value="0">
-			<%-- 학력 / 자격증 --%>
+			
 			<div class="training-and-licen-pannel">
 				<div class="training-table-pannel">
 					<table class="training-table flexibleTable" tb="training">
@@ -362,28 +342,29 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="text" data="trainingName"
-									class="trainingName" name="trainList[0].trainingName"></td>
-								<td><input type="text" data="trainingStartDate"
-									class="trainingStartDate dateInput prevDate"
-									name="trainList[0].trainingStartDate"></td>
-								<td><input type="text" data="trainingEndDate"
-									class="trainingEndDate dateInput laterDate"
-									name="trainList[0].trainingEndDate"></td>
-								<td><input type="text" data="trainingAgency"
-									class="trainingAgency" name="trainList[0].trainingAgency"></td>
+								<td>
+									<input type="text" data="trainingName"class="trainingName" name="trainList[0].trainingName">
+								</td>
+								<td>
+									<input type="text" data="trainingStartDate"	class="trainingStartDate dateInput prevDate"name="trainList[0].trainingStartDate">
+								</td>
+								<td>
+									<input type="text" data="trainingEndDate"class="trainingEndDate dateInput laterDate"name="trainList[0].trainingEndDate">
+								</td>
+								<td>
+									<input type="text" data="trainingAgency"class="trainingAgency" name="trainList[0].trainingAgency">
+								</td>
 							</tr>
 						</tbody>
 					</table>
 
 					<div class="add-row-btn-pannel">
-						<button type="button" class="add-row-btn addRowBtn"
-							onclick="trainPlus()">+</button>
+						<button type="button" class="add-row-btn addRowBtn"	onclick="trainPlus()">+</button>
 					</div>
 
 				</div>
 
-				<input type="hidden" id="licenNum" value="0">
+				
 				<div class="training-table-pannel">
 					<table class="licen-table flexibleTable" tb="licen">
 						<thead>
@@ -395,39 +376,29 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="text" data="licenName" class="licenName"
-									name="licenList[0].licenName"></td>
-								<td><input type="text" data="licenSkillLevel"
-									class="licenSkillLevel" name="licenList[0].licenSkillLevel"></td>
+								<td>
+									<input type="text" data="licenName" class="licenName" name="licenList[0].licenName">
+								</td>
+								<td>
+									<input type="text" data="licenSkillLevel" class="licenSkillLevel" name="licenList[0].licenSkillLevel">
+								</td>
 							</tr>
 						</tbody>
 					</table>
 
 					<div class="add-row-btn-pannel" id="add-row-btn-pannel">
-						<button type="button" class="add-row-btn addRowBtn" 
-							onclick="licenPlus()">+</button>
+						<button type="button" class="add-row-btn addRowBtn"	onclick="licenPlus()">+</button>
 					</div>
-
 				</div>
 			</div>
- 
-
-
-
-
 
 
 			<div class="clear-pannel"></div>
 
 
-
-
-
-
-
-			<input type="hidden" value="0" id="skillNum">
+			
 			<div class="skill-inventory-table-pannel">
-				<table class="skill-inventory-table flexibleTable" id="skill_table"tb="skill">
+				<table class="skill-inventory-table flexibleTable" id="skill_table"	tb="skill">
 					<thead>
 						<tr>
 							<td rowspan="2">프로젝트명<br>업무명
@@ -455,45 +426,57 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><textarea data="skillProjectName"
-									class="skillProjectName" name="skillList[0].skillProjectName"></textarea></td>
-							<td><input type="text" data="skillStartDate"
-								class="skillStartDate dateInput prevDate"
-								name="skillList[0].skillStartDate"></td>
-							<td><input type="text" data="skillEndDate"
-								class="skillEndDate dateInput laterDate"
-								name="skillList[0].skillEndDate"></td>
-							<td><textarea data="skillCustomerComp"
-									class="skillCustomerComp" name="skillList[0].skillCustomerComp"></textarea></td>
-							<td><textarea data="skillWorkComp" class="skillWorkComp"
-									name="skillList[0].skillWorkComp"></textarea></td>
-							<td><textarea data="skillIndustry" class="skillIndustry"
-									name="skillList[0].skillIndustry"></textarea></td>
-							<td><textarea data="skillApplied" class="skillApplied"
-									name="skillList[0].skillApplied"></textarea></td>
-							<td><textarea data="skillRole" class="skillRole"
-									name="skillList[0].skillRole"></textarea></td>
-							<td><textarea data="skillModel" class="skillModel"
-									name="skillList[0].skillModel"></textarea></td>
-							<td><textarea data="skillOs" class="skillOs"
-									name="skillList[0].skillOs"></textarea></td>
-							<td><textarea data="skillLang" class="skillLang"
-									name="skillList[0].skillLang"></textarea></td>
-							<td><textarea data="skillDbms" class="skillDbms"
-									name="skillList[0].skillDbms"></textarea></td>
-							<td><textarea data="skillTool" class="skillTool"
-									name="skillList[0].skillTool"></textarea></td>
-							<td><textarea data="skillComm" class="skillComm"
-									name="skillList[0].skillComm"></textarea></td>
-							<td><textarea data="skillEtc" class="skillEtc"
-									name="skillList[0].skillEtc"></textarea></td>
+							<td>
+								<textarea data="skillProjectName"class="skillProjectName" name="skillList[0].skillProjectName"></textarea>
+							</td>
+							<td>
+								<input type="text" data="skillStartDate" class="skillStartDate dateInput prevDate"name="skillList[0].skillStartDate">
+							</td>
+							<td>
+								<input type="text" data="skillEndDate"class="skillEndDate dateInput laterDate"name="skillList[0].skillEndDate">
+							</td>
+							<td>
+								<textarea data="skillCustomerComp" class="skillCustomerComp" name="skillList[0].skillCustomerComp"></textarea>
+							</td>
+							<td>
+								<textarea data="skillWorkComp" class="skillWorkComp" name="skillList[0].skillWorkComp"></textarea>
+							</td>
+							<td>
+								<textarea data="skillIndustry" class="skillIndustry"name="skillList[0].skillIndustry"></textarea>
+							</td>
+							<td>
+								<textarea data="skillApplied" class="skillApplied"	name="skillList[0].skillApplied"></textarea>
+							</td>
+							<td>
+								<textarea data="skillRole" class="skillRole"name="skillList[0].skillRole"></textarea>
+							</td>
+							<td>
+								<textarea data="skillModel" class="skillModel" name="skillList[0].skillModel"></textarea>
+							</td>
+							<td>
+								<textarea data="skillOs" class="skillOs"name="skillList[0].skillOs"></textarea>
+							</td>
+							<td>
+								<textarea data="skillLang" class="skillLang"name="skillList[0].skillLang"></textarea>
+							</td>
+							<td>
+								<textarea data="skillDbms" class="skillDbms"name="skillList[0].skillDbms"></textarea>
+							</td>
+							<td>
+								<textarea data="skillTool" class="skillTool"name="skillList[0].skillTool"></textarea>
+							</td>
+							<td>
+								<textarea data="skillComm" class="skillComm"name="skillList[0].skillComm"></textarea>
+							</td>
+							<td>
+								<textarea data="skillEtc" class="skillEtc"	name="skillList[0].skillEtc"></textarea>
+							</td>
 						</tr>
 					</tbody>
 				</table>
 
 				<div class="add-row-btn-pannel" id="add-row-btn-pannel">
-					<button type="button" class="add-row-btn addRowBtn"
-						onclick="skillPlus()">+</button>
+					<button type="button" class="add-row-btn addRowBtn"	onclick="skillPlus()">+</button>
 				</div>
 			</div>
 		</form>
@@ -504,20 +487,17 @@
 		<form id="userInfoRead" name="userInfoRead">
 			<!-- 검색창 패널 -->
 			<div class="pop-user-search-pannel">
-	
 				<!-- <input type="hidden" id="userInfoTotalCnt">  -->
-				<input type="hidden" id="userInfoPageSize" name="userInfoPageSize" value="10"> 
-				<input type="hidden" id="pageNo1" name="pageNo1" value="1"> 
-				
-				
-				<select	id="userListSearchPeriod" name="userListSearchPeriod">
+				<input type="hidden" id="userInfoPageSize" name="userInfoPageSize"value="10"> 
+				<input type="hidden" id="pageNo1"name="pageNo1" value="1"> 
+				<select id="userListSearchPeriod"name="userListSearchPeriod">
 					<option value="">검색조건</option>
 					<option value="userName">이름</option>
 					<option value="userComp">소속회사</option>
 					<option value="userDept">부서</option>
 				</select> 
-				<input type="text" id="userListSearchWord" name="userListSearchWord" onkeypress="if( event.keyCode == 13 ){callBackList('searchBtn');}"> 
-				
+				<input type="text" id="userListSearchWord"name="userListSearchWord"	onkeypress="if( event.keyCode == 13 ){callBackList('searchBtn');}">
+
 				<select id="userCareerLength" name="userCareerLength">
 					<option value="">경력사항</option>
 					<option value="1">1년이상</option>
@@ -541,29 +521,23 @@
 					<option value="여성">여성</option>
 				</select> 
 				<input type="hidden" id="userGender" name="userGender">
-				
-				<button type="button" id="userListSearchBtn" class="user-list-search-btn" onclick="callBackList('searchBtn')">검색</button>
+
+				<button type="button" id="userListSearchBtn"class="user-list-search-btn" onclick="callBackList('searchBtn')">검색</button>
 				<div class="search-cnt-pannel">
 					<span class="search-cnt-prev">검색결과 : <b id="infoCnt"></b></span> 
-					<span class="search-cnt-cnt"></span> 
-					<span class="search-cnt-later">건</span>
+					<span class="search-cnt-cnt"></span> <span class="search-cnt-later">건</span>
 				</div>
-				<button type="button" id="getUserCountByCareerDate" name="getUserCountByCareerDate" onclick="searchYear()">연차별 인원보기</button>
-				<button type="button" id="userInfoList" name="userInfoList" onclick="callBackList('userListBtn')">전체 인원보기</button>
-				<!-- <button id="downloadExel">엑셀 다운로드</button> -->
-	
+				<button type="button" id="getUserCountByCareerDate"	name="getUserCountByCareerDate" onclick="searchYear()">연차별	인원보기</button>
+				<button type="button" id="userInfoList" name="userInfoList"	onclick="callBackList('userListBtn')">전체 인원보기</button>
 			</div>
-	
+
 			<!-- 불러오기 최소화 버튼 -->
 			<div class="pop-user-top-btn-pannel ">
 				<div class="pop-user-minimize-btn"></div>
 			</div>
-	
 			<div class="clear-pannel"></div>
-	
 			<div class="keyword-add-pannel">
-				<div
-					class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">
+				<div class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">
 					#<input maxlength="16">
 				</div>
 				<div class="pop-keyword-add-btn-pannel keywordAddPannelBtn tooltip">
@@ -572,7 +546,7 @@
 				</div>
 			</div>
 		</form>
-		
+
 		<div class="pop-register-list-pannel" id="result_div">
 			<!-- jsp파일 따로 만듬  -->
 			<!-- <table class="pop-register-list">
@@ -593,7 +567,7 @@
 
 			<div class="pop-paging-pannel"></div> -->
 		</div>
-		
+
 	</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <input type="hidden" value="${cnt }" id="userInfoCnt" name="userInfoCnt">
 <table class="pop-register-list">
@@ -30,7 +29,6 @@
 </table>
 
 <div class="pop-paging-pannel">
-
     <a href="javascript:;" class="first" onclick="pageCh('1')">처음</a>
     <a href="javascript:;" class="prev" onclick="pageCh(${paging.prevPageNo})">이전</a>
     <span>
