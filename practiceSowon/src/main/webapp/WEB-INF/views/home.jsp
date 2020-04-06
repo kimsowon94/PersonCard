@@ -14,13 +14,11 @@
 <script src="./resources/compnent/jqueryPrint/jqueryPrint.js"></script>
 <script src="./resources/compnent/jqueryPrint/jquery.PrintArea.js_4.js"></script>
 <script src="./resources/compnent/jqueryPrint/jquery.printElement.js"></script>
-<!-- <script src="./resources/js/util/util.js"></script> -->
-<!-- <link rel="stylesheet" href="/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-
+<!-- css import -->
 <link rel="stylesheet" type="text/css"
 	href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css"
@@ -28,9 +26,11 @@
 <link rel="stylesheet" type="text/css"
 	href="./resources/css/personalHistory/personalHistory.css?ver=1">
 
+<!-- js import -->
 <script src="./resources/js/personCard.js" charset="UTF-8"></script>
 <script src="./resources/js/personCardFuc.js" charset="UTF-8"></script>
 <script src="../resources/js/util.js" charset="UTF-8"></script>
+
 <!-- 주소찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
