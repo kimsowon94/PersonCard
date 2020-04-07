@@ -170,6 +170,8 @@ public class UserInfoController
 		paging.setPageNo1(vo.getPageNo1()); 
 		paging.setPageSize(vo.getUserInfoDataSize()); 
 		paging.setTotalCount(cnt);
+		
+		/* System.out.println("마지막페이지 :" + paging.getFinalPageNo()); */
 		//========================================
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);

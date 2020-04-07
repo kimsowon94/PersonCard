@@ -27,7 +27,7 @@
 		(
 		  #{careerIdx}
 		 ,#{userIdx}
-		 ,#{careerCompName}
+		 ,#{careerCompName }
 		 ,TO_CHAR(TO_DATE(#{careerEnterDate}),'YYYY-MM-DD')
 		 ,TO_CHAR(TO_DATE(#{careerLeaveDate}),'YYYY-MM-DD')
 		 ,#{careerSpot}
