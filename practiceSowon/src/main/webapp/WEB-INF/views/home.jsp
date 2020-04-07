@@ -200,7 +200,7 @@
 						<td>
 							<div>
 								<input type="text" id="userZipcode" placeholder="우편번호"	name="userZipcode"> 
-								<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" 	onclick="openDaumZipAddress()" />
+								<input type="button" id="personalZipcodeSearchBtn" value="우편번호 찾기" onclick="openDaumZipAddress()" />
 								<div class="clear-pannel"></div>
 							</div>
 						</td>

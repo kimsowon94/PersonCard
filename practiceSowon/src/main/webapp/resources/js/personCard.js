@@ -83,8 +83,7 @@ $(document).ready(function() {
 		}
 
 	});
-		
-	
+
 	/*datePicker설정*/
 	$(".dateInput").datepicker({
         showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
@@ -121,6 +120,16 @@ $(document).ready(function() {
 			$("#userName").val(temp.replace(re3, ""));
 		}
 	})
+	
+	/*주민등록번호 13자리 제한*/
+	$("#userSocialSecunum").bind("keyup", function() {
+		if($("#userSocialSecunum").val().length > 14) 
+		{
+			$(this).val($(this).val().substr(0, 14));
+			
+		}
+	});
+
 });
 
 
