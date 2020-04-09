@@ -285,7 +285,7 @@ function qualifiDetailList(qualifiList) {
 	 qualifiTable.find("tbody").html(html);
 	 fnDatePicker(qualifiTable);
 	 removeBtn();
-	 $("#qualifiBtn0").parent().remove();
+	 $("#qualifiBtn0").parent().remove(); 
 }
 
 /*career 데이터 뿌리기*/ 
