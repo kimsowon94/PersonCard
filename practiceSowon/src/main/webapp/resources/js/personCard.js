@@ -129,6 +129,50 @@ $(document).ready(function() {
 			
 		}
 	});
+	
+	$("#userTelnumWireless").on("keyup", function() {
+		if($(this).val().length >= 14) 
+		{
+			$(this).val($(this).val().substr(0, 13));					
+		}
+
+		if($(this).val().length == 11){
+			var pre = $("#userTelnumWireless").val().substring(0,3);
+			var su1 = $("#userTelnumWireless").val().substring(3,7);
+			var su2 = $("#userTelnumWireless").val().substring(7,11);
+			$(this).val(pre+"-"+su1+"-"+su2);
+		}
+	});
+	
+	
+	$("#userTelnumWired").on("keyup", function() {
+		var pre =  $("#userTelnumWired").val().substring(0,2);
+		if(pre == "02")
+		{
+			if($(this).val().length >= 13) 
+			{
+				$(this).val($(this).val().substr(0, 12));					
+			}
+			if($(this).val().length == 10){
+				var su1 = $("#userTelnumWired").val().substring(2,6);
+				var su2 = $("#userTelnumWired").val().substring(6,10);
+				$(this).val(pre+"-"+su1+"-"+su2);
+			}
+		}
+		else
+		{
+			if($(this).val().length >= 13) 
+			{
+				$(this).val($(this).val().substr(0, 12));					
+			}
+			if($(this).val().length == 10){
+				var su0 = $("#userTelnumWired").val().substring(0,3);
+				var su1 = $("#userTelnumWired").val().substring(3,6);
+				var su2 = $("#userTelnumWired").val().substring(6,10);
+				$(this).val(su0+"-"+su1+"-"+su2);
+			}
+		}
+	});
 
 });
 
