@@ -27,7 +27,7 @@ $(document).ready(function() {
 	*/
 	
 	/*저장 버튼 클릭 시 */
-	$(".personalHistorySaveBtn").on("click", function() {
+	$(".personalHistorySaveBtn").on("click", function() { 
 
 		var check = crossCheck()
 		if(check == true)
@@ -35,8 +35,7 @@ $(document).ready(function() {
 			if($("#status").val() == "status")
 			{
 				var $frm = $(".main1 :input");
-				var param = $frm.serialize();
-			
+				var param = $frm.serialize();		
 		
 				$.ajax({
 					url : "/card/personCardInsert.do",
