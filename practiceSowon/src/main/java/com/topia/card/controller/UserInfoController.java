@@ -124,7 +124,7 @@ public class UserInfoController
 		List<UserInfoLicenVO> licenList = userInfoService.licenDetailList(vo.getUserIdx());
 		List<UserInfoSkillVO> skillList = userInfoService.skillDetailList(vo.getUserIdx());
 		
-		map.put("userInfo", userInfo);
+		map.put("userInfo", userInfo); 
 		map.put("eduDetailList", eduList);
 		map.put("qualifiList", qualifiList);
 		map.put("careerList",careerList);
