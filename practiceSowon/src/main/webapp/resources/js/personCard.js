@@ -34,14 +34,22 @@ $(document).ready(function() {
 		{
 			if($("#status").val() == "status")
 			{
-				var $frm = $(".main1 :input");
-				var param = $frm.serialize();		
+				 
+				/*var $frm = $(".main1 :input");
+				var param = $frm.serialize();	*/	
+				 
+				var form = $(".main1")[0];
+				var formData = new FormData(form);
+
 		
 				$.ajax({
 					url : "/card/personCardInsert.do",
+					enctype : 'multipart/form-data',
 					dataType : "JSON",
 					type : "POST",
-					data :param,
+					processData: false,
+                    contentType: false,
+                    data: formData,
 					success : function(data, textStatus, jqXHR) 
 					{
 						alert("작성완료");

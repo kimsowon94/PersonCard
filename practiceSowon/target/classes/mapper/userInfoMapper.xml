@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserInfoDAO">
 	<resultMap type="com.topia.card.vo.UserInfoVO" id="UserInfoVO">
+		<result column="IMG_FILE" property="imgFile"/>
 		<result column="USER_IDX" property="userIdx"/>
 		<result column="USER_REGISTER_DATE" property="userRegisterDate"/>
 		<result column="USER_NAME" property="userName"/>
@@ -48,7 +49,8 @@
 		,USER_TELNUM_WIRELESS
 		,USER_EMAIL
 		,USER_ZIPCODE
-		,USER_ADDRESS)
+		,USER_ADDRESS
+		)
 		VALUES 
 		(
 		#{userIdx}

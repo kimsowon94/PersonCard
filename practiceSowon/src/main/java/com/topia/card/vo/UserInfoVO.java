@@ -1,5 +1,6 @@
 package com.topia.card.vo;
 
+import org.springframework.web.multipart.MultipartFile;
 
 public class UserInfoVO {
 	private Integer userIdx;
@@ -44,10 +45,22 @@ public class UserInfoVO {
 	//연차별 인원 카운트
 	private int userIdxCnt;
 	
+	private MultipartFile imgFile;  //파일이름
+	private String imgFileReal;	
+
 	
-		
-	
-	
+	public MultipartFile getImgFile() {
+		return imgFile;
+	}
+	public void setImgFile(MultipartFile imgFile) {
+		this.imgFile = imgFile;
+	}
+	public String getImgFileReal() {
+		return imgFileReal;
+	}
+	public void setImgFileReal(String imgFileReal) {
+		this.imgFileReal = imgFileReal;
+	}
 	public int getUserIdxCnt() {
 		return userIdxCnt;
 	}

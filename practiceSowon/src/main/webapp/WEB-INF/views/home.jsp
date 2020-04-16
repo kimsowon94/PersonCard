@@ -89,7 +89,7 @@
 		</div>
 
 		<!-- 데이터 전송을 위한  form태그로 감싸기  -->
-		<form class="main1">
+		<form class="main1" enctype="multipart/form-data">
 			<!--상태값 추가  -->
 			<input type="hidden" id="status" name="status" value="status">
 			<input id="userIdx" name="userIdx" type="hidden">
@@ -117,7 +117,7 @@
 						</td>
 						<td style="display: display: ;" rowspan="3" >
 							<div id="imgDiv">
-								<img id="thumbNail" name="thumbNail" width="120" height="140" />
+								<!-- <img id="thumbNail" name="thumbNail" width="120" height="140" /> -->
 							</div>
 						</td>
 					</tr>
@@ -159,13 +159,13 @@
 						<td>
 							<input type="text" id="userArmyServPeriod" name="userArmyServPeriod">
 						</td>
-						<td style="display: none;"><input type="file" name="file">
-							<!-- <input type="hidden" name="userIdx" value="2"> --> <!-- <input type="hidden" name="userName" > -->
-						</td>
+						<!-- <td style="display: none;"><input type="file">
+							<input type="hidden" name="userIdx" value="2"> <input type="hidden" name="userName" >
+						</td> -->
 						<td>
 							<div class="filebox"> 
-								<label for="ex_file">파일 업로드</label> 
-									<input type="file" id="ex_file"> 
+								<label for="imgFile">파일 업로드</label> 
+									<input type="file" id="imgFile" name="imgFile" onclick="fnImg()"> 
 							</div>
 
 						</td>
