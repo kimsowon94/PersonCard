@@ -1087,7 +1087,8 @@ function pageCh1(pageNo1){
 	$("#pageNo1").val(pageNo1);
 
 	searchYearDetail($("#career").val());
-
 }
 
-
+function fnImg() {
+	
+}

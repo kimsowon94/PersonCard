@@ -58,6 +58,8 @@
 		border-collapse: collapse;
 	}
 }
+.filebox label { display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+
 </style>
 </head>
 <body id="innerDiv">
@@ -113,9 +115,9 @@
 								<option value="여성">여성</option>
 							</select>
 						</td>
-						<td style="display: none;" rowspan="3">
+						<td style="display: display: ;" rowspan="3" >
 							<div id="imgDiv">
-								<img id="thumbNail" name="thumbNail" width="120" height="120" />
+								<img id="thumbNail" name="thumbNail" width="120" height="140" />
 							</div>
 						</td>
 					</tr>
@@ -159,6 +161,13 @@
 						</td>
 						<td style="display: none;"><input type="file" name="file">
 							<!-- <input type="hidden" name="userIdx" value="2"> --> <!-- <input type="hidden" name="userName" > -->
+						</td>
+						<td>
+							<div class="filebox"> 
+								<label for="ex_file">파일 업로드</label> 
+									<input type="file" id="ex_file"> 
+							</div>
+
 						</td>
 					</tr>
 				</tbody>
