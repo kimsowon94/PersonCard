@@ -1090,7 +1090,7 @@ function pageCh1(pageNo1){
 }
 
 function fnImg() {
-	var upload = document.querySelector('#imgFile');
+	var upload = document.querySelector('#imgFileReal');
     var preview = document.querySelector('#imgDiv');
  
     upload.addEventListener('change',function (e) {

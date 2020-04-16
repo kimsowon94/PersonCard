@@ -1,8 +1,11 @@
+<%@page import="com.topia.card.vo.UserInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 
+ 
+ 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
@@ -164,8 +167,8 @@
 						</td> -->
 						<td>
 							<div class="filebox"> 
-								<label for="imgFile">파일 업로드</label> 
-									<input type="file" id="imgFile" name="imgFile" onclick="fnImg()"> 
+								<label for="imgFileReal">파일 업로드</label> 
+									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()"> 
 							</div>
 
 						</td>

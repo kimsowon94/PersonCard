@@ -1,11 +1,16 @@
 
 package com.topia.card.controller;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,14 +52,19 @@ public class UserInfoController
 	@ResponseBody
 	public String personCardInsert(Locale locale, UserInfoVO vo, UserInfoEduVO eduVo
 			, UserInfoLicenVO LicenVo, UserInfoQualifiVO qualifiVO
-			, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO) throws Exception
+			, UserInfoTrainingVO trainingVO, UserInfoCareerVO careerVO, UserInfoSkillVO skillVO,HttpServletRequest request) throws Exception
 	{
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
-
-		int num = userInfoService.personCardInsert(vo, eduVo, LicenVo, qualifiVO, trainingVO, careerVO, skillVO); 
 		
+		// 파일 실제경로
+		String savePath = request.getRealPath("/resources/upload");
 		
+		String user_file	= fileUpload( vo.getImgFileReal(), savePath );	// fileUpload는 아래의 메서드로 서버에 저장할 이름을 지정하기 위해 있음
+		
+		vo.setImgFile(user_file);
+		
+		int num = userInfoService.personCardInsert(vo, eduVo, LicenVo, qualifiVO, trainingVO, careerVO, skillVO);
 		
 		result.put("success", (num > 0) ? "Y" : "N");
 		
@@ -69,6 +79,59 @@ public class UserInfoController
 
 		
 	}
+	
+	
+	private String fileUpload( MultipartFile multipartFile, String savePath ) {
+		String 	fileName = null;
+		String 	originFilename 	= multipartFile.getOriginalFilename();
+		
+		if( originFilename == null || originFilename.equals("") ) {
+			return "";
+		}
+		
+		try {
+			// 파일 정보
+			Long size = multipartFile.getSize();
+			
+			// 서버에서 저장 할 파일 이름
+			fileName = genSaveFileName(originFilename);		// 여기서 서버에 저장할 이름을 변수에 담는다.genSaveFileName은 날짜, 시간을 파일명 앞에 붙여서 저장하기 위함
+			writeFile(multipartFile, fileName, savePath);	// whiteFile은 아래아래의 메서드에서 날짜,시간을 붙인 파일을 서버에 저장하기 위함
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return fileName;
+	}
+		
+	private String genSaveFileName(String extName) {
+		String fileName = "";
+		
+		Calendar calendar = Calendar.getInstance();
+		fileName += calendar.get(Calendar.YEAR);
+		fileName += calendar.get(Calendar.MONTH);
+		fileName += calendar.get(Calendar.DATE);
+		fileName += calendar.get(Calendar.HOUR);
+		fileName += calendar.get(Calendar.MINUTE);
+		fileName += calendar.get(Calendar.SECOND);
+		fileName += calendar.get(Calendar.MILLISECOND);
+		fileName += extName;
+		
+		return fileName;	// 날짜, 시간을 붙이고 리턴해준다
+	}
+
+	private boolean writeFile(MultipartFile multipartFile, String saveFileName, String savePath)throws IOException{
+		boolean result = false;
+
+		byte[] data = multipartFile.getBytes();
+		FileOutputStream fos = new FileOutputStream(savePath + "/" + saveFileName);
+		fos.write(data);
+		fos.close();
+		System.out.println("121231212 = "+data);
+		return result;
+		
+	}
+	
 	
 	@RequestMapping(value="/card/userInfoRead.do", method = {RequestMethod.POST, RequestMethod.GET})
 	/* @ResponseBody */

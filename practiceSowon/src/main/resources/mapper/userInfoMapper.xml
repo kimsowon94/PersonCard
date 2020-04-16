@@ -22,6 +22,7 @@
 		<result column="USER_EMAIL" property="userEmail"/>
 		<result column="USER_ZIPCODE" property="userZipcode"/>
 		<result column="USER_ADDRESS" property="userAddress"/>
+		<result column="IMG_FILE" property="imgFile"/>
 		<result column="CAREER" property="career"/>
 	</resultMap>
 	
@@ -50,6 +51,7 @@
 		,USER_EMAIL
 		,USER_ZIPCODE
 		,USER_ADDRESS
+		,IMG_FILE
 		)
 		VALUES 
 		(
@@ -72,6 +74,7 @@
 		,#{userEmail}
 		,#{userZipcode}
 		,#{userAddress}
+		,#{imgFile}
 	)
 	</insert>
 	

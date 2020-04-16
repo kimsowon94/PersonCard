@@ -45,21 +45,21 @@ public class UserInfoVO {
 	//연차별 인원 카운트
 	private int userIdxCnt;
 	
-	private MultipartFile imgFile;  //파일이름
-	private String imgFileReal;	
+	private MultipartFile imgFileReal;	
+	private String imgFile;	
 
 	
-	public MultipartFile getImgFile() {
-		return imgFile;
-	}
-	public void setImgFile(MultipartFile imgFile) {
-		this.imgFile = imgFile;
-	}
-	public String getImgFileReal() {
+	public MultipartFile getImgFileReal() {
 		return imgFileReal;
 	}
-	public void setImgFileReal(String imgFileReal) {
+	public void setImgFileReal(MultipartFile imgFileReal) {
 		this.imgFileReal = imgFileReal;
+	}
+	public String getImgFile() {
+		return imgFile;
+	}
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
 	}
 	public int getUserIdxCnt() {
 		return userIdxCnt;
