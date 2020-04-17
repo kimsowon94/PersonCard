@@ -102,6 +102,7 @@
 			<input type="hidden" id="trainNum" value="0">
 			<input type="hidden" id="licenNum" value="0">
 			<input type="hidden" value="0" id="skillNum">
+			<!-- <input type="hidden" value="0" id="imgNum"> -->
 			
 			<table class="user-info-table1">
 				<tbody>
@@ -169,7 +170,7 @@
 							<div class="filebox"> 
 								<label for="imgFileReal">파일 업로드</label> 
 									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()"> 
-<!-- 									<input type="button" value="이미지 삭제"> -->
+									<input type="button" value="이미지 삭제" id="imgDelete" style="display: none;">
 							</div>
 
 						</td>

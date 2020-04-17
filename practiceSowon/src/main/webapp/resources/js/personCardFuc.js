@@ -102,7 +102,6 @@ function callBackList(gubun) {
 	$("#userInfoList").css("display", "none");
 	$("#getUserCountByCareerDate").css("display", "block");
 	$("#userGender").val($("#genderSelect option:selected").val());
-	$("#imgFile").remove();
 	if (gubun == "searchBtn") {
 		$("#pageNo1").val("1");
 	}
@@ -185,32 +184,14 @@ function userInfoDetail(userInfo) {
 		var domain = "@" + email_domain[1];
 	}
 	
-    
     if(userInfo.imgFile != null)
     {
-    	var preview = document.querySelector('#imgDiv');
-    	var image = document.createElement('img');
-    	image.setAttribute("name", "imgFile");
-        image.setAttribute("id", "imgFile");
-    	image.setAttribute("src", "resources/upload/" + userInfo.imgFile);
-    	image.style.width = "120";
-        image.style.height = "140";
-        
-        var filebox = document.querySelector('.filebox');
-    	var deleteBtn = document.createElement('input');
-        deleteBtn.setAttribute("type", "button");
-        deleteBtn.setAttribute("value", "이미지삭제");
-        deleteBtn.setAttribute("id", "imgDelete");
-                
-        filebox.appendChild(deleteBtn);
-        preview.appendChild(image);
-        
+    	var getHtml = '<img id="imgFile" name="imgFile" src="../resources/upload/' + userInfo.imgFile + '" width="120" height="140" />';
+    	$("#imgDiv").html(getHtml);
     	
-    	$("#imgDelete").on("click", function() {
-    		image.remove();
-    		deleteBtn.remove();
-    	})
-      
+		$("#imgDelete").css("display", "block");
+		$("#imgDelete").attr("value", "이미지 삭제");
+		        
     }
 
 	$("#userName").val(userInfo.userName);
@@ -1122,58 +1103,50 @@ function pageCh1(pageNo1){
 }
 
 function fnImg() {
+	
+	
 	var upload = document.querySelector('#imgFileReal');
-    var preview = document.querySelector('#imgDiv');
+//    var preview = document.querySelector('#imgDiv');
  
     upload.addEventListener('change',function (e) {
-        var get_file = e.target.files;
+    var get_file = e.target.files;
  
-        var image = document.createElement('img');
+//        var image = document.createElement('img');
+    var image = '<img id="imgFile" name="imgFile" width="120" height="140" />';
  
-        /* FileReader 객체 생성 */
+    /* FileReader 객체 생성 */
         var reader = new FileReader();
  
-        /* reader 시작시 함수 구현 */
+        /* reader 시작시 함수 구현 */    
         reader.onload = (function (aImg) {
             console.log(1);
  
             return function (e) {
                 console.log(3);
                 /* base64 인코딩 된 스트링 데이터 */
-                aImg.src = e.target.result
-                
+            $("#imgFile").attr("src", e.target.result);              
             }
         })(image)
  
         if(get_file){
             /* 
-                get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
-                onload 에 설정했던 return 으로 넘어간다.
-                이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
-            */
-            reader.readAsDataURL(get_file[0]);
-            console.log(2);
-        }
+            get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
+            onload 에 설정했던 return 으로 넘어간다.
+            이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
+        */
+        reader.readAsDataURL(get_file[0]);
+        console.log(2);
+    }
      
-        image.setAttribute("name", "imgFile");
-        image.setAttribute("id", "imgFile");
-        image.style.width = "120";
-        image.style.height = "140";
-        preview.appendChild(image);
+//        image.setAttribute("name", "imgFile");
+//        image.setAttribute("id", "imgFile");
+//        image.style.width = "120";
+//        image.style.height = "140";
+        $("#imgDiv").html(image);
         
-        var filebox = document.querySelector('.filebox');
-    	var deleteBtn = document.createElement('input');
-        deleteBtn.setAttribute("type", "button");
-        deleteBtn.setAttribute("value", "이미지삭제");
-        deleteBtn.setAttribute("id", "imgDelete");
-                
-        filebox.appendChild(deleteBtn);
+        $("#imgDelete").css("display", "block");
         
-
-    	$("#imgDelete").on("click", function() {
-    		image.remove();
-    		deleteBtn.remove();
-    	})
+    	
     })
 
 }
