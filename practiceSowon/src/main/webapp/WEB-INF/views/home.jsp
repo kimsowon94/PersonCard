@@ -169,6 +169,7 @@
 							<div class="filebox"> 
 								<label for="imgFileReal">파일 업로드</label> 
 									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()"> 
+<!-- 									<input type="button" value="이미지 삭제"> -->
 							</div>
 
 						</td>

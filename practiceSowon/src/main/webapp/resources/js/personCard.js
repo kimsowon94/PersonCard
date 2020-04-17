@@ -38,7 +38,7 @@ $(document).ready(function() {
 				/*var $frm = $(".main1 :input");
 				var param = $frm.serialize();	*/	
 				 
-				var form = $(".main1")[1];
+				var form = $(".main1")[0];
 				var formData = new FormData(form);
 		
 				$.ajax({
@@ -185,6 +185,7 @@ $(document).ready(function() {
 			}
 		}
 	});
+	
 
 });
 

@@ -185,27 +185,33 @@ function userInfoDetail(userInfo) {
 		var domain = "@" + email_domain[1];
 	}
 	
-	var preview = document.querySelector('#imgDiv');
-	var image = document.createElement('img');
-	
-	
     
     if(userInfo.imgFile != null)
     {
+    	var preview = document.querySelector('#imgDiv');
+    	var image = document.createElement('img');
     	image.setAttribute("name", "imgFile");
         image.setAttribute("id", "imgFile");
     	image.setAttribute("src", "resources/upload/" + userInfo.imgFile);
     	image.style.width = "120";
         image.style.height = "140";
-
+        
+        var filebox = document.querySelector('.filebox');
+    	var deleteBtn = document.createElement('input');
+        deleteBtn.setAttribute("type", "button");
+        deleteBtn.setAttribute("value", "이미지삭제");
+        deleteBtn.setAttribute("id", "imgDelete");
+                
+        filebox.appendChild(deleteBtn);
         preview.appendChild(image);
+        
+    	
+    	$("#imgDelete").on("click", function() {
+    		image.remove();
+    		deleteBtn.remove();
+    	})
+      
     }
-    else
-    {
-    	image.remove();
-    }
-    
-    
 
 	$("#userName").val(userInfo.userName);
 	$("#userSocialSecunum").val(userInfo.userSocialSecunum);
@@ -1154,6 +1160,22 @@ function fnImg() {
         image.style.width = "120";
         image.style.height = "140";
         preview.appendChild(image);
+        
+        var filebox = document.querySelector('.filebox');
+    	var deleteBtn = document.createElement('input');
+        deleteBtn.setAttribute("type", "button");
+        deleteBtn.setAttribute("value", "이미지삭제");
+        deleteBtn.setAttribute("id", "imgDelete");
+                
+        filebox.appendChild(deleteBtn);
+        
+
+    	$("#imgDelete").on("click", function() {
+    		image.remove();
+    		deleteBtn.remove();
+    	})
     })
 
 }
+
+

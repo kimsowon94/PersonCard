@@ -194,7 +194,7 @@
 	         ,USER_ZIPCODE = #{userZipcode}
 	         ,USER_ADDRESS = #{userAddress}
 	         ,IMG_FILE = #{imgFile}
-	  
+
 	         
 	   WHERE USER_IDX = #{userIdx}
 	</update>	
