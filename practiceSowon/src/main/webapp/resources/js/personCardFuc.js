@@ -102,10 +102,12 @@ function callBackList(gubun) {
 	$("#userInfoList").css("display", "none");
 	$("#getUserCountByCareerDate").css("display", "block");
 	$("#userGender").val($("#genderSelect option:selected").val());
-
+	$("#imgFile").remove();
 	if (gubun == "searchBtn") {
 		$("#pageNo1").val("1");
 	}
+	
+	
 
 	var params = $("#userInfoRead").serialize();
 
@@ -182,6 +184,28 @@ function userInfoDetail(userInfo) {
 		var email = email_domain[0];
 		var domain = "@" + email_domain[1];
 	}
+	
+	var preview = document.querySelector('#imgDiv');
+	var image = document.createElement('img');
+	
+	
+    
+    if(userInfo.imgFile != null)
+    {
+    	image.setAttribute("name", "imgFile");
+        image.setAttribute("id", "imgFile");
+    	image.setAttribute("src", "resources/upload/" + userInfo.imgFile);
+    	image.style.width = "120";
+        image.style.height = "140";
+
+        preview.appendChild(image);
+    }
+    else
+    {
+    	image.remove();
+    }
+    
+    
 
 	$("#userName").val(userInfo.userName);
 	$("#userSocialSecunum").val(userInfo.userSocialSecunum);
@@ -991,6 +1015,7 @@ function resetInput() {
 	$("input, select").not(notElementId).val("");
 	$("textarea").not(notElementId).text("");
 	$("#status").val("status");
+	$("#imgFile").remove();
 
 	$(defaltId).val("0");
 
@@ -1019,6 +1044,7 @@ function modeChange(gubun) {
 			$("#userSocialSecunum").prop("disabled", false);
 			$(".user-info-list-pannel").css("background-color", "#ebf2f1");
 			$("#status").val("status");
+			$("#imgFile").remove();
 		}
 	}
 }

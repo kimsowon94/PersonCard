@@ -168,6 +168,7 @@
 		      ,USER_EMAIL
 		      ,USER_ZIPCODE
 		      ,USER_ADDRESS
+		      ,IMG_FILE
 		FROM USER_INFO
 		WHERE USER_IDX = #{userIdx}
 	</select>
@@ -192,6 +193,8 @@
 	         ,USER_EMAIL = #{userEmail}
 	         ,USER_ZIPCODE = #{userZipcode}
 	         ,USER_ADDRESS = #{userAddress}
+	         ,IMG_FILE = #{imgFile}
+	  
 	         
 	   WHERE USER_IDX = #{userIdx}
 	</update>	

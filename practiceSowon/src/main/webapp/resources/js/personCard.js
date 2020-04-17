@@ -38,9 +38,8 @@ $(document).ready(function() {
 				/*var $frm = $(".main1 :input");
 				var param = $frm.serialize();	*/	
 				 
-				var form = $(".main1")[0];
+				var form = $(".main1")[1];
 				var formData = new FormData(form);
-
 		
 				$.ajax({
 					url : "/card/personCardInsert.do",
@@ -65,14 +64,20 @@ $(document).ready(function() {
 			else
 			{
 				
-				var $frm = $(".main1 :input");
-				var param = $frm.serialize();
+				/*var $frm = $(".main1 :input");
+				var param = $frm.serialize();*/
+				
+				var form = $(".main1")[0];
+				var formData = new FormData(form);
 				
 				$.ajax({
 					url : "/card/personCardUpdate.do",
+					enctype : 'multipart/form-data',
+					processData: false,
+                    contentType: false,
 					dataType : "JSON",
 					type : "POST",
-					data :param,
+					data :formData,
 					success : function(data, textStatus, jqXHR) 
 					{
 						alert("수정이 완료되었습니다.");
