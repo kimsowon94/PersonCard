@@ -193,7 +193,8 @@
 	         ,USER_EMAIL = #{userEmail}
 	         ,USER_ZIPCODE = #{userZipcode}
 	         ,USER_ADDRESS = #{userAddress}
-	         <if test="imgFile != null and imgFile !=''">,IMG_FILE = #{imgFile}</if>
+	         <if test="imgFile != null and imgFile != ''">,IMG_FILE = #{imgFile}</if>
+	         
 
 	         
 	   WHERE USER_IDX = #{userIdx}
@@ -211,7 +212,7 @@
 		               , NVL(CAREER,0) AS CAREER
 		               , TO_CHAR(USER_COMP_ENTERDATE,'YYYY-MM-DD') AS USER_COMP_ENTERDATE
            		 FROM USER_INFO_VIEW 
-           		 <include refid="userInfoReadWhere"/>
+           		 <!-- <include refid="userInfoReadWhere"/> -->
         	) a
 		  where a.rnum BETWEEN (#{pageNo1}-1)*#{userInfoDataSize} + 1 AND (#{pageNo1})*#{userInfoDataSize}
 		  		AND CAREER = #{career}

@@ -21,6 +21,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 <!-- css import -->
 <link rel="stylesheet" type="text/css"
 	href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
@@ -61,7 +64,7 @@
 		border-collapse: collapse;
 	}
 }
-.filebox label{ display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox label{ display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; cursor: pointer; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
 
 </style>
 </head>
@@ -120,8 +123,10 @@
 							</select>
 						</td>
 						<td style="display: display: ;" rowspan="3" >
-							<div id="imgDiv">
+							<div id="imgDiv" style="position: relative;">
 								<!-- <img id="thumbNail" name="thumbNail" width="120" height="140" /> -->
+								<!-- <button type="button" id="imgDelete" name="imgDelete"> --><!-- </button> -->
+								<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg">
 							</div>
 						</td>
 					</tr>
@@ -168,9 +173,9 @@
 						</td> -->
 						<td>
 							<div class="filebox" style="align-items: center;"> 
-								<label for="imgFileReal">업로드</label> 
+								<label for="imgFileReal"><i class="material-icons">add_a_photo</i></label> 
 									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()" style="display: inline-block;"> 
-									<input type="button" value="삭제" id="imgDelete" style="display: none; width: 40px;">									
+									<!-- <input type="button" value="삭제" id="imgDelete" style="display: none; width: 40px;">	 -->								
 							</div>
 
 						</td>

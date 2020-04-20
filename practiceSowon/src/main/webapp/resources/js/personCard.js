@@ -187,17 +187,7 @@ $(document).ready(function() {
 	});
 	
 	
-	$("#imgDelete").on("click", function() {
-		
-		if(confirm("이미지를 삭제하시겠습니까?"))
-		{
-			$("#imgDiv").html("");
-    		$("#imgFileReal").val("");
-    		$("#imgDelete").css("display", "none");
-		}
-
-	});
-
+	
 });
 
 

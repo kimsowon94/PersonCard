@@ -186,7 +186,8 @@ function userInfoDetail(userInfo) {
 	
     if(userInfo.imgFile != null)
     {
-    	var getHtml = '<img id="imgFile" name="imgFile" src="../resources/upload/' + userInfo.imgFile + '" width="120" height="140" />';
+    	var getHtml = '<img id="imgFile" name="imgFile" src="../resources/upload/' + userInfo.imgFile + '" width="120" height="140" />'
+			+'<i class="material-icons" id="imgDelete" style="position: absolute; left:4em; cursor:pointer" onclick="xImgFn()">&#xe14c;</i>';
     	$("#imgDiv").html(getHtml);
     	
 		$("#imgDelete").css("display", "inline-block");
@@ -194,6 +195,10 @@ function userInfoDetail(userInfo) {
 		        
     }else{
     	$("#imgDelete").css("display", "none");
+
+    	var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
+    	$("#imgDiv").html(image);
+    	
     }
 
 	$("#userName").val(userInfo.userName);
@@ -1025,6 +1030,8 @@ function resize($obj) {
 function modeChange(gubun) {	
 	if (gubun == "NEW") { // 새 이력작성
 		if (confirm("새 이력을 작성하시겠습니까?")) {
+			
+			var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
 			resetInput(); // 모든 입력 창 리셋
 			$(".status-display-pannel").find("h5").text("※ 새 이력 작성");
 			$("#userIdx").val("");
@@ -1033,6 +1040,11 @@ function modeChange(gubun) {
 			$("#userSocialSecunum").prop("disabled", false);
 			$(".user-info-list-pannel").css("background-color", "#ebf2f1");
 			$("#status").val("status");
+			$("imgDelete").css("display","none");
+			
+			$("#imgDiv").html(image);
+			
+			
 			$("#imgFile").remove();
 		}
 	}
@@ -1114,7 +1126,8 @@ function fnImg() {
     var get_file = e.target.files;
  
 //        var image = document.createElement('img');
-    var image = '<img id="imgFile" name="imgFile" width="120" height="140" />';
+    var image = '<img id="imgFile" name="imgFile" width="120" height="140"/>'
+    			+'<i class="material-icons" id="imgDelete" style="position: absolute; left:4em; cursor:pointer" onclick="xImgFn()">&#xe14c;</i>';
  
     /* FileReader 객체 생성 */
         var reader = new FileReader();
@@ -1145,13 +1158,22 @@ function fnImg() {
 //        image.style.width = "120";
 //        image.style.height = "140";
         $("#imgDiv").html(image);
+        $("#imgDiv").html(xImage);
         
-        $("#imgDelete").css("display", "inline-block");
-        $("#imgDelete").attr("value", "삭제");
-        
-    	
+        $("#imgDelete").css("display", "block");
+       /* $("#imgDelete").attr("value", "삭제");*/
+
     })
 
 }
 
+function xImgFn() {		
+		if(confirm("이미지를 삭제하시겠습니까?"))
+		{
+			var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
+			$("#imgDiv").html(image);
+    		$("#imgFileReal").val("");
+    		$("#imgDelete").css("display", "none");
+		}
+}
 
