@@ -208,10 +208,16 @@ public class UserInfoController
 		HashMap<String, String> result = new HashMap<String, String>();
 		// 파일 실제경로
 		String savePath = request.getRealPath("/resources/upload");
+		/*
+		 * System.out.println("imgFile = " + vo.getImgFile());
+		 * System.out.println("imgFileReal = " + vo.getImgFileReal());
+		 */
 		
-		String user_file	= fileUpload( vo.getImgFileReal(), savePath );	// fileUpload는 아래의 메서드로 서버에 저장할 이름을 지정하기 위해 있음
-		
-		vo.setImgFile(user_file);
+		if(vo.getImgFileReal() != null)
+		{
+			String user_file	= fileUpload( vo.getImgFileReal(), savePath );	// fileUpload는 아래의 메서드로 서버에 저장할 이름을 지정하기 위해 있음
+			vo.setImgFile(user_file);
+		}
 		int num = userInfoService.personCardUpdate(vo, eduVO,qualifiVO,careerVO,trainingVO,licenVO,skillVO);
 		
 		if(num == 1) {

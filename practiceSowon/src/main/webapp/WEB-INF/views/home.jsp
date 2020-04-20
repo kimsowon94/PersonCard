@@ -61,7 +61,7 @@
 		border-collapse: collapse;
 	}
 }
-.filebox label { display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox label{ display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
 
 </style>
 </head>
@@ -167,10 +167,10 @@
 							<input type="hidden" name="userIdx" value="2"> <input type="hidden" name="userName" >
 						</td> -->
 						<td>
-							<div class="filebox"> 
-								<label for="imgFileReal">파일 업로드</label> 
-									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()"> 
-									<input type="button" value="이미지 삭제" id="imgDelete" style="display: none;">
+							<div class="filebox" style="align-items: center;"> 
+								<label for="imgFileReal">업로드</label> 
+									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()" style="display: inline-block;"> 
+									<input type="button" value="삭제" id="imgDelete" style="display: none; width: 40px;">									
 							</div>
 
 						</td>

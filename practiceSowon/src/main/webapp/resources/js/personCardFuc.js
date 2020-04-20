@@ -189,9 +189,11 @@ function userInfoDetail(userInfo) {
     	var getHtml = '<img id="imgFile" name="imgFile" src="../resources/upload/' + userInfo.imgFile + '" width="120" height="140" />';
     	$("#imgDiv").html(getHtml);
     	
-		$("#imgDelete").css("display", "block");
-		$("#imgDelete").attr("value", "이미지 삭제");
+		$("#imgDelete").css("display", "inline-block");
+		$("#imgDelete").attr("value", "삭제");
 		        
+    }else{
+    	$("#imgDelete").css("display", "none");
     }
 
 	$("#userName").val(userInfo.userName);
@@ -1144,7 +1146,8 @@ function fnImg() {
 //        image.style.height = "140";
         $("#imgDiv").html(image);
         
-        $("#imgDelete").css("display", "block");
+        $("#imgDelete").css("display", "inline-block");
+        $("#imgDelete").attr("value", "삭제");
         
     	
     })

@@ -193,7 +193,7 @@
 	         ,USER_EMAIL = #{userEmail}
 	         ,USER_ZIPCODE = #{userZipcode}
 	         ,USER_ADDRESS = #{userAddress}
-	         ,IMG_FILE = #{imgFile}
+	         <if test="imgFile != null and imgFile !=''">,IMG_FILE = #{imgFile}</if>
 
 	         
 	   WHERE USER_IDX = #{userIdx}
