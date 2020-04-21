@@ -111,6 +111,7 @@
 		               , USER_COMP
 		               , USER_DEPT
 		               , USER_SEX
+		               , TO_CHAR(USER_REGISTER_DATE, 'YYYY-MM-DD') AS USER_REGISTER_DATE 
 		               , NVL(CAREER,0) AS CAREER
 		               , TO_CHAR(USER_COMP_ENTERDATE,'YYYY-MM-DD') AS USER_COMP_ENTERDATE
            		 FROM USER_INFO_VIEW 
@@ -140,6 +141,7 @@
 		               , USER_COMP
 		               , USER_DEPT
 		               , USER_SEX
+		               , TO_CHAR(USER_REGISTER_DATE, 'YYYY-MM-DD') AS USER_REGISTER_DATE 
 		               , NVL(CAREER,0) AS CAREER
 		               , USER_COMP_ENTERDATE
            		 FROM USER_INFO_VIEW 
@@ -209,6 +211,7 @@
 		               , USER_COMP
 		               , USER_DEPT
 		               , USER_SEX
+		               , TO_CHAR(USER_REGISTER_DATE, 'YYYY-MM-DD') AS USER_REGISTER_DATE 
 		               , NVL(CAREER,0) AS CAREER
 		               , TO_CHAR(USER_COMP_ENTERDATE,'YYYY-MM-DD') AS USER_COMP_ENTERDATE
            		 FROM USER_INFO_VIEW 

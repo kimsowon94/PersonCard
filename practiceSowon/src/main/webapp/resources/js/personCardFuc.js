@@ -318,7 +318,7 @@ function careerDetailList(careerList) {
 		html += '<tr>' +
 		'<td><input type="text" data="careerCompName" name="careerList[' + i + '].careerCompName" class="careerCompName" value="' + careerList[i].careerCompName + '"></td>' +
 		'<td><input type="text" data="careerEnterdate" name="careerList[' + i + '].careerEnterDate" class="careerEnterDate dateInput prevDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
-		'<td><input type="text" data="careerLeavedate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
+		'<td><input type="text" data="careerLeavedate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerLeaveDate + '"></td>' +
 		'<td><input type="text" data="careerSpot" name="careerList[' + i + '].careerSpot" class="careerSpot" value="' + careerList[i].careerSpot + '"></td>' +
 		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerResponsib + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +

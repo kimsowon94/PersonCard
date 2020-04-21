@@ -24,7 +24,7 @@
 			<td>${list.userDept }</td>
 			<td>${list.userSex }</td>
 			<td>${list.career }</td>
-			<td>${list.userCompEnterdate }</td>
+			<td>${list.userRegisterDate }</td>
 		</tr>
 		</c:forEach>
 	</tbody>
