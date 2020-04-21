@@ -112,8 +112,10 @@
 					<tr>
 						<td>*성명</td>
 						<td><input type="text" id="userName" name="userName"></td>
-						<td>*주민등록번호</td>
-						<td colspan="3"><input type="text" name="userSocialSecunum"	id="userSocialSecunum" maxlength="13" placeholder='  "-" 제외한 숫자만 입력'></td>
+						<td>*주민등록번호</td> 
+						<td colspan="3">
+							<input type="text" name="userSocialSecunum"	id="userSocialSecunum" maxlength="14" onkeypress="juminValidate(this)">
+						</td>
 						<td>성별</td>
 						<td>
 							<select id="userSex" name="userSex">
@@ -188,10 +190,10 @@
 					<tr>
 						<td>전화</td>
 						<td>
-							<input type="tel" placeholder='   휴대전화 "-" 포함'	id="userTelnumWireless" name="userTelnumWireless">
+							<input type="tel" placeholder='   휴대전화 "-" 포함'	id="userTelnumWireless" name="userTelnumWireless" onkeypress="telValidate(this)">
 						</td>
 						<td colspan="2">
-							<input type="tel" placeholder='   유선 "-" 포함'id="userTelnumWired" name="userTelnumWired">
+							<input type="tel" placeholder='   유선 "-" 포함'id="userTelnumWired" name="userTelnumWired" onkeypress="telValidate(this)">
 						</td>
 					</tr>
 

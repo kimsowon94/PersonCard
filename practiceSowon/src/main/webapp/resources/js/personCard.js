@@ -132,62 +132,33 @@ $(document).ready(function() {
 			$("#userName").val(temp.replace(re3, ""));
 		}
 	})
-	
-	/*주민등록번호 13자리 제한*/
+/*
 	$("#userSocialSecunum").bind("keyup", function() {
-		if($("#userSocialSecunum").val().length > 14) 
-		{
-			$(this).val($(this).val().substr(0, 14));
-			
-		}
-	});
+		var regNumber = /^[0-9]*$/;
+		var temp = $("#userSocialSecunum").val();
+	
+		$("#userSocialSecunum").val(temp.replace(/^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/g));
+	    if(!regNumber.test(temp))
+	    {
+	    	$(this).val( $(this).val().replace(/[^0-9]/g, ""));
+	    }	    
+	   
+	});*/
 	
 	$("#userTelnumWireless").on("keyup", function() {
 		if($(this).val().length >= 14) 
 		{
 			$(this).val($(this).val().substr(0, 13));					
 		}
-
-		if($(this).val().length == 11){
-			var pre = $("#userTelnumWireless").val().substring(0,3);
-			var su1 = $("#userTelnumWireless").val().substring(3,7);
-			var su2 = $("#userTelnumWireless").val().substring(7,11);
-			$(this).val(pre+"-"+su1+"-"+su2);
-		}
 	});
 	
 	
-	$("#userTelnumWired").on("keyup", function() {
-		var pre =  $("#userTelnumWired").val().substring(0,2);
-		if(pre == "02")
+	$("#userTelnumWired").on("keyup", function() {	
+		if($(this).val().length >= 13) 
 		{
-			if($(this).val().length >= 13) 
-			{
-				$(this).val($(this).val().substr(0, 12));					
-			}
-			if($(this).val().length == 10){
-				var su1 = $("#userTelnumWired").val().substring(2,6);
-				var su2 = $("#userTelnumWired").val().substring(6,10);
-				$(this).val(pre+"-"+su1+"-"+su2);
-			}
-		}
-		else
-		{
-			if($(this).val().length >= 13) 
-			{
-				$(this).val($(this).val().substr(0, 12));					
-			}
-			if($(this).val().length == 10){
-				var su0 = $("#userTelnumWired").val().substring(0,3);
-				var su1 = $("#userTelnumWired").val().substring(3,6);
-				var su2 = $("#userTelnumWired").val().substring(6,10);
-				$(this).val(su0+"-"+su1+"-"+su2);
-			}
+			$(this).val($(this).val().substr(0, 12));					
 		}
 	});
-	
-	
-	
 });
 
 
