@@ -97,7 +97,9 @@
 		<!-- 데이터 전송을 위한  form태그로 감싸기  -->
 		<form class="main1" enctype="multipart/form-data">
 			<!--상태값 추가  -->
+			<!-- <input type="hidden" name="imgFile" value=""> -->
 			<input type="hidden" id="status" name="status" value="status">
+			<input type="hidden" id="fileCheck" name="fileCheck" value="N">
 			<input id="userIdx" name="userIdx" type="hidden">
 			<input type="hidden" id="eduNum" value="0">
 			<input type="hidden" id="qualifiNum" value="0">
@@ -179,7 +181,6 @@
 									<input type="file" id="imgFileReal" name="imgFileReal" onclick="fnImg()" style="display: inline-block;"> 
 									<!-- <input type="button" value="삭제" id="imgDelete" style="display: none; width: 40px;">	 -->								
 							</div>
-
 						</td>
 					</tr>
 				</tbody>

@@ -1,30 +1,6 @@
 
 
 $(document).ready(function() {	
-	/* 출력 버튼 클릭시 !! */
-/*	var pHeader="<html><head><link rel='stylesheet' type='text/css'	href='./resources/css/personalHistory/personalHistory.css?ver=1'><title></title></head><body>";
-	
-	var innerDiv = document.getElementById("innerDiv").innerHTML;
-	
-	var pFooter = "</body></html>";
-	var pContent = pHeader +  innerDiv + pFooter;
-	$(".printBtn").on("click", function() {
-		document.getElementById("function-btn-pannel").style.display ="none";
-		  window.onbeforeprint = function (ev) {
-             document.body.innerHTML = innerDiv;
-             
-         };
-
-         pwin=document.open("","print","status=yes,scrollbars=yes");
-
-        		 
-         pwin.document.write(pContent);
-         pwin.document.close();
-         pwin.window.print();
-         location.reload();
-
-	});
-	*/
 	
 	/*저장 버튼 클릭 시 */
 	$(".personalHistorySaveBtn").on("click", function() { 

@@ -94,7 +94,6 @@ function pageCh(pageNo1){
 	callBackList();
 }
 
-
 /* 불러오기 버튼 */
 function callBackList(gubun) {
 	// 불러오기 화면 띄우기
@@ -105,8 +104,6 @@ function callBackList(gubun) {
 	if (gubun == "searchBtn") {
 		$("#pageNo1").val("1");
 	}
-	
-	
 
 	var params = $("#userInfoRead").serialize();
 
@@ -191,7 +188,6 @@ function userInfoDetail(userInfo) {
     	$("#imgDiv").html(getHtml);
     	
 		$("#imgDelete").css("display", "inline-block");
-		$("#imgDelete").attr("value", "삭제");
 		        
     }else{
     	$("#imgDelete").css("display", "none");
@@ -1117,15 +1113,15 @@ function pageCh1(pageNo1){
 }
 
 function fnImg() {
-	
+	$("#fileCheck").val("Y");
 	
 	var upload = document.querySelector('#imgFileReal');
-//    var preview = document.querySelector('#imgDiv');
+	//var preview = document.querySelector('#imgDiv');
  
     upload.addEventListener('change',function (e) {
     var get_file = e.target.files;
  
-//        var image = document.createElement('img');
+    //var image = document.createElement('img');
     var image = '<img id="imgFile" name="imgFile" width="120" height="140"/>'
     			+'<i class="material-icons" id="imgDelete" style="position: absolute; left:4em; cursor:pointer" onclick="xImgFn()">&#xe14c;</i>';
  
@@ -1133,36 +1129,28 @@ function fnImg() {
         var reader = new FileReader();
  
         /* reader 시작시 함수 구현 */    
-        reader.onload = (function (aImg) {
+        reader.onload = (function (aImg) 
+        {
             console.log(1);
  
-            return function (e) {
+            return function (e) 
+            {
                 console.log(3);
                 /* base64 인코딩 된 스트링 데이터 */
-            $("#imgFile").attr("src", e.target.result);              
+                $("#imgFile").attr("src", e.target.result);              
             }
         })(image)
  
-        if(get_file){
-            /* 
-            get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
-            onload 에 설정했던 return 으로 넘어간다.
-            이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
-        */
-        reader.readAsDataURL(get_file[0]);
-        console.log(2);
-    }
-     
-//        image.setAttribute("name", "imgFile");
-//        image.setAttribute("id", "imgFile");
-//        image.style.width = "120";
-//        image.style.height = "140";
+        if(get_file)
+        {
+        	reader.readAsDataURL(get_file[0]);
+        	console.log(2);
+        }
+        
         $("#imgDiv").html(image);
         $("#imgDiv").html(xImage);
         
         $("#imgDelete").css("display", "block");
-       /* $("#imgDelete").attr("value", "삭제");*/
-
     })
 
 }
@@ -1173,6 +1161,7 @@ function xImgFn() {
 			var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
 			$("#imgDiv").html(image);
     		$("#imgFileReal").val("");
+    		$("#fileCheck").val("Y");
     		$("#imgDelete").css("display", "none");
 		}
 }
@@ -1242,14 +1231,6 @@ function juminValidate(obj) {
     	jumin += "-";
     	jumin += number.substr(6,13);
 	}
-	/*if(number.length < 7) {
-        return number;
-    } else if(number.length < 7) {
-    	jumin += number.substr(0, 6);
-    	jumin += "-";
-    	jumin += number.substr(6,12);
-    } 
-	*/
 
 	 obj.value = jumin;
 	    

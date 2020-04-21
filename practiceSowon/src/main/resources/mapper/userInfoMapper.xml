@@ -193,7 +193,7 @@
 	         ,USER_EMAIL = #{userEmail}
 	         ,USER_ZIPCODE = #{userZipcode}
 	         ,USER_ADDRESS = #{userAddress}
-	         <if test="imgFile != null and imgFile != ''">,IMG_FILE = #{imgFile}</if>
+	         <if test="imgFile != null">,IMG_FILE = #{imgFile}</if>
 	         
 
 	         

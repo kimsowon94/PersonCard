@@ -127,7 +127,7 @@ public class UserInfoController
 		FileOutputStream fos = new FileOutputStream(savePath + "/" + saveFileName);
 		fos.write(data);
 		fos.close();
-		System.out.println("121231212 = "+data);
+		/* System.out.println("121231212 = "+data); */
 		return result;
 		
 	}
@@ -202,23 +202,21 @@ public class UserInfoController
 	@RequestMapping(value="/card/personCardUpdate.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Map personCardUpdate(UserInfoVO vo, UserInfoEduVO eduVO, UserInfoQualifiVO qualifiVO
-			, UserInfoCareerVO careerVO, UserInfoTrainingVO trainingVO, UserInfoLicenVO licenVO, UserInfoSkillVO skillVO,HttpServletRequest request) throws Exception
+			, UserInfoCareerVO careerVO, UserInfoTrainingVO trainingVO, UserInfoLicenVO licenVO, UserInfoSkillVO skillVO,HttpServletRequest request
+			,@RequestParam("fileCheck") String fileCheck) throws Exception
 	
 	{
 		HashMap<String, String> result = new HashMap<String, String>();
 		// 파일 실제경로
 		String savePath = request.getRealPath("/resources/upload");
 		
-		  System.out.println("imgFile = " + vo.getImgFile());
-		  System.out.println("imgFileReal = " + vo.getImgFileReal());
-		 
-		
-		if(vo.getImgFileReal() != null)
+		if(fileCheck.equals("Y"))
 		{
 			String user_file	= fileUpload( vo.getImgFileReal(), savePath );	// fileUpload는 아래의 메서드로 서버에 저장할 이름을 지정하기 위해 있음
 			vo.setImgFile(user_file);
 		}
-		
+		  
+		 
 		int num = userInfoService.personCardUpdate(vo, eduVO,qualifiVO,careerVO,trainingVO,licenVO,skillVO);
 		
 		if(num == 1) {
