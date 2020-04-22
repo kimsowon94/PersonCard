@@ -180,6 +180,7 @@
 		SET 
 			  USER_REGISTER_DATE = to_date(sysdate, 'yy-mm-dd')
    		   	 ,USER_NAME = #{userName}
+   		   	 ,USER_SOCIAL_SECUNUM = #{userSocialSecunum}
       		 ,USER_SEX = #{userSex}
 	         ,USER_COMP = #{userComp}
 	         ,USER_COMP_ENTERDATE = #{userCompEnterdate}

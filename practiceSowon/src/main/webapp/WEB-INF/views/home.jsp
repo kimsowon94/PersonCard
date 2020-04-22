@@ -1,36 +1,26 @@
 <%@page import="com.topia.card.vo.UserInfoVO"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-
- 
- 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8;" />
 <script src="./resources/compnent/jquery-3.3.1.min.js?"></script>
-<script
-	src="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-<script
-	src="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.js"></script>
+<script	src="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script	src="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.js"></script>
 <script src="./resources/compnent/jqueryPrint/jqueryPrint.js"></script>
 <script src="./resources/compnent/jqueryPrint/jquery.PrintArea.js_4.js"></script>
 <script src="./resources/compnent/jqueryPrint/jquery.printElement.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
+<!-- 카메라 아이콘, 엑스 아이콘 쓰기 위해.. -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
 <!-- css import -->
-<link rel="stylesheet" type="text/css"
-	href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/personalHistory/personalHistory.css?ver=1">
+<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="./resources/compnent/jquery-loading-master/dist/jquery.loading.min.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/personalHistory/personalHistory.css?ver=1">
 
 <!-- js import -->
 <script src="./resources/js/personCard.js" charset="UTF-8"></script>
@@ -39,7 +29,6 @@
 
 <!-- 주소찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 
 <title>Home</title>
 <style type="text/css">
@@ -64,7 +53,28 @@
 		border-collapse: collapse;
 	}
 }
-.filebox label{ display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; cursor: pointer; border-bottom-color: #e2e2e2; border-radius: .25em; } .filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox label{ 
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #999; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	cursor: pointer; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+} 
+.filebox input[type="file"] { 
+	/* 파일 필드 숨기기 */ 
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0; 
+}
 
 </style>
 </head>
@@ -116,7 +126,7 @@
 						<td><input type="text" id="userName" name="userName"></td>
 						<td>*주민등록번호</td> 
 						<td colspan="3">
-							<input type="text" name="userSocialSecunum"	id="userSocialSecunum" maxlength="14" onkeypress="juminValidate(this)">
+							<input type="text" name="userSocialSecunum"	id="userSocialSecunum" maxlength="14" onkeyup="juminValidate(this)">
 						</td>
 						<td>성별</td>
 						<td>
@@ -191,10 +201,10 @@
 					<tr>
 						<td>전화</td>
 						<td>
-							<input type="tel" placeholder='   휴대전화 "-" 포함'	id="userTelnumWireless" name="userTelnumWireless" onkeypress="telValidate(this)">
+							<input type="tel" placeholder='   휴대전화 "-" 포함'	id="userTelnumWireless" name="userTelnumWireless" onkeyup="telValidate(this)" maxlength="13">
 						</td>
 						<td colspan="2">
-							<input type="tel" placeholder='   유선 "-" 포함'id="userTelnumWired" name="userTelnumWired" onkeypress="telValidate(this)">
+						 	<input type="tel" placeholder='   유선 "-" 포함'id="userTelnumWired" name="userTelnumWired" onkeyup="telValidate(this)" maxlength="12">
 						</td>
 					</tr>
 
@@ -423,8 +433,7 @@
 				<table class="skill-inventory-table flexibleTable" id="skill_table"	tb="skill">
 					<thead>
 						<tr>
-							<td rowspan="2">프로젝트명<br>업무명
-							</td>
+							<td rowspan="2">프로젝트명<br>업무명</td>
 							<td colspan="2">참여기간</td>
 							<td rowspan="2">고객사</td>
 							<td rowspan="2">근무회사</td>
@@ -551,7 +560,6 @@
 				</div>
 				<div>
 					<button type="button" id="getUserCountByCareerDate"	name="getUserCountByCareerDate" onclick="searchYear()">연차별	인원보기</button>
-					<!-- <input type="button" id="searchItialization" name="searchItialization" onclick="searchItialization()" value="검색 조건초기화"> -->
 					<button type="button" id="searchItialization" name="searchItialization" onclick="searchItiali()">검색조건 초기화</button>
 					<button type="button" id="userInfoList" name="userInfoList"	onclick="callBackList('userListBtn')">전체 인원보기</button>
 				</div>

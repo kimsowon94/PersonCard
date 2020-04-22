@@ -263,11 +263,19 @@ function eduDetailList(eduList) {
 				+ '<td style="display:none;" class="removeTrBtn"><button type="button" id="eduBtn'
 				+ i + '"  class="edu">-</button></td>' + '</tr>';
 	}
-
+	
 	eduTable.find("tbody").html(html);
 	for (var i = 0; i < eduList.length; i++) {
 		$("select[name='eduList[" + i + "].eduStatus'").val(eduList[i].eduStatus);
 	}
+	eduTable.find("input").each(function() {
+		if($(this).val()=="null")
+		{
+			$(this).val("");
+		}
+	});
+
+	
 	removeBtn();
 	$("#eduBtn0").parent().remove();
 }
@@ -298,6 +306,14 @@ function qualifiDetailList(qualifiList) {
 	}
 	
 	 qualifiTable.find("tbody").html(html);
+	 
+	 // 값이 비어있을때 null이 아닌 공백으로 표시하기 위함
+	 qualifiTable.find("input").each(function() {
+		if($(this).val()=="null")
+		{
+			$(this).val("");
+		}
+	});
 	 fnDatePicker(qualifiTable);
 	 removeBtn();
 	 $("#qualifiBtn0").parent().remove(); 
@@ -327,6 +343,15 @@ function careerDetailList(careerList) {
 	}
 
 	careerTable.find("tbody").html(html);
+	
+	// 값이 비어있을때 null이 아닌 공백으로 표시하기 위함
+	careerTable.find("input").each(function() {
+		if($(this).val()=="null")
+		{
+			$(this).val("");
+		}
+	});
+	 
 	fnDatePicker(careerTable);
 	removeBtn();
 	$("#careerBtn0").parent().remove();
@@ -383,6 +408,14 @@ function licenDetailList(licenList){
 
 	}
 	licenTable.find("tbody").html(html);
+	// 값이 비어있을때 null이 아닌 공백으로 표시하기 위함
+	licenTable.find("input").each(function() {
+		if($(this).val()=="null")
+		{
+			$(this).val("");
+		}
+	});
+	
 	removeBtn();
 	$("#licenBtn0").parent().remove();
 }
@@ -424,11 +457,17 @@ function skillDetailList(skillList) {
 	}
 	
 	skillTable.find("tbody").html(html);
+	// 값이 비어있을때 null이 아닌 공백으로 표시하기 위함
+	skillTable.find("input").each(function() {
+		if($(this).val()=="null")
+		{
+			$(this).val("");
+		}
+	});
 	fnDatePicker(skillTable);
 	removeBtn();
 	
 	$("#skillBtn0").parent().remove();
-
 }
 
 /*연차별 인원 구하기*/
@@ -696,36 +735,38 @@ function removeBtn() {
 		$("#eduNum").val(minCnt);
 
 		$parentTr.remove();
+		
+		
 
-		var i = 0;
-
-		$('input[data="eduSchoolName"]').each(function() {
-			$(this).attr('name', 'eduList[' + i + '].eduSchoolName');
-			if (i != eduCnt - 1) {
-				i++;
-			}
-		});
-		i = 0;
-		$('select[data="eduStatus"]').each(function() {
-			$(this).attr('name', 'eduList[' + i + '].eduStatus');
-			if (i != eduCnt - 1) {
-				i++;
-			}
-		});
-		i = 0;
-		$('input[data="eduYear"]').each(function() {
-			$(this).attr('name', 'eduList[' + i + '].eduYear');
-			if (i != eduCnt - 1) {
-				i++;
-			}
-		});
-		i = 0;
-		$('input[data="eduMonth"]').each(function() {
-			$(this).attr('name', 'eduList[' + i + '].eduMonth');
-			if (i != eduCnt - 1) {
-				i++;
-			}
-		});
+//		var i = 0;
+//
+//		$('input[data="eduSchoolName"]').each(function() {
+//			$(this).attr('name', 'eduList[' + i + '].eduSchoolName');
+//			if (i != eduCnt - 1) {
+//				i++;
+//			}
+//		});
+//		i = 0;
+//		$('select[data="eduStatus"]').each(function() {
+//			$(this).attr('name', 'eduList[' + i + '].eduStatus');
+//			if (i != eduCnt - 1) {
+//				i++;
+//			}
+//		});
+//		i = 0;
+//		$('input[data="eduYear"]').each(function() {
+//			$(this).attr('name', 'eduList[' + i + '].eduYear');
+//			if (i != eduCnt - 1) {
+//				i++;
+//			}
+//		});
+//		i = 0;
+//		$('input[data="eduMonth"]').each(function() {
+//			$(this).attr('name', 'eduList[' + i + '].eduMonth');
+//			if (i != eduCnt - 1) {
+//				i++;
+//			}
+//		});
 	})
 
 	$(".qualifi").unbind().click(function() {
@@ -772,16 +813,19 @@ function removeBtn() {
 			if (i != careerCnt - 1) {
 				i++;
 			}
+			
 		});
 		i = 0;
-		$("input[data='careerEnterDate']").each(function() {
+		$("input[data='careerEnterdate']").each(function() {
+			
 			$(this).attr("name", "careerList[" + i + "].careerEnterDate");
 			if (i != careerCnt - 1) {
 				i++;
 			}
+			
 		});
 		i = 0;
-		$("input[data='careerLeaveDate']").each(function() {
+		$("input[data='careerLeavedate']").each(function() {
 			$(this).attr("name", "careerList[" + i + "].careerLeaveDate");
 			if (i != careerCnt - 1) {
 				i++;
