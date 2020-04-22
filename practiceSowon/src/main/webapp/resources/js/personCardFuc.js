@@ -99,6 +99,7 @@ function callBackList(gubun) {
 	// 불러오기 화면 띄우기
 	$("#drag-ele1").css("display", "block");
 	$("#userInfoList").css("display", "none");
+	$("#searchItialization").css("display", "block");
 	$("#getUserCountByCareerDate").css("display", "block");
 	$("#userGender").val($("#genderSelect option:selected").val());
 	if (gubun == "searchBtn") {
@@ -433,6 +434,7 @@ function skillDetailList(skillList) {
 /*연차별 인원 구하기*/
 function searchYear() {
 	$("#getUserCountByCareerDate").css("display", "none");
+	$("#searchItialization").css("display", "none");
 	$("#userInfoList").css("display", "block");
 	
 	
@@ -1156,14 +1158,14 @@ function fnImg() {
 }
 
 function xImgFn() {		
-		if(confirm("이미지를 삭제하시겠습니까?"))
-		{
-			var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
-			$("#imgDiv").html(image);
-    		$("#imgFileReal").val("");
-    		$("#fileCheck").val("Y");
-    		$("#imgDelete").css("display", "none");
-		}
+	if(confirm("이미지를 삭제하시겠습니까?"))
+	{
+		var image = '<img id="thumbNail" name="thumbNail" width="120" height="140" src="resources/upload/default.jpg"/>';
+		$("#imgDiv").html(image);
+		$("#imgFileReal").val("");
+		$("#fileCheck").val("Y");
+		$("#imgDelete").css("display", "none");
+	}
 }
 
 //유선전화 정규식
@@ -1235,5 +1237,16 @@ function juminValidate(obj) {
 	 obj.value = jumin;
 	    
     return true;
+}
+
+function searchItiali() {
+	if(confirm("검색 조건을 초기화 하시겠습니까?"))
+	{
+		$("#userListSearchPeriod").val("");
+		$("#userListSearchWord").val("");
+		$("#userCareerLength").val("");
+		$("#userInfoDataSize").val("10");
+		$("#genderSelect").val("");	
+	}
 }
 

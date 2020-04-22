@@ -549,8 +549,12 @@
 					<span class="search-cnt-prev">검색결과 : <b id="infoCnt"></b></span> 
 					<span class="search-cnt-cnt"></span> <span class="search-cnt-later">건</span>
 				</div>
-				<button type="button" id="getUserCountByCareerDate"	name="getUserCountByCareerDate" onclick="searchYear()">연차별	인원보기</button>
-				<button type="button" id="userInfoList" name="userInfoList"	onclick="callBackList('userListBtn')">전체 인원보기</button>
+				<div>
+					<button type="button" id="getUserCountByCareerDate"	name="getUserCountByCareerDate" onclick="searchYear()">연차별	인원보기</button>
+					<!-- <input type="button" id="searchItialization" name="searchItialization" onclick="searchItialization()" value="검색 조건초기화"> -->
+					<button type="button" id="searchItialization" name="searchItialization" onclick="searchItiali()">검색조건 초기화</button>
+					<button type="button" id="userInfoList" name="userInfoList"	onclick="callBackList('userListBtn')">전체 인원보기</button>
+				</div>
 			</div>
 
 			<!-- 불러오기 최소화 버튼 -->
@@ -558,7 +562,7 @@
 				<div class="pop-user-minimize-btn"></div>
 			</div>
 			<div class="clear-pannel"></div>
-			<div class="keyword-add-pannel">
+			<!-- <div class="keyword-add-pannel">
 				<div class="keywordInputPannel keyword-input-pannel keyword-input-pannel-invisible">
 					#<input maxlength="16">
 				</div>
@@ -566,7 +570,7 @@
 					<div class="pop-user-keyword-add-btn keywordAddBtn"></div>
 					<span class="tooltiptext">진행 했던 프로젝트의 개발환경을 키워드로 추가하여 조회</span>
 				</div>
-			</div>
+			</div> -->
 		</form>
 
 		<div class="pop-register-list-pannel" id="result_div">
