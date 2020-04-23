@@ -114,7 +114,7 @@
 			<input type="hidden" id="eduNum" value="0">
 			<input type="hidden" id="qualifiNum" value="0">
 			<input type="hidden" id="careerNum" value="0">
-			<input type="hidden" id="trainNum" value="0">
+			<input type="hidden" id="trainingNum" value="0">
 			<input type="hidden" id="licenNum" value="0">
 			<input type="hidden" value="0" id="skillNum">
 			<!-- <input type="hidden" value="0" id="imgNum"> -->
@@ -302,7 +302,7 @@
 									<input type="text" data="qualifiName"class="qualifiName" name="qualifiList[0].qualifiName">
 								</td>
 								<td>
-									<input type="text" data="qualifiGetdate"class="qualifiGetdate dateInput" name="qualifiList[0].qualifiGetDate">
+									<input type="text" data="qualifiGetDate"class="qualifiGetdate dateInput" name="qualifiList[0].qualifiGetDate">
 								</td>
 							</tr>
 						</tbody>

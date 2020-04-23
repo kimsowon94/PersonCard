@@ -334,8 +334,8 @@ function careerDetailList(careerList) {
 	for (var i = 0; i < careerList.length; i++) {
 		html += '<tr>' +
 		'<td><input type="text" data="careerCompName" name="careerList[' + i + '].careerCompName" class="careerCompName" value="' + careerList[i].careerCompName + '"></td>' +
-		'<td><input type="text" data="careerEnterdate" name="careerList[' + i + '].careerEnterDate" class="careerEnterDate dateInput prevDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
-		'<td><input type="text" data="careerLeavedate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerLeaveDate + '"></td>' +
+		'<td><input type="text" data="careerEnterDate" name="careerList[' + i + '].careerEnterDate" class="careerEnterDate dateInput prevDate hasDatepicker" value="' + careerList[i].careerEnterDate + '"></td>' +
+		'<td><input type="text" data="careerLeaveDate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerLeaveDate + '"></td>' +
 		'<td><input type="text" data="careerSpot" name="careerList[' + i + '].careerSpot" class="careerSpot" value="' + careerList[i].careerSpot + '"></td>' +
 		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerResponsib + '"></td>' +
 		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +
@@ -366,7 +366,7 @@ function trainingDetailList(trainList) {
 		fnDatePicker(trainTable);
 		return;
 	}
-	if(trainList.length>0){$("#trainNum").val(trainList.length-1);}
+	if(trainList.length>0){$("#trainingNum").val(trainList.length-1);}
 
 	for(var i = 0; i < trainList.length; i++){
 		html += '<tr>' +
@@ -603,10 +603,10 @@ function careerPlus() {
 function trainPlus() {
 	var a = "";
 
-	var trainNum = $("#trainNum").val();
-	var num = parseInt(trainNum) + 1;
+	var trainingNum = $("#trainingNum").val();
+	var num = parseInt(trainingNum) + 1;
 	var trainTable = $(".training-table")
-	$("#trainNum").val(num);
+	$("#trainingNum").val(num);
 
 	a = "<tr>"
 			+ "<td><input type='text' data='trainingName' class='trainingName' name='trainList["
@@ -723,55 +723,73 @@ function skillPlus() {
 }
 
 /*행삭제 버튼*/ 
-function removeBtn() {
-
-	$(".edu").unbind().click(function() {
+function removeBtn() { 
+	// 코드 변경중 ======================================================================
+	/*$(".removeTrBtn").click(function() {         
+		var trLength = $(this).closest('tr').prevAll().length;
+		var tableTb = $(this).closest('table').attr('tb');
+		
+		var tableNum = $("input[name=" + tableTb).val();
+		var id = $("input[name=" + tableTb).attr("id");
+		var minCnt = tableNum-1;
+		$("#" + id).val(minCnt);
+		console.log("전 :" +tableNum);
+		
+		
 		var $btnSelf = $(this);
 		var $parentTr = $btnSelf.parent().parent();
-		/* var $parentTbody = $parentTr.parent(); */
-
+		$parentTr.remove();
+	
+		
+		console.log("후 :" +tableNum);
+	});*/
+	// ===============================================================================
+	$(".edu").unbind().click(function() {
+		
+		/*var trLength = $(this).closest('tr').prevAll().length;*/
+		var $btnSelf = $(this);
+		var $parentTr = $btnSelf.closest('tr');
+	
 		var eduCnt = $("#eduNum").val();
 		var minCnt = parseInt(eduCnt) - 1;
 		$("#eduNum").val(minCnt);
 
-		$parentTr.remove();
-		
-		
+		$parentTr.remove();				
 
-//		var i = 0;
-//
-//		$('input[data="eduSchoolName"]').each(function() {
-//			$(this).attr('name', 'eduList[' + i + '].eduSchoolName');
-//			if (i != eduCnt - 1) {
-//				i++;
-//			}
-//		});
-//		i = 0;
-//		$('select[data="eduStatus"]').each(function() {
-//			$(this).attr('name', 'eduList[' + i + '].eduStatus');
-//			if (i != eduCnt - 1) {
-//				i++;
-//			}
-//		});
-//		i = 0;
-//		$('input[data="eduYear"]').each(function() {
-//			$(this).attr('name', 'eduList[' + i + '].eduYear');
-//			if (i != eduCnt - 1) {
-//				i++;
-//			}
-//		});
-//		i = 0;
-//		$('input[data="eduMonth"]').each(function() {
-//			$(this).attr('name', 'eduList[' + i + '].eduMonth');
-//			if (i != eduCnt - 1) {
-//				i++;
-//			}
-//		});
+		var i = 0;
+		$('input[data="eduSchoolName"]').each(function() {
+			$(this).attr('name', 'eduList[' + i + '].eduSchoolName');
+			if (i != eduCnt - 1) {
+				i++;
+			}
+		});
+		i = 0;
+		$('select[data="eduStatus"]').each(function() {
+			$(this).attr('name', 'eduList[' + i + '].eduStatus');
+			if (i != eduCnt - 1) {
+				i++;
+			}
+		});
+		i = 0;
+		$('input[data="eduYear"]').each(function() {
+			$(this).attr('name', 'eduList[' + i + '].eduYear');
+			if (i != eduCnt - 1) {
+				i++;
+			}
+		});
+		i = 0;
+		$('input[data="eduMonth"]').each(function() {
+			$(this).attr('name', 'eduList[' + i + '].eduMonth');
+			if (i != eduCnt - 1) {
+				i++;
+			}
+		});
+	
 	})
 
 	$(".qualifi").unbind().click(function() {
 		var $btnSelf = $(this);
-		var $parentTr = $btnSelf.parent().parent();
+		var $parentTr = $btnSelf.closest('tr');
 
 		var qualifiCnt = $("#qualifiNum").val();
 		var minCnt = parseInt(qualifiCnt) - 1;
@@ -794,7 +812,7 @@ function removeBtn() {
 				i++;
 			}
 		})
-
+		
 	});
 
 	$(".career").unbind().click(function() {
@@ -816,7 +834,7 @@ function removeBtn() {
 			
 		});
 		i = 0;
-		$("input[data='careerEnterdate']").each(function() {
+		$("input[data='careerEnterDate']").each(function() {
 			
 			$(this).attr("name", "careerList[" + i + "].careerEnterDate");
 			if (i != careerCnt - 1) {
@@ -825,7 +843,7 @@ function removeBtn() {
 			
 		});
 		i = 0;
-		$("input[data='careerLeavedate']").each(function() {
+		$("input[data='careerLeaveDate']").each(function() {
 			$(this).attr("name", "careerList[" + i + "].careerLeaveDate");
 			if (i != careerCnt - 1) {
 				i++;
@@ -852,9 +870,9 @@ function removeBtn() {
 		var $btnSelf = $(this);
 		var $parentTr = $btnSelf.parent().parent();
 		
-		var trainCnt = $("#trainNum").val();
+		var trainCnt = $("#trainingNum").val();
 		var minCnt = parseInt(trainCnt) - 1;
-		$("#trainNum").val(minCnt);
+		$("#trainingNum").val(minCnt);
 
 		$parentTr.remove();
 		var i = 0;
@@ -1046,7 +1064,7 @@ function removeBtn() {
 //모든 입력 창 리셋
 function resetInput() {
 	var notElementId = "#userIdx, #userInfoDataSize, #userInfoPageSize, #personalZipcodeSearchBtn";
-	var defaltId = "#careerNum, #eduNum, #licenNum, #qualifiNum, #skillNum, #trainNum, #pageNo1";
+	var defaltId = "#careerNum, #eduNum, #licenNum, #qualifiNum, #skillNum, #trainingNum, #pageNo1";
 
 	$("input, select").not(notElementId).val("");
 	$("textarea").not(notElementId).text("");
