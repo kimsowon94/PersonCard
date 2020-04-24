@@ -67,6 +67,7 @@
 		     ,SKILL_ETC
 		FROM USER_INFO_SKILL
 		WHERE USER_IDX = #{userIdx}
+		ORDER BY SKILL_IDX
 	</select>
 	
 	<delete id="userInfoSkillDelete">
