@@ -37,62 +37,88 @@ public class UserInfoServiceImpl implements UserInfoService
 		{
 			for (UserInfoEduVO i : eduVo.getEduList()) 
 			{
-				if (i.getEduSchoolName().equals("") && i.getEduStatus().equals("") && i.getEduYear().equals("") && i.getEduMonth().equals("")) 
+				if(i.getEduSchoolName() != null && i.getEduStatus()!=null && i.getEduYear()!=null && i.getEduMonth()!=null)
 				{
-					continue;
+					if(i.getEduSchoolName().equals("") && i.getEduStatus().equals("") && i.getEduYear().equals("") && i.getEduMonth().equals(""))
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoEduInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoEduInsert(i);
+				
 			}
 			
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
-				if (i.getQualifiName().equals("") && i.getQualifiGetDate().equals("")) 
+				if(i.getQualifiName()!=null && i.getQualifiGetDate()!=null) 
 				{
-					continue;
+					if (i.getQualifiName().equals("") && i.getQualifiGetDate().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoQualifiInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoQualifiInsert(i);
 			}
 			for (UserInfoCareerVO i: careerVO.getCareerList())
 			{
-				if (i.getCareerCompName().equals("") && i.getCareerEnterDate().equals("") && i.getCareerLeaveDate().equals("") 
-						&& i.getCareerSpot().equals("") && i.getCareerResponsib().equals("")) 
+				if(i.getCareerCompName()!=null && i.getCareerEnterDate()!=null && i.getCareerLeaveDate()!=null 
+						&& i.getCareerSpot()!=null && i.getCareerResponsib()!=null) 
 				{
-					continue;
+					if (i.getCareerCompName().equals("") && i.getCareerEnterDate().equals("") && i.getCareerLeaveDate().equals("") 
+							&& i.getCareerSpot().equals("") && i.getCareerResponsib().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoCareerInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoCareerInsert(i);
+				
 			}
 			for (UserInfoSkillVO i : skillVO.getSkillList())
 			{
-				if (i.getSkillApplied().equals("") && i.getSkillComm().equals("") && i.getSkillCustomerComp().equals("") && i.getSkillDbms().equals("")
-						&& i.getSkillEndDate().equals("") && i.getSkillEtc().equals("") && i.getSkillIndustry().equals("") && i.getSkillLang().equals("")
-						&& i.getSkillModel().equals("") && i.getSkillOs().equals("") && i.getSkillProjectName().equals("") && i.getSkillRole().equals("")
-						&& i.getSkillStartDate().equals("") && i.getSkillTool().equals("") && i.getSkillWorkComp().equals("")) 
+				if(i.getSkillApplied()!=null && i.getSkillComm()!=null && i.getSkillCustomerComp()!=null && i.getSkillDbms()!=null
+						&& i.getSkillEndDate()!=null && i.getSkillEtc()!=null && i.getSkillIndustry()!=null && i.getSkillLang()!=null
+						&& i.getSkillModel()!=null && i.getSkillOs()!=null && i.getSkillProjectName()!=null && i.getSkillRole()!=null
+						&& i.getSkillStartDate()!=null && i.getSkillTool()!=null && i.getSkillWorkComp()!=null)
 				{
-					continue;
+					if (i.getSkillApplied().equals("") && i.getSkillComm().equals("") && i.getSkillCustomerComp().equals("") && i.getSkillDbms().equals("")
+							&& i.getSkillEndDate().equals("") && i.getSkillEtc().equals("") && i.getSkillIndustry().equals("") && i.getSkillLang().equals("")
+							&& i.getSkillModel().equals("") && i.getSkillOs().equals("") && i.getSkillProjectName().equals("") && i.getSkillRole().equals("")
+							&& i.getSkillStartDate().equals("") && i.getSkillTool().equals("") && i.getSkillWorkComp().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoSkillInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoSkillInsert(i);
+				
 			}
 			for (UserInfoTrainingVO i : trainingVO.getTrainList())
 			{
-				if (i.getTrainingAgency().equals("") && i.getTrainingEndDate().equals("") && i.getTrainingName().equals("") && i.getTrainingStartDate().equals("")) 
+				if(i.getTrainingAgency()!=null && i.getTrainingEndDate()!=null && i.getTrainingName()!=null && i.getTrainingStartDate()!=null)
 				{
-					continue;
+					if (i.getTrainingAgency().equals("") && i.getTrainingEndDate().equals("") && i.getTrainingName().equals("") && i.getTrainingStartDate().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.UserInfoTrainingInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.UserInfoTrainingInsert(i);
+				
 			}
 			for (UserInfoLicenVO i : LicenVo.getLicenList())
 			{
-				if (i.getLicenName().equals("") && i.getLicenSkillLevel().equals("")) 
+				if(i.getLicenName()!=null && i.getLicenSkillLevel()!=null)
 				{
-					continue;
-				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoLicenInsert(i);
+					if (i.getLicenName().equals("") && i.getLicenSkillLevel().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoLicenInsert(i);
+				}			
 			}			
 		}	
 			
@@ -115,71 +141,91 @@ public class UserInfoServiceImpl implements UserInfoService
 			userInfoDao.userInfoEduDelete(vo.getUserIdx());
 			for (UserInfoEduVO i : eduVO.getEduList()) 
 			{
-				if (i.getEduSchoolName().equals("") && i.getEduStatus().equals("") && i.getEduYear().equals("") && i.getEduMonth().equals("")) 
+				if(i.getEduSchoolName() != null && i.getEduStatus()!=null && i.getEduYear()!=null && i.getEduMonth()!=null)
 				{
-					continue;
+					if(i.getEduSchoolName().equals("") && i.getEduStatus().equals("") && i.getEduYear().equals("") && i.getEduMonth().equals(""))
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoEduInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoEduInsert(i);
 						
 			}
 			userInfoDao.userInfoQaulifiDelete(vo.getUserIdx());
 			for (UserInfoQualifiVO i: qualifiVO.getQualifiList())
 			{
-				if (i.getQualifiName().equals("") && i.getQualifiGetDate().equals("")) 
+				if(i.getQualifiName()!=null && i.getQualifiGetDate()!=null) 
 				{
-					continue;
+					if (i.getQualifiName().equals("") && i.getQualifiGetDate().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoQualifiInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoQualifiInsert(i);
 			}
 			userInfoDao.userInfoCareerDelete(vo.getUserIdx());
 			for (UserInfoCareerVO i: careerVO.getCareerList())
 			{
-				if (i.getCareerCompName().equals("") && i.getCareerEnterDate().equals("") && i.getCareerLeaveDate().equals("") 
-						&& i.getCareerSpot().equals("") && i.getCareerResponsib().equals("")) 
+				if(i.getCareerCompName()!=null && i.getCareerEnterDate()!=null && i.getCareerLeaveDate()!=null 
+						&& i.getCareerSpot()!=null && i.getCareerResponsib()!=null) 
 				{
-					continue;
+					if (i.getCareerCompName().equals("") && i.getCareerEnterDate().equals("") && i.getCareerLeaveDate().equals("") 
+							&& i.getCareerSpot().equals("") && i.getCareerResponsib().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoCareerInsert(i);
 				}
-				
 //				System.out.println("서비스 입사일 = " + i.getCareerEnterDate());
 //				System.out.println("서비스 퇴사일 = " + i.getCareerLeaveDate());
-				
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoCareerInsert(i);
 			}
 			userInfoDao.userInfoTrainingDelete(vo.getUserIdx());
 			for (UserInfoTrainingVO i : trainingVO.getTrainList())
 			{
-				if (i.getTrainingAgency().equals("") && i.getTrainingEndDate().equals("") && i.getTrainingName().equals("") && i.getTrainingStartDate().equals("")) 
+				if(i.getTrainingAgency()!=null && i.getTrainingEndDate()!=null && i.getTrainingName()!=null && i.getTrainingStartDate()!=null)
 				{
-					continue;
+					if (i.getTrainingAgency().equals("") && i.getTrainingEndDate().equals("") && i.getTrainingName().equals("") && i.getTrainingStartDate().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.UserInfoTrainingInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.UserInfoTrainingInsert(i);
 			}
 			userInfoDao.userInfoLicenDelete(vo.getUserIdx());
 			for (UserInfoLicenVO i : licenVO.getLicenList())
 			{
-				if (i.getLicenName().equals("") && i.getLicenSkillLevel().equals("")) 
+				if(i.getLicenName()!=null && i.getLicenSkillLevel()!=null)
 				{
-					continue;
-				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoLicenInsert(i);
+					if (i.getLicenName().equals("") && i.getLicenSkillLevel().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoLicenInsert(i);
+				}	
 			}
 			userInfoDao.userInfoSkillDelete(vo.getUserIdx());
 			for (UserInfoSkillVO i : skillVO.getSkillList())
 			{
-				if (i.getSkillApplied().equals("") && i.getSkillComm().equals("") && i.getSkillCustomerComp().equals("") && i.getSkillDbms().equals("")
-						&& i.getSkillEndDate().equals("") && i.getSkillEtc().equals("") && i.getSkillIndustry().equals("") && i.getSkillLang().equals("")
-						&& i.getSkillModel().equals("") && i.getSkillOs().equals("") && i.getSkillProjectName().equals("") && i.getSkillRole().equals("")
-						&& i.getSkillStartDate().equals("") && i.getSkillTool().equals("") && i.getSkillWorkComp().equals("")) 
+				if(i.getSkillApplied()!=null && i.getSkillComm()!=null && i.getSkillCustomerComp()!=null && i.getSkillDbms()!=null
+						&& i.getSkillEndDate()!=null && i.getSkillEtc()!=null && i.getSkillIndustry()!=null && i.getSkillLang()!=null
+						&& i.getSkillModel()!=null && i.getSkillOs()!=null && i.getSkillProjectName()!=null && i.getSkillRole()!=null
+						&& i.getSkillStartDate()!=null && i.getSkillTool()!=null && i.getSkillWorkComp()!=null)
 				{
-					continue;
+					if (i.getSkillApplied().equals("") && i.getSkillComm().equals("") && i.getSkillCustomerComp().equals("") && i.getSkillDbms().equals("")
+							&& i.getSkillEndDate().equals("") && i.getSkillEtc().equals("") && i.getSkillIndustry().equals("") && i.getSkillLang().equals("")
+							&& i.getSkillModel().equals("") && i.getSkillOs().equals("") && i.getSkillProjectName().equals("") && i.getSkillRole().equals("")
+							&& i.getSkillStartDate().equals("") && i.getSkillTool().equals("") && i.getSkillWorkComp().equals("")) 
+					{
+						continue;
+					}
+					i.setUserIdx(vo.getUserIdx());
+					userInfoDao.userInfoSkillInsert(i);
 				}
-				i.setUserIdx(vo.getUserIdx());
-				userInfoDao.userInfoSkillInsert(i);
 			}
 		}
 		

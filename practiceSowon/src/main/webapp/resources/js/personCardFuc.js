@@ -226,7 +226,7 @@ function eduDetailList(eduList) {
 		return;
 	}
 	if(eduList.length > 0){$("#eduNum").val(eduList.length-1); }
-	
+	alert("1");
 	var eduTable = $(".edu-table");
 	var html = "";
 	
@@ -260,10 +260,10 @@ function eduDetailList(eduList) {
 				+ eduList[i].eduMonth
 				+ '"></td>'
 				+ '<td>월</td>'
-				+ '<td style="display:none;" class="removeTrBtn"><button type="button" id="eduBtn'
+				+ '<td><button type="button" style="display:none;" class="removeTrBtn edu" id="eduBtn'
 				+ i + '"  class="edu">-</button></td>' + '</tr>';
+		
 	}
-	
 	eduTable.find("tbody").html(html);
 	for (var i = 0; i < eduList.length; i++) {
 		$("select[name='eduList[" + i + "].eduStatus'").val(eduList[i].eduStatus);
@@ -273,11 +273,11 @@ function eduDetailList(eduList) {
 		{
 			$(this).val("");
 		}
-	});
-
+	});	
 	
-	removeBtn();
 	$("#eduBtn0").parent().remove();
+	removeBtn();
+	
 }
 
 /*qualifis 데이터 뿌리기 */
@@ -300,9 +300,8 @@ function qualifiDetailList(qualifiList) {
 		html += '<tr>' +
 		'<td><input type="text" data="qualifiName" name="qualifiList[' + i + '].qualifiName" class="qualifiName" value="' + qualifiList[i].qualifiName + '"></td>' +
 		'<td><input type="text" data="qualifiGetDate" name="qualifiList[' + i + '].qualifiGetDate" class="qualifiGetDate dateInput" value="' + qualifiList[i].qualifiGetDate + '"></td>' +
-		'<td style="display:none;" class="removeTrBtn"><button type="button" id="qualifiBtn' + i + '"  class="qualifi">-</button></td>' +
+		'<td><button type="button" style="display:none;" id="qualifiBtn' + i + '"  class="removeTrBtn qualifi">-</button></td>' +
 		'</tr>';
-
 	}
 	
 	 qualifiTable.find("tbody").html(html);
@@ -338,7 +337,7 @@ function careerDetailList(careerList) {
 		'<td><input type="text" data="careerLeaveDate" name="careerList[' + i + '].careerLeaveDate" class="careerLeaveDate dateInput laterDate hasDatepicker" value="' + careerList[i].careerLeaveDate + '"></td>' +
 		'<td><input type="text" data="careerSpot" name="careerList[' + i + '].careerSpot" class="careerSpot" value="' + careerList[i].careerSpot + '"></td>' +
 		'<td><input type="text" data="careerResponsib" name="careerList[' + i + '].careerResponsib" class="careerResponsib" value="' + careerList[i].careerResponsib + '"></td>' +
-		'<td style="display:none;" class="removeTrBtn"><button type="button" id="careerBtn' + i + '"  class="career">-</button></td>' +
+		'<td><button type="button" style="display:none;" id="careerBtn' + i + '"  class="removeTrBtn career">-</button></td>' +
 		'</tr>';
 	}
 
@@ -403,7 +402,7 @@ function licenDetailList(licenList){
 		html += '<tr>' +
 					'<td><input type="text" data="licenName" name="licenList[' + i + '].licenName" class="licenName" value="' + licenList[i].licenName + '"></td>' +
 					'<td><input type="text" data="licenSkillLevel" name="licenList[' + i + '].licenSkillLevel" class="licenSkillLevel" value="' + licenList[i].licenSkillLevel + '"></td>' +
-					'<td style="display:none;" class="removeTrBtn"><button type="button" id="licenBtn' + i + '"  class="licen">-</button></td>' +
+					'<td><button type="button" style="display:none;" id="licenBtn' + i + '"  class="removeTrBtn licen">-</button></td>' +
 				'</tr>';
 
 	}
@@ -452,7 +451,7 @@ function skillDetailList(skillList) {
 					'<td><textarea data="skillTool" name="skillList[' + i + '].skillTool" class="skillTool">' + skillList[i].skillTool + '</textarea></td>' +
 					'<td><textarea data="skillComm" name="skillList[' + i + '].skillComm" class="skillComm">' + skillList[i].skillComm + '</textarea></td>' +
 					'<td><textarea data="skillEtc" name="skillList[' + i + '].skillEtc" class="skillEtc">' + skillList[i].skillEtc + '</textarea></td>' +
-					'<td style="display:none;" class="removeTrBtn"><button type="button" id="skillBtn' + i + '"  class="skill">-</button></td>' +
+					'<td><button type="button" style="display:none;" id="skillBtn' + i + '"  class="removeTrBtn skill">-</button></td>' +
 				'</tr>';
 	}
 	
@@ -497,7 +496,7 @@ function searchYear() {
 	});
 }
 
-/*eud table 행추가*/
+/*edu table 행추가*/
 function eduSchoolPlus() {
 	var eduNum = $("#eduNum").val();
 	var num = parseInt(eduNum) + 1;
@@ -555,7 +554,6 @@ function qualifiPlus() {
 			+ "].qualifiGetDate'></td>"
 			+ "<td><button type='button' style='display:none;' class='removeTrBtn qualifi'>-</button></td>"
 			+ "</tr>";
-	
 	$(".qualifi-table").find("tbody").append(a);
 	fnDatePicker(qualifiTable);
 	removeBtn();
@@ -725,36 +723,36 @@ function skillPlus() {
 /*행삭제 버튼*/ 
 function removeBtn() { 
 	// 코드 변경중 ======================================================================
-	/*$(".removeTrBtn").click(function() {         
-		var trLength = $(this).closest('tr').prevAll().length;
-		var tableTb = $(this).closest('table').attr('tb');
+	$(".removeTrBtn").click(function() {      
 		
-		var tableNum = $("input[name=" + tableTb).val();
-		var id = $("input[name=" + tableTb).attr("id");
+//		 length 구하기
+//		var trLength = $(this).closest('tr').prevAll().length;
+		var tableTb = $(this).closest('table').attr('tb');				
+		var tableNum = $("input[id=" +tableTb+"Num").val();
+		var id = $("input[id=" +tableTb+"Num").attr("id");
+		
 		var minCnt = tableNum-1;
 		$("#" + id).val(minCnt);
-		console.log("전 :" +tableNum);
-		
 		
 		var $btnSelf = $(this);
 		var $parentTr = $btnSelf.parent().parent();
 		$parentTr.remove();
+	});
 	
-		
-		console.log("후 :" +tableNum);
-	});*/
 	// ===============================================================================
-	$(".edu").unbind().click(function() {
+	// 코드가 두번 돌아가는듯.. service에서도 돌아가는데... 이걸 어찌하나...
+	/*$(".edu").unbind().click(function() {
 		
-		/*var trLength = $(this).closest('tr').prevAll().length;*/
+		var trLength = $(this).closest('tr').prevAll().length;
+		
 		var $btnSelf = $(this);
 		var $parentTr = $btnSelf.closest('tr');
 	
 		var eduCnt = $("#eduNum").val();
 		var minCnt = parseInt(eduCnt) - 1;
 		$("#eduNum").val(minCnt);
-
-		$parentTr.remove();				
+		$parentTr.remove();
+		
 
 		var i = 0;
 		$('input[data="eduSchoolName"]').each(function() {
@@ -784,6 +782,8 @@ function removeBtn() {
 				i++;
 			}
 		});
+		
+		
 	
 	})
 
@@ -1046,7 +1046,7 @@ function removeBtn() {
 			}
 		})
 	})
-
+*/
 	$(".flexibleTable").find("tbody").find("tr").unbind().hover(function() {
 		var $trSelf = $(this);
 		var $childRemoveBtn = $trSelf.find(".removeTrBtn");
@@ -1055,8 +1055,9 @@ function removeBtn() {
 	}, function() {
 		var $trSelf = $(this);
 		var $childRemoveBtn = $trSelf.find(".removeTrBtn");
-
+		
 		$childRemoveBtn.css("display", "none");
+
 	});
 
 }

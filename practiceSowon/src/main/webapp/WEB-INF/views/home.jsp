@@ -245,7 +245,7 @@
 
 			<div class="edu-and-qualifi-pannel">
 				<div class="edu-table-pannel">
-					<table class="edu-table flexibleTable">
+					<table class="edu-table flexibleTable" tb="edu">
 						<thead>
 							<tr>
 								<td>학교명</td>
